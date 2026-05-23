@@ -73,7 +73,7 @@ local warnMeteorAxe								= mod:NewTargetNoFilterAnnounce(374038, 4)
 local warnSlashingBlaze							= mod:NewStackAnnounce(372027, 2, nil, "Tank|Healer")
 local warnBurningConvocation					= mod:NewSpellAnnounce(386289, 4)
 
-local specWarnMeteorAxe							= mod:NewSpecialWarningYouPos(374038, nil, nil, nil, 1, 2, nil, nil, "mm")
+local specWarnMeteorAxe							= mod:NewSpecialWarningYouPos(374038, nil, nil, nil, 1, 2, nil, nil, "mm1")
 local yellMeteorAxe								= mod:NewShortPosYell(374038, 374043, nil, nil, "YELL")
 local yellMeteorAxeFades						= mod:NewIconFadesYell(374038, 374043, nil, nil, "YELL")
 local specWarnSlashingBlaze						= mod:NewSpecialWarningDefensive(372027, nil, nil, nil, 2, 2, nil, nil, "defensive")

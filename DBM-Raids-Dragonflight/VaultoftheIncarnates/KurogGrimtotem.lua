@@ -79,7 +79,7 @@ local warnFrostBite								= mod:NewFadesAnnounce(372514, 1)
 local warnFrozenSolid							= mod:NewTargetNoFilterAnnounce(372517, 4, nil, false)--RL kinda thing
 
 local specWarnFrigidTorrent						= mod:NewSpecialWarningDodge(391019, nil, nil, nil, 2, 2, nil, nil, "watchorb")--Cast by boss AND Dominator
-local specWarnAbsoluteZero						= mod:NewSpecialWarningYouPos(372458, nil, nil, nil, 1, 2, nil, nil, "mm")
+local specWarnAbsoluteZero						= mod:NewSpecialWarningYouPos(372458, nil, nil, nil, 1, 2, nil, nil, "mm1")
 local yellAbsoluteZero							= mod:NewShortPosYell(372458)
 local yellAbsoluteZeroFades						= mod:NewIconFadesYell(372458)
 

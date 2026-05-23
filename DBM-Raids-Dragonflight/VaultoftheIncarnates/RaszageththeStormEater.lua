@@ -55,7 +55,7 @@ local warnLightningStrike						= mod:NewSpellAnnounce(376126, 3)
 local warnHurricaneWingOver						= mod:NewFadesAnnounce(377612, 1, nil, nil, nil, nil, nil, 2)
 
 local specWarnHurricaneWing						= mod:NewSpecialWarningCount(377612, nil, nil, nil, 2, 13, nil, nil, "pushbackincoming")
-local specWarnStaticCharge						= mod:NewSpecialWarningYouPos(381615, nil, 37859, nil, 1, 2, nil, nil, "mm")
+local specWarnStaticCharge						= mod:NewSpecialWarningYouPos(381615, nil, 37859, nil, 1, 2, nil, nil, "mm1")
 local yellStaticCharge							= mod:NewShortPosYell(381615, 37859)
 local yellStaticChargeFades						= mod:NewIconFadesYell(381615, 37859)
 local specWarnVolatileCurrent					= mod:NewSpecialWarningMoveAwayCount(388643, nil, 384738, nil, 2, 2, nil, nil, "scatter")--"Sparks"
@@ -123,7 +123,7 @@ local specWarnInversion						= mod:NewSpecialWarningMoveAway(394584, nil, nil, n
 local yellInversion							= mod:NewIconRepeatYell(394584)
 --local specWarnScatteredCharge				= mod:NewSpecialWarningMoveAway(394583, nil, nil, nil, 1, 2)
 local specWarnTempestWing					= mod:NewSpecialWarningCount(385574, nil, 63533, nil, 2, 2, nil, nil, "pushbackincoming")--"Storm Wave"
-local specWarnFulminatingCharge				= mod:NewSpecialWarningYouPos(377467, nil, 221175, nil, 1, 2, nil, nil, "mm")--"Charge" shortname
+local specWarnFulminatingCharge				= mod:NewSpecialWarningYouPos(377467, nil, 221175, nil, 1, 2, nil, nil, "mm1")--"Charge" shortname
 local yellFulminatingCharge					= mod:NewShortPosYell(377467, 221175)--"Charge" shortname
 local yellFulminatingChargeFades			= mod:NewIconFadesYell(377467, 221175)--"Charge" shortname
 
