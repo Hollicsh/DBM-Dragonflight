@@ -22,9 +22,9 @@ mod:RegisterEventsInCombat(
 
 local warnCrankyTantrum				= mod:NewCountAnnounce(421059, 3)
 
-local specWarnGroggyBash				= mod:NewSpecialWarningYou(420895, nil, nil, nil, 1, 2)
-local specWarnPulverizingOutburst		= mod:NewSpecialWarningDodge(420925, nil, nil, nil, 1, 2)
-local specWarnRoarDebuff				= mod:NewSpecialWarningJump(421260, nil, nil, nil, 1, 6)
+local specWarnGroggyBash				= mod:NewSpecialWarningYou(420895, nil, nil, nil, 1, 2, nil, nil, "carefly")
+local specWarnPulverizingOutburst		= mod:NewSpecialWarningDodge(420925, nil, nil, nil, 1, 2, nil, nil, "chargemove")
+local specWarnRoarDebuff				= mod:NewSpecialWarningJump(421260, nil, nil, nil, 1, 6, nil, nil, "keepjump")
 
 local timerGroggyBashCD					= mod:NewCDTimer(32.7, 420895, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 --local timerPulverizingOutburstCD		= mod:NewAITimer(15.7, 420925, nil, nil, nil, 3)--15-59 is too much variation, would need spell queuing and cast priority to be sorted out

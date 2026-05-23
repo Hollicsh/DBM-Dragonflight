@@ -38,16 +38,16 @@ local warnControlledBurn							= mod:NewTargetCountAnnounce(421972, 3, nil, nil,
 local warnDreadfireBarrage							= mod:NewStackAnnounce(424352, 2, nil, "Tank|Healer")
 local warnFlamingSap								= mod:NewTargetAnnounce(425820, 2)
 
-local specWarnControlledBurn						= mod:NewSpecialWarningYou(421972, nil, 37859, nil, 1, 2)
+local specWarnControlledBurn						= mod:NewSpecialWarningYou(421972, nil, 37859, nil, 1, 2, nil, nil, "bombyou")
 local yellControlledBurn							= mod:NewShortPosYell(421972, 37859)--Shortname "Bomb"
 local yellControlledBurnFades						= mod:NewIconFadesYell(421972)
-local specWarnDreadfireBarrage						= mod:NewSpecialWarningTaunt(424352, nil, 120360, nil, 1, 2)
-local specWarnTorturedScream						= mod:NewSpecialWarningCount(422026, nil, 31295, nil, 2, 2)
-local specWarnShadowflameCleave						= mod:NewSpecialWarningDodgeCount(422039, nil, nil, nil, 2, 2)
-local specWarnBlazingPollen							= mod:NewSpecialWarningInterruptCount(425816, "HasInterrupt", nil, nil, 1, 2, 4)
-local specWarnFlamingSap							= mod:NewSpecialWarningMoveAway(425820, nil, nil, nil, 1, 2, 4)
+local specWarnDreadfireBarrage						= mod:NewSpecialWarningTaunt(424352, nil, 120360, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnTorturedScream						= mod:NewSpecialWarningCount(422026, nil, 31295, nil, 2, 2, nil, nil, "aesoon")
+local specWarnShadowflameCleave						= mod:NewSpecialWarningDodgeCount(422039, nil, nil, nil, 2, 2, nil, nil, "shockwave")
+local specWarnBlazingPollen							= mod:NewSpecialWarningInterruptCount(425816, "HasInterrupt", nil, nil, 1, 2, 4, nil, "kickcast")
+local specWarnFlamingSap							= mod:NewSpecialWarningMoveAway(425820, nil, nil, nil, 1, 2, 4, nil, "range5")
 local yellFlamingSap								= mod:NewShortYell(425820)
-local specWarnGTFO									= mod:NewSpecialWarningGTFO(422023, nil, nil, nil, 1, 8)
+local specWarnGTFO									= mod:NewSpecialWarningGTFO(422023, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerFlamingPestilenceCD						= mod:NewCDCountTimer(34.7, 421898, DBM_COMMON_L.ADDS.." (%s)", nil, nil, 1)
 local timerControlledBurnCD							= mod:NewCDCountTimer(49, 421972, 167180, nil, nil, 3)--Shortname "Bombs"
@@ -66,7 +66,7 @@ local warnEmberCharred								= mod:NewCountAnnounce(421038, 2, nil, nil, DBM_CO
 local warnUprootedAgony								= mod:NewSpellAnnounce(421840, 1)
 local warnUprootedAgonyOver							= mod:NewEndAnnounce(421840, 2)
 
-local specWarnDoomCultivation						= mod:NewSpecialWarningDodgeCount(421013, "Melee", nil, nil, 2, 2)--Prevent melee dying if they tunnel boss too long
+local specWarnDoomCultivation						= mod:NewSpecialWarningDodgeCount(421013, "Melee", nil, nil, 2, 2, nil, nil, "runout")--Prevent melee dying if they tunnel boss too long
 
 local timerUprootAgonyCD							= mod:NewBuffActiveTimer(20, 421840, nil, nil, nil, 5, nil, DBM_COMMON_L.DAMAGE_ICON)
 local timerDoomCultivationCD						= mod:NewStageCountCycleTimer(49, 421013, nil, nil, nil, 6)

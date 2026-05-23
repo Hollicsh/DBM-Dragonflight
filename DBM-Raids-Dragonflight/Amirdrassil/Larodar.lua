@@ -41,7 +41,7 @@ mod:RegisterEventsInCombat(
 --General
 local warnPhase										= mod:NewPhaseChangeAnnounce(2, 2, nil, nil, nil, nil, nil, 2)
 
-local specWarnGTFO									= mod:NewSpecialWarningGTFO(417632, nil, nil, nil, 1, 8)
+local specWarnGTFO									= mod:NewSpecialWarningGTFO(417632, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 --local berserkTimer								= mod:NewBerserkTimer(600)
 --Stage One: The Cycle of Flame
@@ -59,22 +59,22 @@ local warnBlazingCoalescenceBoss					= mod:NewStackAnnounce(426256, 4)--Boss
 local warnEverlastingBlaze							= mod:NewCountAnnounce(429032, 4, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(429032))--Player
 local warnIgnitingGrowth							= mod:NewCountAnnounce(425889, 3)
 
-local specWarnCharredBrambles						= mod:NewSpecialWarningSwitch(418655, "Healer", nil, nil, 1, 2)
+local specWarnCharredBrambles						= mod:NewSpecialWarningSwitch(418655, "Healer", nil, nil, 1, 2, nil, nil, "healfull")
 --local specWarnIgnitingGrowth						= mod:NewSpecialWarningMoveAway(425889, nil, nil, nil, 1, 2, 4)
 --local yellIgnitingGrowth							= mod:NewShortYell(425889, nil, false)
 --local specWarnDreamBlossom						= mod:NewSpecialWarningYou(425468, nil, nil, nil, 1, 2)
 --local yellDreamBlossom							= mod:NewShortYell(425468, nil, false)
-local specWarnFieryFlourish							= mod:NewSpecialWarningInterruptCount(426524, "HasInterrupt", nil, nil, 1, 2)
+local specWarnFieryFlourish							= mod:NewSpecialWarningInterruptCount(426524, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kickcast")
 --local specWarnScorchingPursuit					= mod:NewSpecialWarningRun(420544, nil, nil, nil, 4, 2)--BW using 420546, but may change to 420544
 --local yellScorchingPursuit						= mod:NewShortYell(420544)
-local specWarnScorchingBramblethorn					= mod:NewSpecialWarningYou(426387, nil, nil, nil, 1, 2)
-local specWarnFuriousCharge							= mod:NewSpecialWarningRun(418637, nil, 100, nil, 4, 2)
+local specWarnScorchingBramblethorn					= mod:NewSpecialWarningYou(426387, nil, nil, nil, 1, 2, nil, nil, "targetyou")
+local specWarnFuriousCharge							= mod:NewSpecialWarningRun(418637, nil, 100, nil, 4, 2, nil, nil, "justrun")
 local yellFuriousCharge								= mod:NewShortYell(418637, 100)
 local specWarnFuriousChargePreTaunt					= mod:NewSpecialWarningTaunt(418637, nil, 100, nil, 1, 2)--Taunt on cast start
-local specWarnNaturesFury							= mod:NewSpecialWarningTaunt(423719, nil, nil, nil, 1, 2)--Yell to taunt again if you didn't taunt in pre cast
-local specWarnBlazingThornsAvoid					= mod:NewSpecialWarningDodgeCount(426206, "-Healer", nil, nil, 1, 2)--Initial cast to dodge
+local specWarnNaturesFury							= mod:NewSpecialWarningTaunt(423719, nil, nil, nil, 1, 2, nil, nil, "tauntboss")--Yell to taunt again if you didn't taunt in pre cast
+local specWarnBlazingThornsAvoid					= mod:NewSpecialWarningDodgeCount(426206, "-Healer", nil, nil, 1, 2, nil, nil, "watchstep")--Initial cast to dodge
 local specWarnBlazingThornsSoak						= mod:NewSpecialWarningSoakCount(426249, "-Healer", nil, nil, 1, 2)--Follow up orbs to soak
-local specWarnRagingInferno							= mod:NewSpecialWarningMoveTo(417634, nil, 37625, nil, 3, 2)--Shortname Inferno
+local specWarnRagingInferno							= mod:NewSpecialWarningMoveTo(417634, nil, 37625, nil, 3, 2, nil, nil, "findshield")--Shortname Inferno
 
 local timerIgnitingGrowthCD							= mod:NewCDCountTimer(49, 425889, DBM_COMMON_L.POOLS.." (%s)", nil, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON)
 local timerFieryForceofNatureCD						= mod:NewCDCountTimer(11.8, 417653, DBM_COMMON_L.ADDS.." (%s)", nil, nil, 1)
@@ -105,15 +105,15 @@ local warnAshenCall									= mod:NewCountAnnounce(421325, 2)
 --local warnSearingAsh								= mod:NewCountAnnounce(421407, 2, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(426249))
 local warnAshenDevastation							= mod:NewCountAnnounce(428896, 3, nil, nil, 167180)--Shortname "Bombs"
 
-local specWarnFallingEmbers							= mod:NewSpecialWarningSoakCount(427252, nil, nil, nil, 2, 2)
-local specWarnFlashFire								= mod:NewSpecialWarningMoveAway(427299, nil, nil, nil, 1, 2)--Blizzard didn't flag right spellids as private aura, so this probably still works for now
+local specWarnFallingEmbers							= mod:NewSpecialWarningSoakCount(427252, nil, nil, nil, 2, 2, nil, nil, "helpsoak")
+local specWarnFlashFire								= mod:NewSpecialWarningMoveAway(427299, nil, nil, nil, 1, 2, nil, nil, "runout")--Blizzard didn't flag right spellids as private aura, so this probably still works for now
 local yellFlashFire									= mod:NewShortYell(427299)--Blizzard didn't flag right spellids as private aura, so this probably still works for now
 local yellFlashFireFades							= mod:NewShortFadesYell(427299)--Blizzard didn't flag right spellids as private aura, so this probably still works for now
-local specWarnEncasedInAsh							= mod:NewSpecialWarningYou(427306, nil, nil, nil, 1, 2)
+local specWarnEncasedInAsh							= mod:NewSpecialWarningYou(427306, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 local yellEncasedInAsh								= mod:NewShortYell(427306)
-local specWarnFireWhirl								= mod:NewSpecialWarningDodgeCount(427343, nil, 86189, nil, 2, 2)
-local specWarnSmolderingBackdraft					= mod:NewSpecialWarningDefensive(429973, nil, nil, nil, 1, 2)
-local specWarnSmolderingSuffocation					= mod:NewSpecialWarningTaunt(421594, nil, nil, nil, 1, 2)
+local specWarnFireWhirl								= mod:NewSpecialWarningDodgeCount(427343, nil, 86189, nil, 2, 2, nil, nil, "watchstep")
+local specWarnSmolderingBackdraft					= mod:NewSpecialWarningDefensive(429973, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnSmolderingSuffocation					= mod:NewSpecialWarningTaunt(421594, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 local yellSmolderingSuffocationRepeater				= mod:NewIconRepeatYell(421594, DBM_CORE_L.AUTO_YELL_ANNOUNCE_TEXT.shortyell, false, nil, "YELL")--using custom yell text "%s" because of custom needs (it has to use not only icons but two asci emoji
 --local specWarnAshenDevestation					= mod:NewSpecialWarningMoveAway(428896, nil, 37859, nil, 1, 2, 4)
 --local yellAshenDevestation						= mod:NewShortYell(428896, 37859)--Shortname "Bomb"

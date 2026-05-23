@@ -32,7 +32,7 @@ mod:RegisterEventsInCombat(
 --TODO, secondary alert for Swirling Shadowflame ?
 --TODO, if both tank abilities in P2 are a combo, just use generic tank combo timer
 --General
-local specWarnGTFO								= mod:NewSpecialWarningGTFO(405084, nil, nil, nil, 1, 8)
+local specWarnGTFO								= mod:NewSpecialWarningGTFO(405084, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 mod:AddBoolOption("AdvancedBossFiltering", true, "misc")--May be default to off on live, but for testing purposes it needs to be forced
 --Krozgoth
@@ -41,11 +41,11 @@ local warnCorruptingShadow						= mod:NewCountAnnounce(401809, 2, nil, nil, DBM_
 local warnCorruptingShadowFades					= mod:NewFadesAnnounce(401809, 1)
 local warnUmbralDetonation						= mod:NewTargetCountAnnounce(405036, 3, nil, nil, 167180, nil, nil, nil, true)
 
-local specWarnCoalescingVoid					= mod:NewSpecialWarningCount(403459, nil, nil, nil, 2, 2)--Possibly use a run away warning if idea is to actualy move away? Something tells me falloff is just designed to scope damage to players on THIS boss only
-local specWarnUmbralDetonation					= mod:NewSpecialWarningYou(405036, nil, 49685, nil, 1, 2)
+local specWarnCoalescingVoid					= mod:NewSpecialWarningCount(403459, nil, nil, nil, 2, 2, nil, nil, "aesoon")--Possibly use a run away warning if idea is to actualy move away? Something tells me falloff is just designed to scope damage to players on THIS boss only
+local specWarnUmbralDetonation					= mod:NewSpecialWarningYou(405036, nil, 49685, nil, 1, 2, nil, nil, "targetyou")
 local yellUmbralDetonation						= mod:NewShortYell(405036, 49685)--"Bomb"
 local yellUmbralDetonationFades					= mod:NewShortFadesYell(405036)
-local specWarnShadowsConvergence				= mod:NewSpecialWarningDodgeCount(407640, nil, nil, nil, 2, 2, 3)
+local specWarnShadowsConvergence				= mod:NewSpecialWarningDodgeCount(407640, nil, nil, nil, 2, 2, 3, nil, "watchorb")
 
 local timerCoalescingVoidCD						= mod:NewCDCountTimer(21.9, 403459, nil, nil, nil, 2)
 local timerUmbralDetonationCD					= mod:NewCDCountTimer(21.9, 405036, 167180, nil, nil, 3)--"Bombs"
@@ -59,9 +59,9 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(26337))
 local warnBlazingHeat							= mod:NewCountAnnounce(402617, 2, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(402617))
 local warnBlazingHeatFades						= mod:NewFadesAnnounce(402617, 1)
 
-local specWarnFieryMeteor						= mod:NewSpecialWarningCount(404732, nil, nil, nil, 2, 2)
-local specWarnMoltenEruption					= mod:NewSpecialWarningCount(403101, nil, nil, nil, 2, 2, 3)
-local specWarnSwirlingFlame						= mod:NewSpecialWarningDodgeCount(404896, nil, 86189, nil, 2, 2)
+local specWarnFieryMeteor						= mod:NewSpecialWarningCount(404732, nil, nil, nil, 2, 2, nil, nil, "helpsoak")
+local specWarnMoltenEruption					= mod:NewSpecialWarningCount(403101, nil, nil, nil, 2, 2, 3, nil, "helpsoak")
+local specWarnSwirlingFlame						= mod:NewSpecialWarningDodgeCount(404896, nil, 86189, nil, 2, 2, nil, nil, "watchwave")
 
 local timerFieryMeteorCD						= mod:NewCDCountTimer(31.7, 404732, nil, nil, nil, 3)
 local timerMoltenEruptionCD						= mod:NewCDCountTimer(22.3, 403101, nil, nil, nil, 5, nil, DBM_COMMON_L.HEROIC_ICON)
@@ -75,13 +75,13 @@ local warnShadowflame							= mod:NewCountAnnounce(405394, 2, nil, nil, DBM_CORE
 local warnBlisteringTwilight					= mod:NewTargetCountAnnounce(405641, 3, nil, nil, 167180, nil, nil, nil, true)
 local warnShadowflameBurst						= mod:NewCountAnnounce(406783, 3)
 
-local specWarnGloomConflag						= mod:NewSpecialWarningCount(405437, nil, nil, nil, 2, 2)
-local specWarnBlisteringTwilight				= mod:NewSpecialWarningYou(405642, nil, 49685, nil, 1, 2)
+local specWarnGloomConflag						= mod:NewSpecialWarningCount(405437, nil, nil, nil, 2, 2, nil, nil, "helpsoak")
+local specWarnBlisteringTwilight				= mod:NewSpecialWarningYou(405642, nil, 49685, nil, 1, 2, nil, nil, "targetyou")
 local yellBlisteringTwilight					= mod:NewShortYell(405642, 49685)
 local yellBlisteringTwilightFades				= mod:NewShortFadesYell(405642)
-local specWarnConvergentEruption				= mod:NewSpecialWarningCount(408193, nil, nil, nil, 2, 2)
-local specWarnWitheringVulnerability			= mod:NewSpecialWarningDefensive(405914, nil, nil, nil, 1, 2)
-local specWarnWitheringVulnerabilityTaunt		= mod:NewSpecialWarningTaunt(405914, nil, nil, nil, 1, 2)
+local specWarnConvergentEruption				= mod:NewSpecialWarningCount(408193, nil, nil, nil, 2, 2, nil, nil, "helpsoak")
+local specWarnWitheringVulnerability			= mod:NewSpecialWarningDefensive(405914, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnWitheringVulnerabilityTaunt		= mod:NewSpecialWarningTaunt(405914, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 local yellShadowandFlameRepeat					= mod:NewIconRepeatYell(409385, nil, false, 2)
 
 local timerPhaseCD								= mod:NewStageTimer(30)

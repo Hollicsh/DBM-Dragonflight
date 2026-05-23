@@ -29,18 +29,18 @@ mod:RegisterEventsInCombat(
 --TODO, fine tune tanking stuff, maybe taunt warnings?
 --TODO, target scan or alert Blazing pitch at all?
 --General
-local specWarnGTFO						= mod:NewSpecialWarningGTFO(403384, nil, nil, nil, 1, 8)
+local specWarnGTFO						= mod:NewSpecialWarningGTFO(403384, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 --Vakan
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(26374))
 local warnBurningShadows				= mod:NewStackAnnounce(403779, 2)--Auto alert for self, or other tanks if healer|tank role
 local warnBlazingPitch					= mod:NewCastAnnounce(403855, 3)
 local warnEnvelopingDarkness			= mod:NewTargetAnnounce(404171, 2)
 
-local specWarnUmbralSmash				= mod:NewSpecialWarningYou(403772, nil, nil, nil, 1, 2)
-local specWarnBurningShadows			= mod:NewSpecialWarningStack(403779, nil, 6, nil, nil, 1, 6)
+local specWarnUmbralSmash				= mod:NewSpecialWarningYou(403772, nil, nil, nil, 1, 2, nil, nil, "carefly")
+local specWarnBurningShadows			= mod:NewSpecialWarningStack(403779, nil, 6, nil, nil, 1, 6, nil, nil, "stackhigh")
 --local specWarnBurningShadowsTaunt		= mod:NewSpecialWarningTaunt(403779, nil, nil, nil, 1, 2)
-local specWarnEnvelopingDarkness		= mod:NewSpecialWarningMoveAway(404171, nil, nil, nil, 1, 2)
-local specWarnScorchingEclipse			= mod:NewSpecialWarningDodge(404517, nil, nil, nil, 2, 2)
+local specWarnEnvelopingDarkness		= mod:NewSpecialWarningMoveAway(404171, nil, nil, nil, 1, 2, nil, nil, "runout")
+local specWarnScorchingEclipse			= mod:NewSpecialWarningDodge(404517, nil, nil, nil, 2, 2, nil, nil, "watchstep")
 
 local timerUmbralSmashCD				= mod:NewAITimer(22.1, 403772, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 local timerBlazingPitchCD				= mod:NewAITimer(22.1, 403855, nil, nil, nil, 3)
@@ -53,11 +53,11 @@ local warnSearingTouch					= mod:NewStackAnnounce(402824, 2, nil, "Tank|Healer")
 local warnStokingtheFlames				= mod:NewCastAnnounce(402887, 3)
 local warnLavaGeyser					= mod:NewTargetAnnounce(402985, 2)
 
-local specWarnBurningStrike				= mod:NewSpecialWarningYou(402793, nil, nil, nil, 1, 2)
-local specWarnSearingTouch				= mod:NewSpecialWarningStack(402824, nil, 6, nil, nil, 1, 6)
+local specWarnBurningStrike				= mod:NewSpecialWarningYou(402793, nil, nil, nil, 1, 2, nil, nil, "carefly")
+local specWarnSearingTouch				= mod:NewSpecialWarningStack(402824, nil, 6, nil, nil, 1, 6, nil, nil, "stackhigh")
 --local specWarnSearingTouchTaunt		= mod:NewSpecialWarningTaunt(402824, nil, nil, nil, 1, 2)
-local specWarnLavaGeyser				= mod:NewSpecialWarningMoveAway(402985, nil, nil, nil, 1, 2)
-local specWarnIncineration				= mod:NewSpecialWarningDodge(402983, nil, nil, nil, 2, 2)
+local specWarnLavaGeyser				= mod:NewSpecialWarningMoveAway(402985, nil, nil, nil, 1, 2, nil, nil, "runout")
+local specWarnIncineration				= mod:NewSpecialWarningDodge(402983, nil, nil, nil, 2, 2, nil, nil, "watchstep")
 
 local timerBurningStrikeCD				= mod:NewAITimer(22.1, 402793, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 local timerStokingtheFlamesCD			= mod:NewAITimer(22.1, 402887, nil, nil, nil, 3)

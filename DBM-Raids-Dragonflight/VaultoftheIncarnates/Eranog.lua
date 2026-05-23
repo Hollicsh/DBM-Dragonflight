@@ -35,16 +35,16 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(26001))
 local warnFlamerift								= mod:NewTargetNoFilterAnnounce(390715, 2)
 local warnBurningWound							= mod:NewStackAnnounce(394906, 2, nil, "Tank|Healer")
 
-local specWarnFlamerift							= mod:NewSpecialWarningMoveAway(390715, nil, nil, nil, 1, 2)
+local specWarnFlamerift							= mod:NewSpecialWarningMoveAway(390715, nil, nil, nil, 1, 2, nil, nil, "range5")
 local yellFlamerift								= mod:NewShortYell(390715)
 local yellFlameriftFades						= mod:NewShortFadesYell(390715)
-local specWarnGreaterFlamerift					= mod:NewSpecialWarningTaunt(396094, nil, nil, nil, 1, 2)
-local specWarnMoltenCleave						= mod:NewSpecialWarningDodgeCount(370615, nil, nil, nil, 2, 2)
-local specWarnBurningWound						= mod:NewSpecialWarningStack(394906, nil, 6, nil, nil, 1, 6)
-local specWarnBurningWoundTaunt					= mod:NewSpecialWarningTaunt(394906, false, nil, 2, 1, 2)
-local specWarnIncineratingRoar					= mod:NewSpecialWarningCount(396023, nil, nil, nil, 2, 2)
-local specWarnMoltenSpikes						= mod:NewSpecialWarningDodgeCount(396022, nil, nil, nil, 2, 2)
-local specWarnGTFO								= mod:NewSpecialWarningGTFO(370648, nil, nil, nil, 1, 8)
+local specWarnGreaterFlamerift					= mod:NewSpecialWarningTaunt(396094, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnMoltenCleave						= mod:NewSpecialWarningDodgeCount(370615, nil, nil, nil, 2, 2, nil, nil, "shockwave")
+local specWarnBurningWound						= mod:NewSpecialWarningStack(394906, nil, 6, nil, nil, 1, 6, nil, nil, "stackhigh")
+local specWarnBurningWoundTaunt					= mod:NewSpecialWarningTaunt(394906, false, nil, 2, 1, 2, nil, nil, "tauntboss")
+local specWarnIncineratingRoar					= mod:NewSpecialWarningCount(396023, nil, nil, nil, 2, 2, nil, nil, "aesoon")
+local specWarnMoltenSpikes						= mod:NewSpecialWarningDodgeCount(396022, nil, nil, nil, 2, 2, nil, nil, "Interface\\AddOns\\DBM-VP")
+local specWarnGTFO								= mod:NewSpecialWarningGTFO(370648, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerMoltenCleaveCD						= mod:NewCDCountTimer(29.9, 370615, nil, nil, nil, 3)
 local timerFlameriftCD							= mod:NewCDCountTimer(28.9, 390715, nil, nil, nil, 3, nil, DBM_COMMON_L.DAMAGE_ICON)
@@ -58,7 +58,7 @@ mod:GroupSpells(390715, 396094)
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(26005))
 local warnKillOrder								= mod:NewTargetAnnounce(370597, 3)
 
-local specWarnKillOrder							= mod:NewSpecialWarningYou(370597, nil, nil, nil, 1, 2)
+local specWarnKillOrder							= mod:NewSpecialWarningYou(370597, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 
 mod:AddNamePlateOption("NPAuraOnKillOrder", 370597, true)
 mod:AddNamePlateOption("NPAuraOnRampage", 371562, true)
@@ -66,14 +66,14 @@ mod:AddNamePlateOption("NPAuraOnRampage", 371562, true)
 mod:AddTimerLine(DBM:GetSpellName(396039))
 local warnLeapingFlames							= mod:NewSpellAnnounce(394917, 3)
 
-local specWarnPyroBlast							= mod:NewSpecialWarningInterruptCount(396040, "HasInterrupt", nil, nil, 1, 2)
+local specWarnPyroBlast							= mod:NewSpecialWarningInterruptCount(396040, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kickcast")
 
 local timerLeapingFlamesCD						= mod:NewCDTimer(30.2, 394917, nil, nil, nil, 3, nil, DBM_COMMON_L.HEALER_ICON..DBM_COMMON_L.MAGIC_ICON)
 
 mod:AddSetIconOption("SetIconOnCaptain", 396039, true, 5, {8})
 --Stage Two: Army of Flame
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(26004))
-local specWarnCollapsingArmy					= mod:NewSpecialWarningCount(370307, nil, nil, nil, 3, 2)
+local specWarnCollapsingArmy					= mod:NewSpecialWarningCount(370307, nil, nil, nil, 3, 2, nil, nil, "specialsoon")
 
 local timerCollapsingArmyCD						= mod:NewCDCountTimer(94, 370307, nil, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)
 

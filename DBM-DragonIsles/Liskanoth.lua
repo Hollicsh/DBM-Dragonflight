@@ -27,9 +27,9 @@ mod:RegisterEventsInCombat(
 local warnBindingIce					= mod:NewTargetAnnounce(389954, 2)
 local warnChillingBreath				= mod:NewSpellAnnounce(388925, 3, nil, "Tank|Healer", nil, nil, nil, 2)
 
-local specWarnGlacialStorm				= mod:NewSpecialWarningDodge(389289, nil, nil, nil, 2, 2)
-local specWarnDeepFreeze				= mod:NewSpecialWarningDodge(389762, nil, nil, nil, 2, 2)
-local specWarnBindingIce				= mod:NewSpecialWarningYou(389954, nil, nil, nil, 1, 2)
+local specWarnGlacialStorm				= mod:NewSpecialWarningDodge(389289, nil, nil, nil, 2, 2, nil, nil, "watchstep")
+local specWarnDeepFreeze				= mod:NewSpecialWarningDodge(389762, nil, nil, nil, 2, 2, nil, nil, "watchstep")
+local specWarnBindingIce				= mod:NewSpecialWarningYou(389954, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 
 local timerGlacialStormCD				= mod:NewAITimer(22.1, 389289, nil, nil, nil, 3)
 local timerDeepFreezeCD					= mod:NewAITimer(74.7, 389762, nil, nil, nil, 3)

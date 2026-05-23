@@ -45,16 +45,16 @@ local warnWrappedInWebs							= mod:NewTargetNoFilterAnnounce(372044, 4)
 local warnCallSpiderlings						= mod:NewCountAnnounce(372238, 2)
 local warnFrostbreathArachnid					= mod:NewCountAnnounce(-24899, 2)
 
-local specWarnChillingBlast						= mod:NewSpecialWarningMoveAway(371976, nil, nil, nil, 1, 2)
+local specWarnChillingBlast						= mod:NewSpecialWarningMoveAway(371976, nil, nil, nil, 1, 2, nil, nil, "scatter")
 local yellChillingBlast							= mod:NewYell(371976)
 local yellChillingBlastFades					= mod:NewShortFadesYell(371976)
-local specWarnEnvelopingWebs					= mod:NewSpecialWarningYouPos(372082, nil, nil, nil, 1, 2)
+local specWarnEnvelopingWebs					= mod:NewSpecialWarningYouPos(372082, nil, nil, nil, 1, 2, nil, nil, "mm")
 local yellEnvelopingWebs						= mod:NewShortPosYell(372082)
 local yellEnvelopingWebsFades					= mod:NewIconFadesYell(372082)
-local specWarnStickyWebbing						= mod:NewSpecialWarningStack(372030, nil, 3, nil, nil, 1, 6)
-local specWarnGossamerBurst						= mod:NewSpecialWarningCount(373405, nil, nil, nil, 2, 12)
-local specWarnWebBlast							= mod:NewSpecialWarningTaunt(385083, nil, nil, nil, 1, 2)
-local specWarnFreezingBreath					= mod:NewSpecialWarningDodge(374112, nil, nil, nil, 1, 2)
+local specWarnStickyWebbing						= mod:NewSpecialWarningStack(372030, nil, 3, nil, nil, 1, 6, nil, nil, "stackhigh")
+local specWarnGossamerBurst						= mod:NewSpecialWarningCount(373405, nil, nil, nil, 2, 12, nil, nil, "pullin")
+local specWarnWebBlast							= mod:NewSpecialWarningTaunt(385083, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnFreezingBreath					= mod:NewSpecialWarningDodge(374112, nil, nil, nil, 1, 2, nil, nil, "shockwave")
 
 local timerChillingBlastCD						= mod:NewCDCountTimer(18.5, 371976, nil, nil, nil, 3)--18.5-54.5
 local timerEnvelopingWebsCD						= mod:NewCDCountTimer(24, 372082, nil, nil, nil, 3)--24-46.9
@@ -72,10 +72,10 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(24885))
 local warnApexofIce									= mod:NewCastAnnounce(372539, 3)
 local warnSuffocatinWebs							= mod:NewTargetNoFilterAnnounce(373048, 3)
 
-local specWarnSuffocatingWebs						= mod:NewSpecialWarningYouPos(373048, nil, nil, nil, 1, 2)
+local specWarnSuffocatingWebs						= mod:NewSpecialWarningYouPos(373048, nil, nil, nil, 1, 2, nil, nil, "mm")
 local yellSuffocatingWebs							= mod:NewShortPosYell(373048)
 local yellSuffocatingWebsFades						= mod:NewIconFadesYell(373048)
-local specWarnRepellingBurst						= mod:NewSpecialWarningCount(371983, nil, nil, nil, 2, 12)
+local specWarnRepellingBurst						= mod:NewSpecialWarningCount(371983, nil, nil, nil, 2, 12, nil, nil, "carefly")
 
 local timerSuffocatingWebsCD						= mod:NewCDCountTimer(38.8, 373048, nil, nil, nil, 3)--38-46
 local timerRepellingBurstCD							= mod:NewCDCountTimer(33.9, 371983, nil, nil, nil, 2)--33-37 (unknown on normal

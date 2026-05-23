@@ -31,7 +31,7 @@ mod:RegisterEventsInCombat(
 --General
 local warnPhase										= mod:NewPhaseChangeAnnounce(2, 2, nil, nil, nil, nil, nil, 2)
 
-local specWarnGTFO									= mod:NewSpecialWarningGTFO(423649, nil, nil, nil, 1, 8)
+local specWarnGTFO									= mod:NewSpecialWarningGTFO(423649, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerPhaseCD									= mod:NewStageTimer(60)
 --local berserkTimer								= mod:NewBerserkTimer(600)
@@ -45,11 +45,11 @@ local warnFieryGrowth								= mod:NewTargetCountAnnounce(424581, 3)
 local warnLingeringCinder							= mod:NewCountAnnounce(424582, 4, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(424582))
 local warnIncarnationOwl							= mod:NewCountAnnounce(425576, 4)
 
-local specWarnSearingWrath							= mod:NewSpecialWarningTaunt(422000, nil, nil, nil, 1, 2)
-local specWarnFieryGrowth							= mod:NewSpecialWarningMoveAway(424581, nil, nil, nil, 1, 2)
+local specWarnSearingWrath							= mod:NewSpecialWarningTaunt(422000, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnFieryGrowth							= mod:NewSpecialWarningMoveAway(424581, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 local yellFieryGrowth								= mod:NewShortPosYell(424581, nil, false, 2)
-local specWarnFallingStars							= mod:NewSpecialWarningCount(420236, nil, nil, nil, 2, 2)
-local specWarnMassEntanglement						= mod:NewSpecialWarningYou(424495, nil, nil, nil, 1, 2)
+local specWarnFallingStars							= mod:NewSpecialWarningCount(420236, nil, nil, nil, 2, 2, nil, nil, "aesoon")
+local specWarnMassEntanglement						= mod:NewSpecialWarningYou(424495, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 
 local timerBlazingMushroomCD						= mod:NewNextCountTimer(49, 423260, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 local timerFieryGrowthCD							= mod:NewNextCountTimer(49, 424581, DBM_COMMON_L.DISPELS.." (%s)", nil, nil, 3, nil, DBM_COMMON_L.MAGIC_ICON)
@@ -62,7 +62,7 @@ mod:AddSetIconOption("SetIconOnFieryGrowth", 424581, true, 0, {1, 2, 3, 4})
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(27495))
 local warnIncarnationMoonkin						= mod:NewCountAnnounce(420540, 2)
 
-local specWarnFireBeam								= mod:NewSpecialWarningCount(421398, nil, nil, nil, 2, 2)
+local specWarnFireBeam								= mod:NewSpecialWarningCount(421398, nil, nil, nil, 2, 2, nil, nil, "watchstep")
 
 local timerMoonkinCD								= mod:NewNextCountTimer(20, 420540, L.MoonkinForm.." (%s)", false, nil, 6)--Kinda redundant, ability has own timer
 local timerFirebeamCD								= mod:NewNextCountTimer(49, 421398, nil, nil, nil, 3)
@@ -73,7 +73,7 @@ local warnDreamEssence								= mod:NewCountAnnounce(424258, 1, nil, nil, DBM_CO
 local warnSuperNova									= mod:NewCastAnnounce(424140, 4)
 local warnSuperNovaEnded							= mod:NewSpellAnnounce(424140, 1)
 
-local specWarnTyphoon								= mod:NewSpecialWarningSpell(421636, nil, nil, nil, 2, 13)
+local specWarnTyphoon								= mod:NewSpecialWarningSpell(421636, nil, nil, nil, 2, 13, nil, nil, "pushbackincoming")
 
 local timerTyphoon									= mod:NewCastTimer(5.5, 421636, DBM_COMMON_L.PUSHBACK, nil, nil, 2)
 local timerSupernova								= mod:NewCastTimer(20, 424140, nil, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)
@@ -85,8 +85,8 @@ local warnIncarnationTreeofFlame					= mod:NewCountAnnounce(422115, 2)
 local warnSupressiveEmber							= mod:NewTargetAnnounce(424579, 3, nil, false)
 local warnSeedofFlame								= mod:NewCountAnnounce(424665, 1, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(424665))
 
-local specWarnSupressingEmber						= mod:NewSpecialWarningYou(424579, nil, nil, nil, 1, 2)
-local specWarnFlamingGermination					= mod:NewSpecialWarningCount(423265, nil, 99727, nil, 2, 2)
+local specWarnSupressingEmber						= mod:NewSpecialWarningYou(424579, nil, nil, nil, 1, 2, nil, nil, "targetyou")
+local specWarnFlamingGermination					= mod:NewSpecialWarningCount(423265, nil, 99727, nil, 2, 2, nil, nil, "aesoon")
 
 local timerTreeofFlameCD							= mod:NewNextCountTimer(20, 422115, L.TreeForm.." (%s)", false, nil, 6)--Kinda redundant, ability has own timer
 local timerFlamingGerminationCD						= mod:NewNextCountTimer(20, 423265, 99727, nil, nil, 5, nil, DBM_COMMON_L.HEALER_ICON)--Short name "Flame Seeds"

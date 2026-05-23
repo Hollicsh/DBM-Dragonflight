@@ -34,7 +34,7 @@ mod:RegisterEventsInCombat(
 --General
 local warnRebirth									= mod:NewCastAnnounce(418187, 4)
 
-local specWarnGTFO									= mod:NewSpecialWarningGTFO(426390, nil, nil, nil, 1, 8)
+local specWarnGTFO									= mod:NewSpecialWarningGTFO(426390, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 --local berserkTimer								= mod:NewBerserkTimer(600)
 --Urctos
@@ -42,12 +42,12 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(27300))
 local warnAgonizingClaws							= mod:NewStackAnnounce(421022, 2, nil, "Tank|Healer")
 local warnUrsineRage								= mod:NewSpellAnnounce(425114, 4)--You done fucked up
 
-local specWarnBlindingRage							= mod:NewSpecialWarningCount(420525, nil, nil, nil, 2, 2)
-local specWarnBarrelingCharge						= mod:NewSpecialWarningCount(420948, nil, nil, nil, 1, 14)
-local specWarnBarrelingChargeSpecial				= mod:NewSpecialWarningMoveTo(420948, nil, nil, nil, 3, 14)
+local specWarnBlindingRage							= mod:NewSpecialWarningCount(420525, nil, nil, nil, 2, 2, nil, nil, "aesoon")
+local specWarnBarrelingCharge						= mod:NewSpecialWarningCount(420948, nil, nil, nil, 1, 14, nil, nil, "chargemove")
+local specWarnBarrelingChargeSpecial				= mod:NewSpecialWarningMoveTo(420948, nil, nil, nil, 3, 14, nil, nil, "movetoboss")
 local yellBarrelingCharge							= mod:NewShortYell(420948, 100, nil, nil, "YELL")
 local yellBarrelingChargeFades						= mod:NewShortFadesYell(420948, nil, nil, nil, "YELL")
-local specWarnAgonizingClaws						= mod:NewSpecialWarningTaunt(421022, nil, nil, 2, 1, 2)
+local specWarnAgonizingClaws						= mod:NewSpecialWarningTaunt(421022, nil, nil, 2, 1, 2, nil, nil, "tauntboss")
 --local specWarnPyroBlast							= mod:NewSpecialWarningInterrupt(396040, "HasInterrupt", nil, nil, 1, 2)
 
 --local timerSinseekerCD							= mod:NewAITimer(49, 335114, nil, nil, nil, 3)
@@ -62,8 +62,8 @@ local warnRelentlessBarrage							= mod:NewSpellAnnounce(420937, 4)--You done fu
 local warnNoxiousBlossom							= mod:NewCountAnnounce(420671, 3)
 local warnPoisonousJavelin							= mod:NewTargetCountAnnounce(420858, 3, nil, nil, 298110)--, nil, nil, nil, nil, nil, nil, true
 
-local specWarnConstrictingThicket					= mod:NewSpecialWarningCount(421292, nil, nil, nil, 2, 2)
-local specWarnPoisonousJavelin						= mod:NewSpecialWarningMoveAway(420858, nil, nil, nil, 1, 2)
+local specWarnConstrictingThicket					= mod:NewSpecialWarningCount(421292, nil, nil, nil, 2, 2, nil, nil, "aesoon")
+local specWarnPoisonousJavelin						= mod:NewSpecialWarningMoveAway(420858, nil, nil, nil, 1, 2, nil, nil, "scatter")
 local yellPoisonousJavelin							= mod:NewShortYell(420858, 298110, false)
 local yellPoisonousJavelinFades						= mod:NewShortFadesYell(420858)--For unstable Venom
 
@@ -79,12 +79,12 @@ local warnPolymorphBomb								= mod:NewIncomingCountAnnounce(418720, 2)
 --local warnPolymorphBombTargets						= mod:NewTargetCountAnnounce(418720, 3, nil, nil, nil, nil, nil, nil, true)--Blizzard finally fixed RBW detection, but maybe they'll unprivate in season 4?
 local warnSongFaded									= mod:NewFadesAnnounce(421029, 1, nil, nil, nil, nil, nil, 2)
 
-local specWarnSongoftheDragon						= mod:NewSpecialWarningMoveTo(421029, nil, nil, nil, 2, 2)
-local specWarnCaptivatingFinale						= mod:NewSpecialWarningYou(421032, nil, nil, nil, 1, 2)
+local specWarnSongoftheDragon						= mod:NewSpecialWarningMoveTo(421029, nil, nil, nil, 2, 2, nil, nil, "takedamage")
+local specWarnCaptivatingFinale						= mod:NewSpecialWarningYou(421032, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 local yellCaptivatingFinale							= mod:NewShortYell(421032)
-local specWarnPolymorphBomb							= mod:NewSpecialWarningYou(418720, nil, nil, nil, 1, 2)
+local specWarnPolymorphBomb							= mod:NewSpecialWarningYou(418720, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 local yellPolymorphBombFades						= mod:NewIconFadesYell(418720)
-local specWarnEmeraldWinds							= mod:NewSpecialWarningCount(421024, nil, nil, nil, 2, 13)
+local specWarnEmeraldWinds							= mod:NewSpecialWarningCount(421024, nil, nil, nil, 2, 13, nil, nil, "pushbackincoming")
 
 local timerSongoftheDragonCD						= mod:NewNextCountTimer(200, 421029, nil, nil, nil, 2)
 local timerSongoftheDragon							= mod:NewBuffActiveTimer(20, 421029, nil, nil, nil, 5)

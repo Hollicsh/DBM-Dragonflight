@@ -20,16 +20,16 @@ local warnShadowflameBomb					= mod:NewTargetAnnounce(425300, 3)
 local warnInfernoHeart						= mod:NewTargetAnnounce(425388, 3)
 local warnShadowchargedSlam					= mod:NewCastAnnounce(425062, 3, nil, nil, "Melee")
 
-local specWarnShadowflameBomb				= mod:NewSpecialWarningMoveAway(425300, nil, nil, nil, 1, 2)
+local specWarnShadowflameBomb				= mod:NewSpecialWarningMoveAway(425300, nil, nil, nil, 1, 2, nil, nil, "runout")
 local yellShadowflameBomb					= mod:NewYell(425300)
 local yellShadowflameBombFades				= mod:NewShortFadesYell(425300)
-local specWarnInfernoHeart					= mod:NewSpecialWarningMoveAway(425388, nil, nil, nil, 1, 2)
+local specWarnInfernoHeart					= mod:NewSpecialWarningMoveAway(425388, nil, nil, nil, 1, 2, nil, nil, "runout")
 local yellInfernoHeart						= mod:NewYell(425388)
 local yellInfernoHeartFades					= mod:NewShortFadesYell(425388)
-local specWarnChargedStomp					= mod:NewSpecialWarningDodge(425149, "Melee", nil, nil, 4, 2)
-local specWarnFeatherBomb					= mod:NewSpecialWarningDodge(428765, nil, nil, nil, 2, 2)
-local specWarnTranquility					= mod:NewSpecialWarningInterrupt(425995, "HasInterrupt", nil, nil, 1, 2)
-local specWarnBlazingPulse					= mod:NewSpecialWarningInterrupt(425381, "HasInterrupt", nil, nil, 1, 2)
+local specWarnChargedStomp					= mod:NewSpecialWarningDodge(425149, "Melee", nil, nil, 4, 2, nil, nil, "justrun")
+local specWarnFeatherBomb					= mod:NewSpecialWarningDodge(428765, nil, nil, nil, 2, 2, nil, nil, "watchstep")
+local specWarnTranquility					= mod:NewSpecialWarningInterrupt(425995, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kickcast")
+local specWarnBlazingPulse					= mod:NewSpecialWarningInterrupt(425381, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kickcast")
 
 local timerFeatherBombCD					= mod:NewNextTimer(22.9, 428765, nil, nil, nil, 3)--CD for it starting after RP starts
 local timerFeatherBomb						= mod:NewBuffActiveTimer(6, 428765, nil, nil, nil, 5)--How long it's active and when not to come up

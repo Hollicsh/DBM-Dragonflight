@@ -34,9 +34,9 @@ mod:RegisterEventsInCombat(
 local warnInfusedStrikes							= mod:NewStackAnnounce(406311, 2, nil, "Tank|Healer")
 local warnInfusedExplosion							= mod:NewCountAnnounce(407302, 4, nil, "Tank|Healer")
 
-local specWarnInfusedStrikesSelf					= mod:NewSpecialWarningStack(406311, nil, 6, nil, nil, 1, 6)
-local specWarnInfusedStrikesTaunt					= mod:NewSpecialWarningTaunt(406311, nil, nil, nil, 1, 2)
-local specWarnInfusedStrikesHug						= mod:NewSpecialWarningMoveTo(406311, nil, nil, nil, 1, 2)
+local specWarnInfusedStrikesSelf					= mod:NewSpecialWarningStack(406311, nil, 6, nil, nil, 1, 6, nil, nil, "stackhigh")
+local specWarnInfusedStrikesTaunt					= mod:NewSpecialWarningTaunt(406311, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnInfusedStrikesHug						= mod:NewSpecialWarningMoveTo(406311, nil, nil, nil, 1, 2, nil, nil, "gathershare")
 --local specWarnGTFO								= mod:NewSpecialWarningGTFO(370648, nil, nil, nil, 1, 8)
 
 local timerInfusedExplosion							= mod:NewBuffFadesTimer(20, 407302, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON..DBM_COMMON_L.HEALER_ICON)--Track the aura that needs to fall off before tanks "clear" again
@@ -48,8 +48,8 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(26001))
 
 local warnRendingCharge								= mod:NewIncomingCountAnnounce(406358, 3)
 
-local specWarnMassiveSlam							= mod:NewSpecialWarningDodgeCount(404472, nil, nil, nil, 2, 2)
-local specWarnBellowingRoar							= mod:NewSpecialWarningCount(404713, nil, nil, nil, 2, 2)
+local specWarnMassiveSlam							= mod:NewSpecialWarningDodgeCount(404472, nil, nil, nil, 2, 2, nil, nil, "shockwave")
+local specWarnBellowingRoar							= mod:NewSpecialWarningCount(404713, nil, nil, nil, 2, 2, nil, nil, "carefly")
 
 local timerRendingChargeCD							= mod:NewCDCountTimer(34.2, 406358, nil, nil, nil, 3, nil, DBM_COMMON_L.BLEED_ICON)
 local timerMassiveSlamCD							= mod:NewCDCountTimer(39, 404472, nil, nil, nil, 3)
@@ -61,10 +61,10 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(26322))
 local warnUnstableEssence							= mod:NewCastAnnounce(407327, 3)
 local warnUnstableEssenceTargets					= mod:NewTargetAnnounce(407327, 2)
 
-local specWarnUnstableEssence						= mod:NewSpecialWarningYou(407327, nil, nil, nil, 1, 2)
+local specWarnUnstableEssence						= mod:NewSpecialWarningYou(407327, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 local yellUnstableEssence							= mod:NewShortYell(407327, DBM_CORE_L.AUTO_YELL_ANNOUNCE_TEXT.shortyell)
-local specWarnVolatileSpew							= mod:NewSpecialWarningDodgeCount(405492, nil, nil, nil, 2, 2)
-local specWarnViolentEruption						= mod:NewSpecialWarningCount(405375, nil, nil, nil, 2, 2)
+local specWarnVolatileSpew							= mod:NewSpecialWarningDodgeCount(405492, nil, nil, nil, 2, 2, nil, nil, "watchstep")
+local specWarnViolentEruption						= mod:NewSpecialWarningCount(405375, nil, nil, nil, 2, 2, nil, nil, "aesoon")
 
 local timerUnstableEssenceCD						= mod:NewCDCountTimer(29.2, 407327, nil, nil, nil, 3, nil, DBM_COMMON_L.MAGIC_ICON)
 local timerVolatileSpewCD							= mod:NewCDCountTimer(26, 405492, nil, nil, nil, 3)
@@ -77,8 +77,8 @@ local warnTemporalAnomaly							= mod:NewCastAnnounce(407552, 3)
 local warnTemporalAnomalyAbsorbed					= mod:NewTargetNoFilterAnnounce(407552, 2)
 local warnDisintegrate								= mod:NewTargetAnnounce(405392, 2)
 
-local specWarnDeepBreath							= mod:NewSpecialWarningDodgeCount(406227, nil, 18357, nil, 2, 2)
-local specWarnDisintegrate							= mod:NewSpecialWarningMoveAway(405392, nil, nil, nil, 1, 2)
+local specWarnDeepBreath							= mod:NewSpecialWarningDodgeCount(406227, nil, 18357, nil, 2, 2, nil, nil, "breathsoon")
+local specWarnDisintegrate							= mod:NewSpecialWarningMoveAway(405392, nil, nil, nil, 1, 2, nil, nil, "range5")
 local yellDisintegrate								= mod:NewShortYell(405392)
 
 local timerDeepBreathCD								= mod:NewCDCountTimer(42.7, 406227, 18357, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)--"Breath"

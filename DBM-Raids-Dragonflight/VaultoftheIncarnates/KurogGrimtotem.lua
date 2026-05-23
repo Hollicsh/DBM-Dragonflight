@@ -36,7 +36,7 @@ mod:RegisterEventsInCombat(
  or ability.id = 374779
 --]]
 --General
-local specWarnGTFO								= mod:NewSpecialWarningGTFO(374554, nil, nil, nil, 1, 8)
+local specWarnGTFO								= mod:NewSpecialWarningGTFO(374554, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerPhaseCD								= mod:NewStageTimer(30)
 local berserkTimer								= mod:NewBerserkTimer(600)
@@ -45,8 +45,8 @@ local berserkTimer								= mod:NewBerserkTimer(600)
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(25036))
 local warnSunderStrikeDebuff					= mod:NewStackAnnounce(372158, 2, nil, "Tank|Healer")
 
-local specWarnSunderStrike						= mod:NewSpecialWarningDefensive(372158, nil, nil, nil, 1, 2)
-local specWarnSunderStrikeDebuff				= mod:NewSpecialWarningTaunt(372158, nil, nil, nil, 1, 2)
+local specWarnSunderStrike						= mod:NewSpecialWarningDefensive(372158, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnSunderStrikeDebuff				= mod:NewSpecialWarningTaunt(372158, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 
 local timerSunderStrikeCD						= mod:NewCDTimer(17, 372158, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 --General timers for handling of bosses ability rotation
@@ -59,15 +59,15 @@ local timerAddEnrageCD							= mod:NewTimer(60, "timerAddEnrageCD", 28131, nil, 
 mod:AddNamePlateOption("NPAuraOnSurge", 371971, true)
 --Fire Altar An altar of primal fire
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(25040))
-local specWarnMagmaBurst						= mod:NewSpecialWarningDodge(382563, nil, nil, nil, 2, 2)
-local specWarnMoltenRupture						= mod:NewSpecialWarningDodge(373329, nil, nil, nil, 2, 2)
-local specWarnSearingCarnage					= mod:NewSpecialWarningDodge(374023, nil, nil, nil, 2, 2)--Just warn everyone since it targets most of raid, even if it's not on YOU, you need to avoid it
+local specWarnMagmaBurst						= mod:NewSpecialWarningDodge(382563, nil, nil, nil, 2, 2, nil, nil, "watchstep")
+local specWarnMoltenRupture						= mod:NewSpecialWarningDodge(373329, nil, nil, nil, 2, 2, nil, nil, "farfromline")
+local specWarnSearingCarnage					= mod:NewSpecialWarningDodge(374023, nil, nil, nil, 2, 2, nil, nil, "watchstep")--Just warn everyone since it targets most of raid, even if it's not on YOU, you need to avoid it
 
 ----Mythic Only (Flamewrought Eradicator)
 local warnRagingInferno							= mod:NewSpellAnnounce(394416, 3)
 
-local specWarnFlamewroughtEradicator			= mod:NewSpecialWarningSwitch(393314, "-Healer", nil, nil, 1, 2, 4)
-local specWarnFlameSmite						= mod:NewSpecialWarningYou(393309, nil, nil, nil, 2, 2, 4)
+local specWarnFlamewroughtEradicator			= mod:NewSpecialWarningSwitch(393314, "-Healer", nil, nil, 1, 2, 4, nil, "bigmob")
+local specWarnFlameSmite						= mod:NewSpecialWarningYou(393309, nil, nil, nil, 2, 2, 4, nil, "shockwave")
 
 local timerFlameSmiteCD							= mod:NewCDTimer(30, 393309, nil, nil, nil, 5)
 local timerRagingInfernoCD						= mod:NewCDTimer(30, 394416, nil, nil, nil, 1)
@@ -78,8 +78,8 @@ local warnAbsoluteZero							= mod:NewTargetNoFilterAnnounce(372458, 3)
 local warnFrostBite								= mod:NewFadesAnnounce(372514, 1)
 local warnFrozenSolid							= mod:NewTargetNoFilterAnnounce(372517, 4, nil, false)--RL kinda thing
 
-local specWarnFrigidTorrent						= mod:NewSpecialWarningDodge(391019, nil, nil, nil, 2, 2)--Cast by boss AND Dominator
-local specWarnAbsoluteZero						= mod:NewSpecialWarningYouPos(372458, nil, nil, nil, 1, 2)
+local specWarnFrigidTorrent						= mod:NewSpecialWarningDodge(391019, nil, nil, nil, 2, 2, nil, nil, "watchorb")--Cast by boss AND Dominator
+local specWarnAbsoluteZero						= mod:NewSpecialWarningYouPos(372458, nil, nil, nil, 1, 2, nil, nil, "mm")
 local yellAbsoluteZero							= mod:NewShortPosYell(372458)
 local yellAbsoluteZeroFades						= mod:NewIconFadesYell(372458)
 
@@ -89,9 +89,9 @@ mod:AddSetIconOption("SetIconOnAbsoluteZero", 372458, true, 9, {1, 2})
 
 mod:GroupSpells(372458, 372514, 372517)--Group all Below Zero mechanics together
 ----Mythic Only (Icebound Dominator)
-local specWarnIceboundDominator					= mod:NewSpecialWarningSwitch(393295, "-Healer", nil, nil, 1, 2, 4)
+local specWarnIceboundDominator					= mod:NewSpecialWarningSwitch(393295, "-Healer", nil, nil, 1, 2, 4, nil, "bigmob")
 local specWarnFreezing							= mod:NewSpecialWarningMoveTo(391419, nil, nil, nil, 1, 2, 4)--Effect of Icy Tempest (391425)
-local specWarnFrostSmite						= mod:NewSpecialWarningYou(393296, nil, nil, nil, 2, 2, 4)
+local specWarnFrostSmite						= mod:NewSpecialWarningYou(393296, nil, nil, nil, 2, 2, 4, nil, "shockwave")
 
 local timerFrostSmiteCD							= mod:NewCDTimer(30, 393296, nil, nil, nil, 5)
 local timerFrigidTorrentCD						= mod:NewCDTimer(32.5, 391019, nil, nil, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON)
@@ -99,13 +99,13 @@ local timerFrigidTorrentCD						= mod:NewCDTimer(32.5, 391019, nil, nil, nil, 3,
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(25064))
 local warnEnvelopingEarth						= mod:NewTargetNoFilterAnnounce(391056, 4, nil, "Healer")
 
-local specWarnEnvelopingEarth					= mod:NewSpecialWarningYou(391056, nil, nil, nil, 1, 2)
-local specWarnEruptingBedrock					= mod:NewSpecialWarningDodge(395893, nil, nil, 2, 2, 2)--Cast by boss AND Doppelboulder
-local specWarnSeismicRupture					= mod:NewSpecialWarningDodge(374691, nil, nil, nil, 2, 2)
+local specWarnEnvelopingEarth					= mod:NewSpecialWarningYou(391056, nil, nil, nil, 1, 2, nil, nil, "checkhp")
+local specWarnEruptingBedrock					= mod:NewSpecialWarningDodge(395893, nil, nil, 2, 2, 2, nil, nil, "watchstep")--Cast by boss AND Doppelboulder
+local specWarnSeismicRupture					= mod:NewSpecialWarningDodge(374691, nil, nil, nil, 2, 2, nil, nil, "watchstep")
 
 ----Mythic Only (Ironwrought Smasher)
-local specWarnIronwroughtSmasher				= mod:NewSpecialWarningSwitch(392098, "-Healer", nil, nil, 1, 2, 4)
-local specWarnEarthSmite						= mod:NewSpecialWarningSpell(391268, nil, nil, nil, 1, 2, 4)
+local specWarnIronwroughtSmasher				= mod:NewSpecialWarningSwitch(392098, "-Healer", nil, nil, 1, 2, 4, nil, "bigmob")
+local specWarnEarthSmite						= mod:NewSpecialWarningSpell(391268, nil, nil, nil, 1, 2, 4, nil, "carefly")
 
 local timerEarthSmiteCD							= mod:NewCDTimer(30, 391268, nil, nil, nil, 5)--Ironwrought Smasher
 local timerEruptingBedrockCD					= mod:NewCDTimer(60, 395893, nil, nil, nil, 2, nil, DBM_COMMON_L.MYTHIC_ICON)
@@ -116,23 +116,23 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(25068))
 local warnLightningCrash						= mod:NewTargetNoFilterAnnounce(373487, 4)
 local warnShockingBurst							= mod:NewTargetNoFilterAnnounce(390920, 3)
 
-local specWarnLightningCrash					= mod:NewSpecialWarningMoveAway(373487, nil, nil, nil, 1, 2)
+local specWarnLightningCrash					= mod:NewSpecialWarningMoveAway(373487, nil, nil, nil, 1, 2, nil, nil, "scatter")
 local yellLightningCrash						= mod:NewShortYell(373487)
 --local yellLightningCrashFades					= mod:NewIconFadesYell(373487)
 --local specWarnLightningCrashStacks			= mod:NewSpecialWarningStack(373535, nil, 8, nil, nil, 1, 6)
-local specWarnShockingBurst						= mod:NewSpecialWarningMoveAway(390920, nil, nil, nil, 1, 2)
+local specWarnShockingBurst						= mod:NewSpecialWarningMoveAway(390920, nil, nil, nil, 1, 2, nil, nil, "runout")
 local yellShockingBurst							= mod:NewShortYell(390920)
 local yellShockingBurstFades					= mod:NewShortFadesYell(390920)
-local specWarnThunderStrike						= mod:NewSpecialWarningSoak(374215, nil, nil, nil, 2, 2)--No Debuff
-local specWarnThunderStrikeBad					= mod:NewSpecialWarningDodge(374215, nil, nil, nil, 2, 2)--Debuff
+local specWarnThunderStrike						= mod:NewSpecialWarningSoak(374215, nil, nil, nil, 2, 2, nil, nil, "helpsoak")--No Debuff
+local specWarnThunderStrikeBad					= mod:NewSpecialWarningDodge(374215, nil, nil, nil, 2, 2, nil, nil, "watchstep")--Debuff
 
 mod:AddSetIconOption("SetIconOnShockingBurst", 390920, false, 0, {4, 5})
 --mod:GroupSpells(373487, 373535)--Group Lighting crash source debuff with dest (nearest player) debuff
 ----Mythic Only (Stormwrought Despoiler)
 local warnOrbLightning							= mod:NewSpellAnnounce(394719, 3)
 
-local specWarnStormwroughtDespoiler				= mod:NewSpecialWarningSwitch(393459, "-Healer", nil, nil, 1, 2, 4)
-local specWarnStormSmite						= mod:NewSpecialWarningYou(393429, nil, nil, nil, 2, 2, 4)
+local specWarnStormwroughtDespoiler				= mod:NewSpecialWarningSwitch(393459, "-Healer", nil, nil, 1, 2, 4, nil, "bigmob")
+local specWarnStormSmite						= mod:NewSpecialWarningYou(393429, nil, nil, nil, 2, 2, 4, nil, "shockwave")
 
 local timerOrbLightningCD						= mod:NewCDTimer(48.5, 394719, nil, nil, nil, 3)
 local timerStormSmiteCD							= mod:NewCDTimer(30, 393429, nil, nil, nil, 5)
@@ -145,10 +145,10 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(25073))
 local warnBreakingGravel						= mod:NewStackAnnounce(374321, 2, nil, "Tank|Healer")
 local warnGroundShatter							= mod:NewTargetNoFilterAnnounce(374427, 3)
 
-local specWarnGroundShatter						= mod:NewSpecialWarningMoveAway(374427, nil, nil, nil, 1, 2)
+local specWarnGroundShatter						= mod:NewSpecialWarningMoveAway(374427, nil, nil, nil, 1, 2, nil, nil, "runout")
 local yellGroundShatter							= mod:NewShortYell(374427)
 local yellGroundShatterFades					= mod:NewShortFadesYell(374427)
-local specWarnViolentUpheavel					= mod:NewSpecialWarningDodge(374430, nil, nil, nil, 2, 2)
+local specWarnViolentUpheavel					= mod:NewSpecialWarningDodge(374430, nil, nil, nil, 2, 2, nil, nil, "watchstep")
 
 local timerGroundShatterCD						= mod:NewCDTimer(30.4, 374427, nil, nil, nil, 3)
 local timerViolentUpheavelCD					= mod:NewCDTimer(33.2, 374430, nil, nil, nil, 3)--Sometimess stutter casts
@@ -156,9 +156,9 @@ local timerSeismicRuptureCD						= mod:NewCDTimer(49.4, 374691, nil, nil, nil, 3
 
 ----Frozen Destroyer
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(25076))
-local specWarnFrostBinds						= mod:NewSpecialWarningInterrupt(374623, "HasInterrupt", nil, nil, 1, 2)
+local specWarnFrostBinds						= mod:NewSpecialWarningInterrupt(374623, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kickcast")
 
-local specWarnFreezingTempest					= mod:NewSpecialWarningMoveTo(374624, nil, nil, nil, 3, 2)
+local specWarnFreezingTempest					= mod:NewSpecialWarningMoveTo(374624, nil, nil, nil, 3, 2, nil, nil, "runin")
 
 local timerFreezingTempestCD					= mod:NewCDTimer(36.5, 374624, nil, nil, nil, 2)
 local timerAbsoluteZeroCD						= mod:NewCDCountTimer(24.3, 372458, nil, nil, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON)--Mythic Add version
@@ -171,7 +171,7 @@ local timerSearingCarnageCD						= mod:NewCDTimer(23, 374023, nil, nil, nil, 3, 
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(25083))
 local warnStormBreak							= mod:NewSpellAnnounce(374622, 3)
 
-local specWarnLethalCurrent						= mod:NewSpecialWarningYou(391696, nil, nil, nil, 1, 2)
+local specWarnLethalCurrent						= mod:NewSpecialWarningYou(391696, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 local yellLethalCurrent							= mod:NewShortYell(391696)
 
 local timerStormBreakCD							= mod:NewCDTimer(20.8, 374622, nil, nil, nil, 2)

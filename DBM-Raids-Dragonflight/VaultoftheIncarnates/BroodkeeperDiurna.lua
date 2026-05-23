@@ -45,15 +45,15 @@ local warnRapidIncubation						= mod:NewCountAnnounce(376073, 3)
 local warnMortalWounds							= mod:NewStackAnnounce(378782, 2, nil, "Tank|Healer")
 local warnDiurnasGaze							= mod:NewYouAnnounce(390561, 3)
 
-local specWarnGreatstaffoftheBroodkeeper		= mod:NewSpecialWarningCount(380175, nil, nil, nil, 2, 2)
-local specWarnGreatstaffsWrath					= mod:NewSpecialWarningYou(375889, nil, nil, nil, 1, 2)
+local specWarnGreatstaffoftheBroodkeeper		= mod:NewSpecialWarningCount(380175, nil, nil, nil, 2, 2, nil, nil, "specialsoon")
+local specWarnGreatstaffsWrath					= mod:NewSpecialWarningYou(375889, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 local yellGreatstaffsWrath						= mod:NewYell(375889)
-local specWarnWildfire							= mod:NewSpecialWarningDodge(375871, nil, nil, nil, 2, 2)
-local specWarnIcyShroud							= mod:NewSpecialWarningCount(388716, nil, nil, nil, 2, 2)
-local specWarnStormFissure						= mod:NewSpecialWarningDodge(396779, nil, nil, nil, 2, 2, 4)
-local specWarnMortalStoneclaws					= mod:NewSpecialWarningDefensive(375870, nil, nil, nil, 1, 2)
-local specWarnMortalWounds						= mod:NewSpecialWarningTaunt(378782, nil, nil, nil, 1, 2)
-local specWarnGTFO								= mod:NewSpecialWarningGTFO(390747, nil, nil, nil, 1, 8)
+local specWarnWildfire							= mod:NewSpecialWarningDodge(375871, nil, nil, nil, 2, 2, nil, nil, "scatter")
+local specWarnIcyShroud							= mod:NewSpecialWarningCount(388716, nil, nil, nil, 2, 2, nil, nil, "aesoon")
+local specWarnStormFissure						= mod:NewSpecialWarningDodge(396779, nil, nil, nil, 2, 2, 4, nil, "watchstep")
+local specWarnMortalStoneclaws					= mod:NewSpecialWarningDefensive(375870, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnMortalWounds						= mod:NewSpecialWarningTaunt(378782, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnGTFO								= mod:NewSpecialWarningGTFO(390747, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerGreatstaffoftheBroodkeeperCD			= mod:NewCDCountTimer(24.4, 380175, L.staff, nil, nil, 5)--Shared CD ability?
 local timerRapidIncubationCD					= mod:NewCDCountTimer(24.4, 376073, nil, nil, nil, 1)--Shared CD ability?
@@ -74,13 +74,13 @@ local warnRendingBite							= mod:NewStackAnnounce(375475, 2, nil, "Tank|Healer"
 local warnChillingTantrum						= mod:NewCastAnnounce(375457, 3)
 local warnIonizingCharge						= mod:NewTargetAnnounce(375630, 3)
 
-local specWarnPrimalistReinforcements			= mod:NewSpecialWarningAddsCount(257554, "-Healer", nil, nil, 1, 2)
-local specWarnIceBarrage						= mod:NewSpecialWarningInterruptCount(375716, "HasInterrupt", nil, nil, 1, 2)
-local specWarnBurrowingStrike					= mod:NewSpecialWarningDefensive(376272, false, nil, 2, 1, 2, 3)--Spammy as all hell, should never be on by default
-local specWarnTremors							= mod:NewSpecialWarningDodge(376257, nil, nil, nil, 2, 2)
-local specWarnRendingBite						= mod:NewSpecialWarningDefensive(375475, nil, nil, nil, 1, 2, 3)
-local specWarnStaticJolt						= mod:NewSpecialWarningInterruptCount(375653, "HasInterrupt", nil, nil, 1, 2)
-local specWarnIonizingCharge					= mod:NewSpecialWarningMoveAway(375630, nil, nil, nil, 1, 2)
+local specWarnPrimalistReinforcements			= mod:NewSpecialWarningAddsCount(257554, "-Healer", nil, nil, 1, 2, nil, nil, "killmob")
+local specWarnIceBarrage						= mod:NewSpecialWarningInterruptCount(375716, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kickcast")
+local specWarnBurrowingStrike					= mod:NewSpecialWarningDefensive(376272, false, nil, 2, 1, 2, 3, nil, "defensive")--Spammy as all hell, should never be on by default
+local specWarnTremors							= mod:NewSpecialWarningDodge(376257, nil, nil, nil, 2, 2, nil, nil, "shockwave")
+local specWarnRendingBite						= mod:NewSpecialWarningDefensive(375475, nil, nil, nil, 1, 2, 3, nil, "defensive")
+local specWarnStaticJolt						= mod:NewSpecialWarningInterruptCount(375653, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kickcast")
+local specWarnIonizingCharge					= mod:NewSpecialWarningMoveAway(375630, nil, nil, nil, 1, 2, nil, nil, "range5")
 local yellIonizingCharge						= mod:NewYell(375630)
 
 local timerPrimalistReinforcementsCD			= mod:NewAddsCustomTimer(60, 257554, nil, nil, nil, 1)
@@ -103,15 +103,15 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(25146))
 local warnBroodkeepersFury						= mod:NewStackAnnounce(375879, 2)
 local warnEGreatstaffsWrath						= mod:NewTargetNoFilterAnnounce(380483, 2)
 
-local specWarnEGreatstaffoftheBroodkeeper		= mod:NewSpecialWarningCount(380176, nil, nil, nil, 2, 2)
-local specWarnEGreatstaffsWrath					= mod:NewSpecialWarningYou(380483, nil, nil, nil, 1, 2)
+local specWarnEGreatstaffoftheBroodkeeper		= mod:NewSpecialWarningCount(380176, nil, nil, nil, 2, 2, nil, nil, "specialsoon")
+local specWarnEGreatstaffsWrath					= mod:NewSpecialWarningYou(380483, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 local yellEGreatstaffsWrath						= mod:NewYell(380483)
-local specWarnFrozenShroud						= mod:NewSpecialWarningCount(388918, nil, nil, nil, 2, 2)
-local specWarnMortalStoneSlam					= mod:NewSpecialWarningDefensive(396269, nil, nil, nil, 1, 2, 4)
-local specWarnDetonatingStoneslam				= mod:NewSpecialWarningYou(396264, false, nil, nil, 1, 2, 4)--Bit redundant, so off by default
+local specWarnFrozenShroud						= mod:NewSpecialWarningCount(388918, nil, nil, nil, 2, 2, nil, nil, "aesoon")
+local specWarnMortalStoneSlam					= mod:NewSpecialWarningDefensive(396269, nil, nil, nil, 1, 2, 4, nil, "defensive")
+local specWarnDetonatingStoneslam				= mod:NewSpecialWarningYou(396264, false, nil, nil, 1, 2, 4, nil, "gathershare")--Bit redundant, so off by default
 local yellDetonatingStoneslam					= mod:NewShortYell(396264, nil, nil, nil, "YELL")
 local yellDetonatingStoneslamFades				= mod:NewShortFadesYell(396264, nil, nil, nil, "YELL")
-local specWarnDetonatingStoneslamTaunt			= mod:NewSpecialWarningTaunt(396264, nil, nil, nil, 1, 2, 4)
+local specWarnDetonatingStoneslamTaunt			= mod:NewSpecialWarningTaunt(396264, nil, nil, nil, 1, 2, 4, nil, "tauntboss")
 
 local timerBroodkeepersFuryCD					= mod:NewNextCountTimer(30, 375879, nil, nil, nil, 5)--Static CD
 --local timerEGreatstaffoftheBroodkeeperCD		= mod:NewCDCountTimer(17, 380176, L.staff, nil, nil, 5)--Shared CD ability

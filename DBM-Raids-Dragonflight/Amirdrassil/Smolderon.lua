@@ -33,7 +33,7 @@ mod:RegisterEventsInCombat(
 --general
 local warnPhase										= mod:NewPhaseChangeAnnounce(2, 2, nil, nil, nil, nil, nil, 2)
 
-local specWarnGTFO									= mod:NewSpecialWarningGTFO(421532, nil, nil, nil, 1, 8)
+local specWarnGTFO									= mod:NewSpecialWarningGTFO(421532, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerPhaseCD									= mod:NewStageTimer(60, 422172)
 --local berserkTimer								= mod:NewBerserkTimer(600)
@@ -45,18 +45,18 @@ local warnSearingAftermath							= mod:NewTargetNoFilterAnnounce(422577, 2, nil,
 local warnOverheated								= mod:NewTargetCountAnnounce(421455, 3, nil, nil, nil, nil, nil, nil, true)
 local warnSeekingInferno							= mod:NewIncomingCountAnnounce(425885, 2)
 
-local specWarnBrandofDamnation						= mod:NewSpecialWarningCount(421343, nil, nil, nil, 2, 2)
+local specWarnBrandofDamnation						= mod:NewSpecialWarningCount(421343, nil, nil, nil, 2, 2, nil, nil, "specialsoon")
 local yellBrandofDamnation							= mod:NewShortYell(421343, nil, nil, nil, "YELL")
 local yellBrandofDamnationFades						= mod:NewShortFadesYell(421343, nil, nil, nil, "YELL")
-local specWarnAftermathTaunt						= mod:NewSpecialWarningTaunt(422577, nil, nil, nil, 1, 2)
-local specWarnSearingAftermath						= mod:NewSpecialWarningMoveAway(422577, nil, nil, nil, 1, 2)
+local specWarnAftermathTaunt						= mod:NewSpecialWarningTaunt(422577, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnSearingAftermath						= mod:NewSpecialWarningMoveAway(422577, nil, nil, nil, 1, 2, nil, nil, "runout")
 local yellSearingAftermath							= mod:NewShortYell(422577, 37859)
 local yellSearingAftermathFades						= mod:NewShortFadesYell(422577)
-local specWarnOverheated							= mod:NewSpecialWarningMoveAway(421455, nil, nil, nil, 1, 2)
-local specWarnOverheatedTaunt						= mod:NewSpecialWarningTaunt(421455, nil, nil, nil, 1, 2)
+local specWarnOverheated							= mod:NewSpecialWarningMoveAway(421455, nil, nil, nil, 1, 2, nil, nil, "targetyou")
+local specWarnOverheatedTaunt						= mod:NewSpecialWarningTaunt(421455, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 --local yellOverheated								= mod:NewShortYell(421455)
 local yellOverheatedFades							= mod:NewShortFadesYell(421455)
-local specWarnLavaGeysers							= mod:NewSpecialWarningCount(422691, nil, nil, nil, 2, 2)
+local specWarnLavaGeysers							= mod:NewSpecialWarningCount(422691, nil, nil, nil, 2, 2, nil, nil, "watchstep")
 
 local timerBrandofDamnationCD						= mod:NewCDCountTimer(29.9, 421343, nil, nil, nil, 5)
 local timerSearingAftermathCD						= mod:NewTargetTimer(6, 422577, 37859, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)
@@ -69,10 +69,10 @@ mod:AddPrivateAuraSoundOption(426010, true, 425885, 4, 1, "justrun", 2)--Seeking
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(27649))
 local warnDevourEssence								= mod:NewCountAnnounce(422277, 3)
 
-local specWarnEncroachingDestruction				= mod:NewSpecialWarningSpell(426725, nil, nil, nil, 3, 2)
+local specWarnEncroachingDestruction				= mod:NewSpecialWarningSpell(426725, nil, nil, nil, 3, 2, nil, nil, "stilldanger")
 
 local timerEncroachingDestructionCD					= mod:NewNextTimer(395, 426725, nil, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)--basically soft berserk timer
-local specWarnWorldinFlames							= mod:NewSpecialWarningDodgeCount(422172, nil, nil, nil, 2, 2)
+local specWarnWorldinFlames							= mod:NewSpecialWarningDodgeCount(422172, nil, nil, nil, 2, 2, nil, nil, "watchstep")
 
 local timerDevourEssenceCD							= mod:NewCDCountTimer(49, 422277, nil, nil, nil, 3)
 --local timerWorldinFlamesCD							= mod:NewAITimer(49, 422172, nil, nil, nil, 3)

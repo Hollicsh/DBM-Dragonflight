@@ -47,15 +47,15 @@ local warnVolcanicHeart							= mod:NewCountAnnounce(410953, 3, nil, nil, 167180
 --local specWarnVolcanicHeart					= mod:NewSpecialWarningMoveAway(410953, nil, nil, nil, 1, 2)
 --local yellVolcanicHeart						= mod:NewShortPosYell(410953)
 --local yellVolcanicHeartFades					= mod:NewIconFadesYell(410953)
-local specWarnTwistedEarth						= mod:NewSpecialWarningDodgeCount(402902, false, nil, 2, 2, 2)--Twisted earth spawn+Dodge for Volcanic Blast
-local specWarnEchoingFissure					= mod:NewSpecialWarningDodgeCount(402115, nil, 381446, nil, 2, 2)
+local specWarnTwistedEarth						= mod:NewSpecialWarningDodgeCount(402902, false, nil, 2, 2, 2, nil, nil, "watchstep")--Twisted earth spawn+Dodge for Volcanic Blast
+local specWarnEchoingFissure					= mod:NewSpecialWarningDodgeCount(402115, nil, 381446, nil, 2, 2, nil, nil, "justrun")
 --local specWarnRushingDarkness					= mod:NewSpecialWarningDodgeCount(407221, nil, nil, nil, 2, 2)
 local yellRushingDarkness						= mod:NewYell(407221, L.WallBreaker)
 local yellRushingDarknessFades					= mod:NewIconFadesYell(407221)
-local specWarnCalamitousStrike					= mod:NewSpecialWarningDefensive(401998, nil, nil, nil, 1, 2)
-local specWarnCalamitousStrikeSwap				= mod:NewSpecialWarningTaunt(401998, nil, nil, nil, 1, 2)
+local specWarnCalamitousStrike					= mod:NewSpecialWarningDefensive(401998, nil, nil, nil, 1, 2, nil, nil, "carefly")
+local specWarnCalamitousStrikeSwap				= mod:NewSpecialWarningTaunt(401998, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 --local specWarnPyroBlast						= mod:NewSpecialWarningInterrupt(396040, "HasInterrupt", nil, nil, 1, 2)
-local specWarnGTFO								= mod:NewSpecialWarningGTFO(409058, nil, nil, nil, 1, 8)
+local specWarnGTFO								= mod:NewSpecialWarningGTFO(409058, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerVolcanicHeartCD						= mod:NewNextCountTimer(26.2, 410953, 167180, nil, nil, 3)--ShortText "Bombs" (not precise enough as next timer, but next is used to match BW string for weak aura matching)
 local timerTwistedEarthCD						= mod:NewCDCountTimer(26.2, 402902, nil, nil, nil, 3)
@@ -78,13 +78,13 @@ local warnCorruption							= mod:NewTargetCountAnnounce(401010, 3)--Class Call P
 local warnShadowShadowStrike					= mod:NewCastAnnounce(407796, 2, nil, nil, "Tank|Healer")
 local warnHidden								= mod:NewAddsLeftAnnounce(407036, 1)--Announces how many are still hidden, but also kinda acts as a "one has also become unhidden" alert
 
-local specWarnRazetheEarth						= mod:NewSpecialWarningDodge(409313, nil, nil, nil, 2, 2)
-local specWarnCorruption						= mod:NewSpecialWarningYou(401010, nil, nil, nil, 1, 2)
+local specWarnRazetheEarth						= mod:NewSpecialWarningDodge(409313, nil, nil, nil, 2, 2, nil, nil, "watchstep")
+local specWarnCorruption						= mod:NewSpecialWarningYou(401010, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 local yellCorruption							= mod:NewShortYell(401010)
-local specWarnUmbralAnnihilation				= mod:NewSpecialWarningCount(405433, nil, nil, nil, 2, 2)
+local specWarnUmbralAnnihilation				= mod:NewSpecialWarningCount(405433, nil, nil, nil, 2, 2, nil, nil, "aesoon")
 --local specWarnSweepingShadows					= mod:NewSpecialWarningDodgeCount(403846, nil, nil, nil, 2, 2)--Not used by mod?
-local specWarnSunderShadow						= mod:NewSpecialWarningDefensive(407790, nil, nil, nil, 1, 2)
-local specWarnSunderShadowSwap					= mod:NewSpecialWarningTaunt(407790, nil, nil, nil, 1, 2)
+local specWarnSunderShadow						= mod:NewSpecialWarningDefensive(407790, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnSunderShadowSwap					= mod:NewSpecialWarningTaunt(407790, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 
 local timerCorruptionCD							= mod:NewCDCountTimer(43.4, 401010, nil, nil, nil, 5)--Parent
 local timerUmbralAnnihilationCD					= mod:NewCDCountTimer(29.1, 405433, nil, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)
@@ -95,7 +95,7 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(26422))
 local warnSunderReality							= mod:NewCastAnnounce(407936, 2, nil, nil, nil, 109401)
 local warnEbonDestruction						= mod:NewCountAnnounce(407917, 4)
 
-local specWarnEbonDestructionMove				= mod:NewSpecialWarningMoveTo(407917, nil, 64584, nil, 3, 2)
+local specWarnEbonDestructionMove				= mod:NewSpecialWarningMoveTo(407917, nil, 64584, nil, 3, 2, nil, nil, "findshelter")
 
 local timerSunderRealityCD						= mod:NewCDCountTimer(35.1, 407936, 109401, nil, nil, 5)--"Portals"
 local timerSunderReality						= mod:NewCastTimer(12, 407936, 109401, nil, nil, 5)--"Portals"

@@ -29,8 +29,8 @@ local warnEmpoweredStormOver			= mod:NewEndAnnounce(387191, 1)
 local warnThunderVortex					= mod:NewSpellAnnounce(385980, 2)
 --local warnDarkDeterrence				= mod:NewStackAnnounce(361390, 2, nil, "Tank|Healer")
 
-local specWarnStrunraanTempest			= mod:NewSpecialWarningYou(387199, nil, nil, nil, 1, 2)
-local specWarnArcExpulsion				= mod:NewSpecialWarningDodge(389951, nil, nil, nil, 2, 2)
+local specWarnStrunraanTempest			= mod:NewSpecialWarningYou(387199, nil, nil, nil, 1, 2, nil, nil, "targetyou")
+local specWarnArcExpulsion				= mod:NewSpecialWarningDodge(389951, nil, nil, nil, 2, 2, nil, nil, "breathsoon")
 
 local timerEmpoweredStormCD				= mod:NewAITimer(74.7, 387191, nil, nil, nil, 6)
 local timerArcExpulsionCD				= mod:NewAITimer(31.3, 389951, nil, nil, nil, 3)--More data needed

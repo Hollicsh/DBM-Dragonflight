@@ -44,8 +44,8 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(26604))
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(26737))
 local warnPhoenixRush								= mod:NewCountAnnounce(401108, 3)
 
-local specWarnAwakenedFocus							= mod:NewSpecialWarningRun(401381, nil, 374610, nil, 4, 2, 4)--"Fixate"
-local specWarnVigorousGale							= mod:NewSpecialWarningCount(407009, nil, nil, nil, 2, 13, 4)
+local specWarnAwakenedFocus							= mod:NewSpecialWarningRun(401381, nil, 374610, nil, 4, 2, 4, nil, "justrun")--"Fixate"
+local specWarnVigorousGale							= mod:NewSpecialWarningCount(407009, nil, nil, nil, 2, 13, 4, nil, "pushbackincoming")
 
 local timerPhoenixRushCD							= mod:NewCDCountTimer(29.9, 401108, nil, nil, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON)
 local timerVigorousGaleCD							= mod:NewCDCountTimer(29.9, 407009, nil, nil, nil, 2, nil, DBM_COMMON_L.MYTHIC_ICON)
@@ -55,11 +55,11 @@ local warnHeavyCudgel								= mod:NewStackAnnounce(401258, 2, nil, "Tank|Healer
 local warnMagmaMystic								= mod:NewCountAnnounce(397383, 3)
 local warnWallClimber								= mod:NewCountAnnounce(-26221, 2, 163789, false, 2)
 
-local specWarnHeavyCudgel							= mod:NewSpecialWarningDefensive(401258, nil, nil, nil, 1, 2)
-local specWarnHeavyCudgelStack						= mod:NewSpecialWarningStack(401258, nil, 2, nil, nil, 1, 6)
-local specWarnHeavyCudgelSwap						= mod:NewSpecialWarningTaunt(401258, nil, nil, nil, 1, 2)
-local specWarnDevastatingLeap						= mod:NewSpecialWarningDodgeCount(408959, nil, 67382, nil, 2, 2)
-local specWarnAdds									= mod:NewSpecialWarningAddsCustom(285849, "-Healer", nil, nil, 1, 2)
+local specWarnHeavyCudgel							= mod:NewSpecialWarningDefensive(401258, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnHeavyCudgelStack						= mod:NewSpecialWarningStack(401258, nil, 2, nil, nil, 1, 6, nil, nil, "stackhigh")
+local specWarnHeavyCudgelSwap						= mod:NewSpecialWarningTaunt(401258, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnDevastatingLeap						= mod:NewSpecialWarningDodgeCount(408959, nil, 67382, nil, 2, 2, nil, nil, "watchstep")
+local specWarnAdds									= mod:NewSpecialWarningAddsCustom(285849, "-Healer", nil, nil, 1, 2, nil, nil, "bigmob")
 
 local timerHeavyCudgelCD							= mod:NewCDCountTimer(21.0, 401258, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 local timerDevastatingLeapCD						= mod:NewCDCountTimer(29.9, 408959, 67382, nil, nil, 3)--"Leap"
@@ -72,7 +72,7 @@ local warnMoltenBarrier								= mod:NewCastAnnounce(397383, 4)
 local warnMagmaFlowCast								= mod:NewCastAnnounce(409271, 2)
 local warnMagmaFlow									= mod:NewTargetNoFilterAnnounce(409271, 2, nil, "RemoveMagic")
 
-local specWarnLavaBolt								= mod:NewSpecialWarningInterruptCount(397386, "HasInterrupt", nil, nil, 1, 2)--3.7 CD
+local specWarnLavaBolt								= mod:NewSpecialWarningInterruptCount(397386, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kickcast")--3.7 CD
 
 --local timerMoltenBarrierCD						= mod:NewAITimer(29.9, 397383, nil, nil, nil, 2)
 --local timerMagmaFlowCD							= mod:NewCDTimer(20.7, 409271, nil, nil, nil, 3, nil, DBM_COMMON_L.MAGIC_ICON)
@@ -81,7 +81,7 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(26210))
 local warnScorchingRoar								= mod:NewCastAnnounce(408620, 4)
 local warnVolcanicShield							= mod:NewCastAnnounce(401867, 4)
 
-local specWarnVolcanicShield						= mod:NewSpecialWarningYou(401867, nil, nil, nil, 2, 2)
+local specWarnVolcanicShield						= mod:NewSpecialWarningYou(401867, nil, nil, nil, 2, 2, nil, nil, "targetyou")
 local yellVolcanicShield							= mod:NewShortYell(401867)
 local yellVolcanicShieldFades						= mod:NewShortFadesYell(401867)
 
@@ -91,7 +91,7 @@ local timerVolcanicShieldCD							= mod:NewCDTimer(30.3, 401867, nil, nil, nil, 
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(26213))
 local warnBlazingSpear								= mod:NewTargetAnnounce(401401, 3)
 
-local specWarnBlazingSpear							= mod:NewSpecialWarningMoveAway(401401, nil, nil, nil, 1, 2)
+local specWarnBlazingSpear							= mod:NewSpecialWarningMoveAway(401401, nil, nil, nil, 1, 2, nil, nil, "runout")
 local yellBlazingSpear								= mod:NewShortYell(401401)
 local yellBlazingSpearFades							= mod:NewShortFadesYell(401401)
 
@@ -101,10 +101,10 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(26683))
 local warnDesperateImmo								= mod:NewSpellAnnounce(409359, 3, nil, nil, nil, nil, nil, 2)
 local warnFlamingCudgel								= mod:NewStackAnnounce(410351, 2, nil, "Tank|Healer")
 
-local specWarnCatastrophicSlam						= mod:NewSpecialWarningCount(410516, nil, nil, nil, 2, 2)
-local specWarnFlamingCudgel							= mod:NewSpecialWarningCount(410351, nil, nil, nil, 2, 2)--Count because it's hybrid warning
-local specWarnFlamingCudgelStack					= mod:NewSpecialWarningStack(410351, nil, 2, nil, nil, 1, 6)
-local specWarnFlamingCudgelSwap						= mod:NewSpecialWarningTaunt(410351, nil, nil, nil, 1, 2)
+local specWarnCatastrophicSlam						= mod:NewSpecialWarningCount(410516, nil, nil, nil, 2, 2, nil, nil, "helpsoak")
+local specWarnFlamingCudgel							= mod:NewSpecialWarningCount(410351, nil, nil, nil, 2, 2, nil, nil, "scatter")--Count because it's hybrid warning
+local specWarnFlamingCudgelStack					= mod:NewSpecialWarningStack(410351, nil, 2, nil, nil, 1, 6, nil, nil, "stackhigh")
+local specWarnFlamingCudgelSwap						= mod:NewSpecialWarningTaunt(410351, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 
 --local timerIgnarasFuryCD							= mod:NewAITimer(29.9, 406585, nil, nil, nil, 2)
 local timerCatastrophicSlamCD						= mod:NewCDCountTimer(26.7, 410516, nil, nil, nil, 5)

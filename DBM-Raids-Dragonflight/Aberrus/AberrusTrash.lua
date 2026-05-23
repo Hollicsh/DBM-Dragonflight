@@ -19,14 +19,14 @@ mod:RegisterEvents(
 (ability.id = 409612 or ability.id = 406911) and type = "begincast"
  or ability.id = 413785 and type = "cast"
 ]]--
-local specWarnUmbralTorrent					= mod:NewSpecialWarningDodge(409612, nil, nil, nil, 2, 2)
-local specWarnSlimeInjection				= mod:NewSpecialWarningMoveAway(411808, nil, nil, nil, 1, 2)
+local specWarnUmbralTorrent					= mod:NewSpecialWarningDodge(409612, nil, nil, nil, 2, 2, nil, nil, "watchorb")
+local specWarnSlimeInjection				= mod:NewSpecialWarningMoveAway(411808, nil, nil, nil, 1, 2, nil, nil, "scatter")
 local yellSlimeInjection					= mod:NewYell(411808)
 local yellSlimeInjectionFades				= mod:NewShortFadesYell(411808)
-local specWarnDarkBindings					= mod:NewSpecialWarningMoveAway(413785, nil, nil, nil, 1, 2)
+local specWarnDarkBindings					= mod:NewSpecialWarningMoveAway(413785, nil, nil, nil, 1, 2, nil, nil, "scatter")
 local yellDarkBindings						= mod:NewYell(413785)
 local yellDarkBindingsFades					= mod:NewShortFadesYell(413785)
-local specWarnBrutalCauterization			= mod:NewSpecialWarningInterrupt(406911, "HasInterrupt", nil, nil, 1, 2)
+local specWarnBrutalCauterization			= mod:NewSpecialWarningInterrupt(406911, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kickcast")
 
 --local timerBrutalCauterizationCD			= mod:NewCDTimer(14.5, 406911, nil, nil, nil, 4, nil, DBM_COMMON_L.INTERRUPT_ICON)
 

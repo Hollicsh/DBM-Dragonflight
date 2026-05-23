@@ -42,9 +42,9 @@ local warnMindFragment						= mod:NewAddsLeftAnnounce(403997, 1)--Not technicall
 local warnEmptynessBetweenStars				= mod:NewFadesAnnounce(401215, 1)
 local warnAstralFlare						= mod:NewCountAnnounce(407576, 1, nil, false, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(407576))--Optional, don't want it to drown out the important messages of collecting mind fragments
 
-local specWarnOblivionStack					= mod:NewSpecialWarningStack(401951, nil, 6, nil, nil, 1, 6)
-local specWarnEmptynessBetweenStars			= mod:NewSpecialWarningYou(401215, nil, nil, nil, 1, 5)
-local specWarnGTFO							= mod:NewSpecialWarningGTFO(406989, nil, nil, nil, 1, 8)
+local specWarnOblivionStack					= mod:NewSpecialWarningStack(401951, nil, 6, nil, nil, 1, 6, nil, nil, "stackhigh")
+local specWarnEmptynessBetweenStars			= mod:NewSpecialWarningYou(401215, nil, nil, nil, 1, 5, nil, nil, "teleyou")
+local specWarnGTFO							= mod:NewSpecialWarningGTFO(406989, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerPhaseCD							= mod:NewStageTimer(30)
 local timerEmptynessBetweenStars			= mod:NewBuffFadesTimer(15, 401215, nil, nil, nil, 3)
@@ -59,15 +59,15 @@ local warnDazzled								= mod:NewTargetNoFilterAnnounce(401905, 4, nil, false)-
 local warnMassDisintegrate						= mod:NewTargetCountAnnounce(401680, 3, nil, nil, 405391, nil, nil, nil, true)
 local warnBurningClaws							= mod:NewStackAnnounce(401330, 2, nil, "Tank|Healer")
 
-local specWarnGlitteringSurge					= mod:NewSpecialWarningCount(401810, nil, nil, nil, 2, 2)
-local specWarnScorchingBomb						= mod:NewSpecialWarningCount(401500, nil, 167180, nil, 2, 2)
+local specWarnGlitteringSurge					= mod:NewSpecialWarningCount(401810, nil, nil, nil, 2, 2, nil, nil, "aesoon")
+local specWarnScorchingBomb						= mod:NewSpecialWarningCount(401500, nil, 167180, nil, 2, 2, nil, nil, "bombsoon")
 
-local specWarnMassDisintegrateYou				= mod:NewSpecialWarningYou(401680, nil, 405391, nil, 1, 2)
+local specWarnMassDisintegrateYou				= mod:NewSpecialWarningYou(401680, nil, 405391, nil, 1, 2, nil, nil, "targetyou")
 local yellMassDisintegrate						= mod:NewShortPosYell(401680, 405391)
 local yellMassDisintegrateFades					= mod:NewIconFadesYell(401680)
-local specWarnSearingBreath						= mod:NewSpecialWarningCount(402050, nil, 18357, nil, 2, 2)
-local specWarnBurningClaws						= mod:NewSpecialWarningDefensive(401330, nil, nil, nil, 1, 2)
-local specWarnBurningClawsTaunt					= mod:NewSpecialWarningTaunt(401330, nil, nil, nil, 1, 2)
+local specWarnSearingBreath						= mod:NewSpecialWarningCount(402050, nil, 18357, nil, 2, 2, nil, nil, "breathsoon")
+local specWarnBurningClaws						= mod:NewSpecialWarningDefensive(401330, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnBurningClawsTaunt					= mod:NewSpecialWarningTaunt(401330, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 
 local timerOppressingHowlCD						= mod:NewNextTimer(29.9, 401383, nil, nil, nil, 2)
 local timerGlitteringSurgeCD					= mod:NewCDCountTimer(29.9, 401810, nil, nil, nil, 2)
@@ -84,21 +84,21 @@ local warnVoidFracture							= mod:NewTargetAnnounce(404218, 3, nil, false)
 local warnInfiniteDuress						= mod:NewTargetCountAnnounce(404288, 3, nil, nil, nil, nil, nil, nil, true)
 local warnVoidClaws								= mod:NewStackAnnounce(411241, 2, nil, "Tank|Healer")
 
-local specWarnVoidBomb							= mod:NewSpecialWarningCount(404027, nil, 167180, nil, 2, 2)
-local specWarnVoidFracture						= mod:NewSpecialWarningYou(404218, nil, nil, nil, 1, 2)--Maybe change to MoveTo alert to say move to emptyness?
+local specWarnVoidBomb							= mod:NewSpecialWarningCount(404027, nil, 167180, nil, 2, 2, nil, nil, "bombsoon")
+local specWarnVoidFracture						= mod:NewSpecialWarningYou(404218, nil, nil, nil, 1, 2, nil, nil, "bombyou")--Maybe change to MoveTo alert to say move to emptyness?
 local yellVoidFractureFades						= mod:NewShortFadesYell(404218)
-local specWarnAbyssalBreath						= mod:NewSpecialWarningCount(404456, nil, 18357, nil, 2, 2)
-local specWarnEmptyStrike						= mod:NewSpecialWarningDefensive(404769, nil, nil, nil, 1, 2, 4)
-local specWarnCosmicVolley						= mod:NewSpecialWarningInterruptCount(411302, "HasInterrupt", 31295, nil, 1, 2, 4)
-local specWarnBlastingScream					= mod:NewSpecialWarningInterruptCount(404754, "HasInterrupt", nil, nil, 1, 2)
-local specWarnDesolateBlossom					= mod:NewSpecialWarningDodgeCount(404403, nil, nil, nil, 2, 2)
-local specWarnInfiniteDuressYou					= mod:NewSpecialWarningYou(404288, nil, nil, nil, 1, 2, 3)
+local specWarnAbyssalBreath						= mod:NewSpecialWarningCount(404456, nil, 18357, nil, 2, 2, nil, nil, "breathsoon")
+local specWarnEmptyStrike						= mod:NewSpecialWarningDefensive(404769, nil, nil, nil, 1, 2, 4, nil, "defensive")
+local specWarnCosmicVolley						= mod:NewSpecialWarningInterruptCount(411302, "HasInterrupt", 31295, nil, 1, 2, 4, nil, "kickcast")
+local specWarnBlastingScream					= mod:NewSpecialWarningInterruptCount(404754, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kickcast")
+local specWarnDesolateBlossom					= mod:NewSpecialWarningDodgeCount(404403, nil, nil, nil, 2, 2, nil, nil, "watchstep")
+local specWarnInfiniteDuressYou					= mod:NewSpecialWarningYou(404288, nil, nil, nil, 1, 2, 3, nil, "targetyou")
 local yellInfiniteDuress						= mod:NewShortPosYell(404288)
 local yellInfiniteDuressFades					= mod:NewIconFadesYell(404288)
-local specWarnVoidClaws							= mod:NewSpecialWarningDefensive(411241, nil, nil, nil, 1, 2)
+local specWarnVoidClaws							= mod:NewSpecialWarningDefensive(411241, nil, nil, nil, 1, 2, nil, nil, "defensive")
 local specWarnVoidClawsOut						= mod:NewSpecialWarningMoveAway(411241, nil, nil, nil, 1, 2)--For Void Blast (411238) effect
 local yellVoidClawsFades						= mod:NewShortFadesYell(411241, 37859)--For Void Blast (411238) effect
-local specWarnVoidClawsTaunt					= mod:NewSpecialWarningTaunt(411241, nil, nil, nil, 1, 2)
+local specWarnVoidClawsTaunt					= mod:NewSpecialWarningTaunt(411241, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 
 local timerEndExistenceCast						= mod:NewCastTimer(15, 410625, nil, "HasInterrupt", nil, 4, nil, DBM_COMMON_L.INTERRUPT_ICON)
 local timerVoidBombCD							= mod:NewCDCountTimer(29.9, 404027, 167180, nil, nil, 3)--"Bombs"
@@ -124,18 +124,18 @@ local warnVoidSlash								= mod:NewStackAnnounce(408429, 2, nil, "Tank|Healer")
 local warnHurtlingBarrageSoon					= mod:NewIncomingCountAnnounce(405486, 2)
 local warnHurtlingBarrage						= mod:NewTargetCountAnnounce(405486, 3, nil, nil, nil, nil, nil, nil, true)
 
-local specWarnCosmicAscension					= mod:NewSpecialWarningDodgeCount(403741, nil, 161862, nil, 2, 2)
-local specWarnHurtlingBarrage					= mod:NewSpecialWarningYou(405486, nil, nil, nil, 1, 2)
+local specWarnCosmicAscension					= mod:NewSpecialWarningDodgeCount(403741, nil, 161862, nil, 2, 2, nil, nil, "watchstep")
+local specWarnHurtlingBarrage					= mod:NewSpecialWarningYou(405486, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 local yellHurtlingBarrage						= mod:NewShortPosYell(405486)
 local yellHurtlingBarrageFades					= mod:NewIconFadesYell(405486)
-local specWarnScouringEternity					= mod:NewSpecialWarningDodgeCount(403625, nil, 123244, nil, 3, 2)
-local specWarnEmbraceofNothingness				= mod:NewSpecialWarningYou(403520, nil, 229042, nil, 1, 2)
+local specWarnScouringEternity					= mod:NewSpecialWarningDodgeCount(403625, nil, 123244, nil, 3, 2, nil, nil, "watchstep")
+local specWarnEmbraceofNothingness				= mod:NewSpecialWarningYou(403520, nil, 229042, nil, 1, 2, nil, nil, "gathershare")
 local yellEmbraceofNothingness					= mod:NewShortYell(403520, 229042, nil, nil, "YELL")
 local yellEmbraceofNothingnessFades				= mod:NewShortFadesYell(403520, 229042, nil, nil, "YELL")
-local specWarnVoidSlash							= mod:NewSpecialWarningDefensive(408429, nil, nil, nil, 1, 2)
+local specWarnVoidSlash							= mod:NewSpecialWarningDefensive(408429, nil, nil, nil, 1, 2, nil, nil, "defensive")
 local specWarnVoidSlashOut						= mod:NewSpecialWarningMoveAway(408429, nil, nil, nil, 1, 2)
 local yellVoidSlashFades						= mod:NewShortFadesYell(408429)
-local specWarnVoidSlashTaunt					= mod:NewSpecialWarningTaunt(408429, nil, nil, nil, 1, 2)
+local specWarnVoidSlashTaunt					= mod:NewSpecialWarningTaunt(408429, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 
 local timerCosmicAscensionCD					= mod:NewCDCountTimer(29.9, 403741, 161862, nil, nil, 1)
 local timerAstralFormation						= mod:NewCDCountTimer(29.9, 403510, 370470, nil, nil, 5)--Shorttext Pillar

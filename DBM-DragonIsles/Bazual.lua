@@ -30,8 +30,8 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(25874))
 local warnMagmaEruption					= mod:NewSpellAnnounce(389725, 2)
 --local warnDarkDeterrence				= mod:NewStackAnnounce(361390, 2, nil, "Tank|Healer")
 
-local specWarnDeterringFlame			= mod:NewSpecialWarningSpell(389431, nil, nil, nil, 2, 2)
-local specWarnLavaBreath				= mod:NewSpecialWarningDodge(389514, nil, nil, nil, 2, 2)
+local specWarnDeterringFlame			= mod:NewSpecialWarningSpell(389431, nil, nil, nil, 2, 2, nil, nil, "carefly")
+local specWarnLavaBreath				= mod:NewSpecialWarningDodge(389514, nil, nil, nil, 2, 2, nil, nil, "breathsoon")
 
 local timerDeterringFlameCD				= mod:NewAITimer(74.7, 389431, nil, nil, nil, 2)
 local timerMagmaEruptionCD				= mod:NewAITimer(53.4, 389725, nil, nil, nil, 3)
@@ -41,7 +41,7 @@ local timerLavaBreathCD					= mod:NewAITimer(43.1, 389514, nil, nil, nil, 3, nil
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(25878))
 local warnFlameInfusion					= mod:NewCastAnnounce(391247, 2)
 
-local specWarnRainofDestruction			= mod:NewSpecialWarningSpell(390635, nil, nil, nil, 2, 2)
+local specWarnRainofDestruction			= mod:NewSpecialWarningSpell(390635, nil, nil, nil, 2, 2, nil, nil, "specialsoon")
 
 local timerRainofDestructionCD			= mod:NewAITimer(74.7, 390635, nil, nil, nil, 2)
 

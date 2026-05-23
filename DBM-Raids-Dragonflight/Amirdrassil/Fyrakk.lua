@@ -37,7 +37,7 @@ mod:RegisterEventsInCombat(
 --General
 local warnPhase										= mod:NewPhaseChangeAnnounce(2, 2, nil, nil, nil, nil, nil, 2)
 
-local specWarnGTFO									= mod:NewSpecialWarningGTFO(419504, nil, nil, nil, 1, 8)
+local specWarnGTFO									= mod:NewSpecialWarningGTFO(419504, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerPhaseCD									= mod:NewStageTimer(60, 408330)
 --local berserkTimer								= mod:NewBerserkTimer(600)
@@ -50,10 +50,10 @@ local warnBlaze										= mod:NewCountAnnounce(414186, 3, nil, nil, nil, nil, n
 local warnAflame									= mod:NewCountAnnounce(417807, 3, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(417807))--Player
 local warnFyralathsMark								= mod:NewStackAnnounce(417443, 3, nil, "Tank|Healer")
 
-local specWarnWildFire								= mod:NewSpecialWarningCount(420422, nil, nil, nil, 2, 2)
-local specWarnDreamRend								= mod:NewSpecialWarningRunCount(417455, nil, nil, nil, 4, 2)
-local specWarnFyralathsBite							= mod:NewSpecialWarningDefensive(417431, nil, nil, nil, 1, 2)
-local specWarnFyralathsMark							= mod:NewSpecialWarningTaunt(417443, nil, 37454, nil, 1, 2)
+local specWarnWildFire								= mod:NewSpecialWarningCount(420422, nil, nil, nil, 2, 2, nil, nil, "aesoon")
+local specWarnDreamRend								= mod:NewSpecialWarningRunCount(417455, nil, nil, nil, 4, 2, nil, nil, "justrun")
+local specWarnFyralathsBite							= mod:NewSpecialWarningDefensive(417431, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnFyralathsMark							= mod:NewSpecialWarningTaunt(417443, nil, 37454, nil, 1, 2, nil, nil, "tauntboss")
 
 local timerDarkflameShadesCD						= mod:NewCDCountTimer(49, 430441, nil, false, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON)
 local timerDarkflameCleaveCD						= mod:NewCDCountTimer(49, 426368, DBM_COMMON_L.GROUPSOAKS.." (%s)", nil, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON)--Shortname "Soaks"
@@ -73,10 +73,10 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(26667))
 local warnShadowflameOrbs							= mod:NewCountAnnounce(421937, 2)
 local warnShadowflameEruption						= mod:NewCountAnnounce(429866, 4, nil, false, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(429866))--Player
 
-local specWarnIncarnate								= mod:NewSpecialWarningDodgeCount(412761, nil, 374763, nil, 2, 2)
-local specWarnShadowflameBreath						= mod:NewSpecialWarningDodgeCount(410223, nil, 17088, nil, 2, 2)
-local specWarnFlamebound							= mod:NewSpecialWarningYou(429903, nil, nil, nil, 1, 15, 4)
-local specWarnShadowbound							= mod:NewSpecialWarningYou(429906, nil, nil, nil, 1, 15, 4)
+local specWarnIncarnate								= mod:NewSpecialWarningDodgeCount(412761, nil, 374763, nil, 2, 2, nil, nil, "mobsoon")
+local specWarnShadowflameBreath						= mod:NewSpecialWarningDodgeCount(410223, nil, 17088, nil, 2, 2, nil, nil, "breathsoon")
+local specWarnFlamebound							= mod:NewSpecialWarningYou(429903, nil, nil, nil, 1, 15, 4, nil, "flameyou")
+local specWarnShadowbound							= mod:NewSpecialWarningYou(429906, nil, nil, nil, 1, 15, 4, nil, "shadowyou")
 
 local timerCorrupt									= mod:NewCastTimer(13, 419144, nil, nil, nil, 6)
 local timerShadowflameOrbsCD						= mod:NewCDCountTimer(49, 421937, nil, nil, nil, 5)
@@ -93,10 +93,10 @@ local warnGreaterFirestorm							= mod:NewCountAnnounce(422518, 3)
 local warnExplodingCore								= mod:NewCastAnnounce(428400, 4)
 local warnMythicDebuffs								= mod:NewAnnounce("warnMythicDebuffs", 3, 428970, nil, nil, nil, 428970)
 
-local specWarnMoltenGauntlet						= mod:NewSpecialWarningDefensive(428963, nil, nil, nil, 1, 2)
-local specWarnShadowGauntlet						= mod:NewSpecialWarningDefensive(428965, nil, nil, nil, 1, 2)
-local specWarnFlamefall								= mod:NewSpecialWarningRunCount(419123, nil, nil, nil, 4, 2)
-local specWarnShadowflameDevastation				= mod:NewSpecialWarningDodgeCount(422524, nil, 406227, nil, 2, 2)--Short name "Deep Breath"
+local specWarnMoltenGauntlet						= mod:NewSpecialWarningDefensive(428963, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnShadowGauntlet						= mod:NewSpecialWarningDefensive(428965, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnFlamefall								= mod:NewSpecialWarningRunCount(419123, nil, nil, nil, 4, 2, nil, nil, "justrun")
+local specWarnShadowflameDevastation				= mod:NewSpecialWarningDodgeCount(422524, nil, 406227, nil, 2, 2, nil, nil, "breathsoon")--Short name "Deep Breath"
 
 local timerSpiritsCD								= mod:NewCDCountTimer(49, 422032, 263222, nil, nil, 5, nil, DBM_COMMON_L.HEALER_ICON)--Shortname "Spirits"
 local timerGreaterFirestormCD						= mod:NewCDCountTimer(49, 422518, 419506, nil, nil, 3, nil, DBM_COMMON_L.HEALER_ICON)
@@ -118,9 +118,9 @@ local warnInfernalMaw								= mod:NewStackAnnounce(425492, 3, nil, "Tank|Healer
 local warnEternalFirestorm							= mod:NewCountAnnounce(422935, 4)
 local warnEternalFirestormSwirl						= mod:NewCountAnnounce(402736, 3, nil, nil, 143413)--Short name "Swirl" 143413
 
-local specWarnApocalypseRoar						= mod:NewSpecialWarningCount(422837, nil, 140459, nil, 2, 13)
-local specWarnInfernalMaw							= mod:NewSpecialWarningDefensive(425492, nil, nil, nil, 1, 2)
-local specWarnInfernalMawTaunt						= mod:NewSpecialWarningTaunt(425492, nil, nil, nil, 1, 2)
+local specWarnApocalypseRoar						= mod:NewSpecialWarningCount(422837, nil, 140459, nil, 2, 13, nil, nil, "pushbackincoming")
+local specWarnInfernalMaw							= mod:NewSpecialWarningDefensive(425492, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnInfernalMawTaunt						= mod:NewSpecialWarningTaunt(425492, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 
 local timerApocalypseroarCD							= mod:NewCDCountTimer(49, 422837, 140459, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)
 local timerInfernalMawCD							= mod:NewCDCountTimer(49, 425492, nil, "Tank|healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)

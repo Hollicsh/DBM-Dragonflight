@@ -41,14 +41,14 @@ local warnWeaversBurden								= mod:NewCountAnnounce(426519, 2, nil, nil, 16718
 local warnEphemeralFlora							= mod:NewCountAnnounce(430563, 3)
 local warnLucidVulnerability						= mod:NewCountAnnounce(428479, 4, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(428479))--Player
 
-local specWarnImpendingLoom							= mod:NewSpecialWarningDodgeCount(429615, nil, nil, nil, 2, 2)
-local specWarnEphemeralFlora						= mod:NewSpecialWarningSoakCount(430563, "Melee", nil, nil, 2, 2)
-local specWarnViridianRain							= mod:NewSpecialWarningDodgeCount(420907, nil, nil, nil, 2, 2)
+local specWarnImpendingLoom							= mod:NewSpecialWarningDodgeCount(429615, nil, nil, nil, 2, 2, nil, nil, "farfromline")
+local specWarnEphemeralFlora						= mod:NewSpecialWarningSoakCount(430563, "Melee", nil, nil, 2, 2, nil, nil, "helpsoak")
+local specWarnViridianRain							= mod:NewSpecialWarningDodgeCount(420907, nil, nil, nil, 2, 2, nil, nil, "watchstep")
 local specWarnWeaversBurden							= mod:NewSpecialWarningMoveAway(426519, nil, 37859, nil, 1, 2)
 local yellWeaversBurden								= mod:NewShortYell(426519, 37859)--ST "Bomb"
 --local yellWeaversBurdenFades						= mod:NewShortFadesYell(426519)
 local specWarnWeaversBurdenOther					= mod:NewSpecialWarningTaunt(426519, nil, 37859, nil, 1, 2)
-local specWarnGTFO									= mod:NewSpecialWarningGTFO(428474, nil, nil, nil, 1, 8)
+local specWarnGTFO									= mod:NewSpecialWarningGTFO(428474, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local colorRed = DBM:GetSpellName(291520)
 
@@ -66,7 +66,7 @@ local warnFullBloom									= mod:NewCountAnnounce(426855, 2)
 local warnRadialFlourish							= mod:NewSpellAnnounce(422721, 2, nil, false)
 local warnWakingDecimation							= mod:NewCastAnnounce(428471, 4, 35)
 
-local specWarnLumberingSlam							= mod:NewSpecialWarningDodge(429108, nil, nil, nil, 2, 2)
+local specWarnLumberingSlam							= mod:NewSpecialWarningDodge(429108, nil, nil, nil, 2, 2, nil, nil, "shockwave")
 
 local timerFullBloomCD								= mod:NewCDCountTimer(49, 426855, nil, nil, nil, 6)
 local timerLumberingSlamCD							= mod:NewCDNPTimer(18.2, 429108, nil, nil, nil, 3)--No reason to CL it, it's a nameplate only timer

@@ -35,13 +35,13 @@ local warnMarkCast								= mod:NewCountAnnounce(391686, 3)
 local warnRagingBurst							= mod:NewCountAnnounce(388302, 3, nil, nil, 86189)
 local warnZephyrSlam							= mod:NewStackAnnounce(375580, 2, nil, "Tank|Healer")
 
-local specWarnCoalescingStorm					= mod:NewSpecialWarningCount(387849, nil, nil, nil, 2, 2)
-local specWarnConductiveMark					= mod:NewSpecialWarningMoveAway(391686, nil, nil, nil, 1, 2)
+local specWarnCoalescingStorm					= mod:NewSpecialWarningCount(387849, nil, nil, nil, 2, 2, nil, nil, "mobsoon")
+local specWarnConductiveMark					= mod:NewSpecialWarningMoveAway(391686, nil, nil, nil, 1, 2, nil, nil, "range5")
 local yellConductiveMark						= mod:NewYell(391686, 28836)--Short text "Mark"
-local specWarnCyclone							= mod:NewSpecialWarningCount(376943, nil, nil, nil, 2, 12)
-local specWarnCrosswinds						= mod:NewSpecialWarningDodgeCount(388410, nil, nil, nil, 2, 2)--232722 "Slicing Tornado" better?
-local specWarnZephyrSlam						= mod:NewSpecialWarningDefensive(375580, nil, nil, nil, 1, 2)
-local specWarnZephyrSlamTaunt					= mod:NewSpecialWarningTaunt(375580, nil, nil, nil, 1, 2)
+local specWarnCyclone							= mod:NewSpecialWarningCount(376943, nil, nil, nil, 2, 12, nil, nil, "pullin")
+local specWarnCrosswinds						= mod:NewSpecialWarningDodgeCount(388410, nil, nil, nil, 2, 2, nil, nil, "farfromline")--232722 "Slicing Tornado" better?
+local specWarnZephyrSlam						= mod:NewSpecialWarningDefensive(375580, nil, nil, nil, 1, 2, nil, nil, "carefly")
+local specWarnZephyrSlamTaunt					= mod:NewSpecialWarningTaunt(375580, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 --local specWarnGTFO							= mod:NewSpecialWarningGTFO(340324, nil, nil, nil, 1, 8)
 
 local timerColaescingStormCD					= mod:NewCDCountTimer(79.1, 387849, nil, nil, nil, 1, nil, DBM_COMMON_L.DAMAGE_ICON)
@@ -57,9 +57,9 @@ local timerZephyrSlamCD							= mod:NewCDCountTimer(15.7, 375580, nil, "Tank|Hea
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(25903))
 local warnBlowback								= mod:NewCastAnnounce(395501, 4)--Fallback warning, should know it's being cast even if not in distance of knockback, so you don't walk into it
 
-local specWarnBlowback							= mod:NewSpecialWarningSpell(395501, nil, nil, nil, 2, 2)--Distance based warning, Ie in range of knockback
-local specWarnDivertedEssence					= mod:NewSpecialWarningInterruptCount(387943, "HasInterrupt", nil, nil, 1, 2)
-local specWarnAerialSlash						= mod:NewSpecialWarningDefensive(385812, nil, nil, nil, 1, 2)
+local specWarnBlowback							= mod:NewSpecialWarningSpell(395501, nil, nil, nil, 2, 2, nil, nil, "carefly")--Distance based warning, Ie in range of knockback
+local specWarnDivertedEssence					= mod:NewSpecialWarningInterruptCount(387943, "HasInterrupt", nil, nil, 1, 2, nil, nil, "kickcast")
+local specWarnAerialSlash						= mod:NewSpecialWarningDefensive(385812, nil, nil, nil, 1, 2, nil, nil, "defensive")
 
 local timerAerialSlashCD						= mod:NewCDNPTimer(11.7, 385812, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 local timerDivertedEssenceCD					= mod:NewCDNPTimer(13.4, 387943, nil, nil, nil, 4, nil, DBM_COMMON_L.INTERRUPT_ICON)--13.4-15.8. Variance caused by interrupt timing. 13.4 if you kick instantly, 15.8 if you kick at last moment, it's basically 13.4 + cast time
@@ -67,7 +67,7 @@ local timerDivertedEssenceCD					= mod:NewCDNPTimer(13.4, 387943, nil, nil, nil,
 mod:AddSetIconOption("SetIconOnVolatileInfuser", -25903, true, 5, {8, 7, 6, 5, 4})
 --Thunder Caller
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(25958))
-local specWarnStormBolt							= mod:NewSpecialWarningInterruptCount(384273, false, nil, nil, 1, 2)
+local specWarnStormBolt							= mod:NewSpecialWarningInterruptCount(384273, false, nil, nil, 1, 2, nil, nil, "kickcast")
 
 local castsPerGUID = {}
 mod.vb.addIcon = 8

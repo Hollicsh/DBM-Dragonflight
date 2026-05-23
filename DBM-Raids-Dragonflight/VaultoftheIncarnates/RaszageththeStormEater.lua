@@ -43,7 +43,7 @@ mod:RegisterEventsInCombat(
 --General
 local warnPhase									= mod:NewPhaseChangeAnnounce(2, 2, nil, nil, nil, nil, nil, 2)
 
-local specWarnGTFO								= mod:NewSpecialWarningGTFO(388115, nil, nil, nil, 1, 8)
+local specWarnGTFO								= mod:NewSpecialWarningGTFO(388115, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerPhaseCD								= mod:NewStageTimer(30)
 --local berserkTimer							= mod:NewBerserkTimer(600)
@@ -54,14 +54,14 @@ local warnStaticCharge							= mod:NewTargetNoFilterAnnounce(381615, 3, nil, nil
 local warnLightningStrike						= mod:NewSpellAnnounce(376126, 3)
 local warnHurricaneWingOver						= mod:NewFadesAnnounce(377612, 1, nil, nil, nil, nil, nil, 2)
 
-local specWarnHurricaneWing						= mod:NewSpecialWarningCount(377612, nil, nil, nil, 2, 13)
-local specWarnStaticCharge						= mod:NewSpecialWarningYouPos(381615, nil, 37859, nil, 1, 2)
+local specWarnHurricaneWing						= mod:NewSpecialWarningCount(377612, nil, nil, nil, 2, 13, nil, nil, "pushbackincoming")
+local specWarnStaticCharge						= mod:NewSpecialWarningYouPos(381615, nil, 37859, nil, 1, 2, nil, nil, "mm")
 local yellStaticCharge							= mod:NewShortPosYell(381615, 37859)
 local yellStaticChargeFades						= mod:NewIconFadesYell(381615, 37859)
-local specWarnVolatileCurrent					= mod:NewSpecialWarningMoveAwayCount(388643, nil, 384738, nil, 2, 2)--"Sparks"
-local specWarnElectrifiedJaws					= mod:NewSpecialWarningDefensive(395906, nil, nil, nil, 1, 2)
-local specWarnElectrifiedJawsOther				= mod:NewSpecialWarningTaunt(395906, nil, nil, nil, 1, 2)
-local specWarnLightingBreath					= mod:NewSpecialWarningDodgeCount(377594, nil, 18357, nil, 2, 2)
+local specWarnVolatileCurrent					= mod:NewSpecialWarningMoveAwayCount(388643, nil, 384738, nil, 2, 2, nil, nil, "scatter")--"Sparks"
+local specWarnElectrifiedJaws					= mod:NewSpecialWarningDefensive(395906, nil, nil, nil, 1, 2, nil, nil, "defensive")
+local specWarnElectrifiedJawsOther				= mod:NewSpecialWarningTaunt(395906, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnLightingBreath					= mod:NewSpecialWarningDodgeCount(377594, nil, 18357, nil, 2, 2, nil, nil, "breathsoon")
 
 local timerHurricaneWingCD						= mod:NewCDCountTimer(35, 377612, DBM_COMMON_L.PUSHBACK.." (%s)", nil, nil, 2)
 local timerHurricaneWing						= mod:NewCastTimer(8, 377612, DBM_COMMON_L.PUSHBACK, nil, nil, 5)
@@ -78,8 +78,8 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(25683))
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(25402))
 local warnLightningDevastation					= mod:NewCountAnnounce(385065, 3, nil, nil, 125030)--NOT on our platform
 
-local specWarnStormNova							= mod:NewSpecialWarningSpell(382434, nil, nil, nil, 2, 2)
-local specWarnLightningDevastation				= mod:NewSpecialWarningDodgeCount(385065, nil, 125030, nil, 3, 2)--On our platform!
+local specWarnStormNova							= mod:NewSpecialWarningSpell(382434, nil, nil, nil, 2, 2, nil, nil, "carefly")
+local specWarnLightningDevastation				= mod:NewSpecialWarningDodgeCount(385065, nil, 125030, nil, 3, 2, nil, nil, "breathsoon")--On our platform!
 
 local timerStormNovaCD							= mod:NewCDTimer(5, 382434, nil, nil, nil, 2)
 local timerStormNova							= mod:NewCastTimer(5, 382434, nil, nil, nil, 5)
@@ -93,12 +93,12 @@ local warnShatteringShroud						= mod:NewTargetNoFilterAnnounce(397382, 4)
 local warnShatteringShroudFaded					= mod:NewFadesAnnounce(397382, 1)
 --local warnBlazingroar							= mod:NewCastAnnounce(397468, 4)--Redundant, it casts at same time as flame shield
 
-local specWarnSurgingBlast						= mod:NewSpecialWarningMoveAway(396037, nil, 37859, nil, 1, 2)
+local specWarnSurgingBlast						= mod:NewSpecialWarningMoveAway(396037, nil, 37859, nil, 1, 2, nil, nil, "runout")
 local yellSurgingBlast							= mod:NewShortYell(396037, 37859)
 local yellSurgingBlastFades						= mod:NewShortFadesYell(396037, 37859)
 --local specWarnStormBolt							= mod:NewSpecialWarningInterruptCount(385553, "HasInterrupt", nil, nil, 1, 2)
-local specWarnShatteringShroud					= mod:NewSpecialWarningYou(397382, nil, nil, nil, 1, 2, 4)
-local specWarnFlameShield						= mod:NewSpecialWarningSwitch(397387, nil, nil, nil, 1, 2, 4)
+local specWarnShatteringShroud					= mod:NewSpecialWarningYou(397382, nil, nil, nil, 1, 2, 4, nil, "targetyou")
+local specWarnFlameShield						= mod:NewSpecialWarningSwitch(397387, nil, nil, nil, 1, 2, 4, nil, "targetchange")
 
 local timerSurgingBlastCD						= mod:NewCDTimer(12.4, 396037, 37859, false, nil, 3, nil, DBM_COMMON_L.HEROIC_ICON)
 local timerShatteringShroudCD					= mod:NewCDSourceTimer(35, 397382, nil, nil, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON)
@@ -115,15 +115,15 @@ local warnFocusedCharge						= mod:NewYouAnnounce(394582, 1)
 local warnScatteredCharge					= mod:NewYouAnnounce(394583, 4)
 local warnFulminatingCharge					= mod:NewTargetNoFilterAnnounce(377467, 3, nil, nil, 345338)
 
-local specWarnStormsurge					= mod:NewSpecialWarningMoveAwayCount(387261, nil, nil, nil, 2, 2)--Maybe shorttext 28089?
-local specWarnPositiveCharge				= mod:NewSpecialWarningYou(391990, nil, nil, nil, 1, 13)--Split warning so user can custom sounds
-local specWarnNegativeCharge				= mod:NewSpecialWarningYou(391991, nil, nil, nil, 1, 13)--between positive and negative
+local specWarnStormsurge					= mod:NewSpecialWarningMoveAwayCount(387261, nil, nil, nil, 2, 2, nil, nil, "scatter")--Maybe shorttext 28089?
+local specWarnPositiveCharge				= mod:NewSpecialWarningYou(391990, nil, nil, nil, 1, 13, nil, nil, "positive")--Split warning so user can custom sounds
+local specWarnNegativeCharge				= mod:NewSpecialWarningYou(391991, nil, nil, nil, 1, 13, nil, nil, "negative")--between positive and negative
 local yellStormCharged						= mod:NewIconRepeatYell(391989)
-local specWarnInversion						= mod:NewSpecialWarningMoveAway(394584, nil, nil, nil, 3, 13, 4)
+local specWarnInversion						= mod:NewSpecialWarningMoveAway(394584, nil, nil, nil, 3, 13, 4, nil, "polarityshift")
 local yellInversion							= mod:NewIconRepeatYell(394584)
 --local specWarnScatteredCharge				= mod:NewSpecialWarningMoveAway(394583, nil, nil, nil, 1, 2)
-local specWarnTempestWing					= mod:NewSpecialWarningCount(385574, nil, 63533, nil, 2, 2)--"Storm Wave"
-local specWarnFulminatingCharge				= mod:NewSpecialWarningYouPos(377467, nil, 221175, nil, 1, 2)--"Charge" shortname
+local specWarnTempestWing					= mod:NewSpecialWarningCount(385574, nil, 63533, nil, 2, 2, nil, nil, "pushbackincoming")--"Storm Wave"
+local specWarnFulminatingCharge				= mod:NewSpecialWarningYouPos(377467, nil, 221175, nil, 1, 2, nil, nil, "mm")--"Charge" shortname
 local yellFulminatingCharge					= mod:NewShortPosYell(377467, 221175)--"Charge" shortname
 local yellFulminatingChargeFades			= mod:NewIconFadesYell(377467, 221175)--"Charge" shortname
 
@@ -142,7 +142,7 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(25816))
 local warnFuse								= mod:NewStackAnnounce(389878, 2, nil, "Tank|Healer")
 local warnStormBreak						= mod:NewCountAnnounce(389870, 3, nil, nil, 7794)--Shortname Teleport
 
-local specWarnBallLightning					= mod:NewSpecialWarningDodgeCount(385068, nil, nil, nil, 2, 2)
+local specWarnBallLightning					= mod:NewSpecialWarningDodgeCount(385068, nil, nil, nil, 2, 2, nil, nil, "watchorb")
 
 local timerLightningStrikeCD				= mod:NewCDTimer(31.6, 376126, nil, nil, nil, 3)
 local timerStormBreakCD						= mod:NewCDCountTimer(23.1, 389870, 7794, nil, nil, 3)
@@ -151,10 +151,10 @@ local timerBallLightningCD					= mod:NewCDCountTimer(23.1, 385068, nil, nil, nil
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(25477))
 local warnMagneticCharge					= mod:NewTargetNoFilterAnnounce(399713, 3)
 
-local specWarnStormEater					= mod:NewSpecialWarningSpell(395885, nil, nil, nil, 2, 2, 4)
-local specWarnThunderousBlast				= mod:NewSpecialWarningDefensive(386410, nil, 309024, nil, 1, 2)--"Blast"
-local specWarnThunderstruckArmor			= mod:NewSpecialWarningTaunt(391285, nil, nil, nil, 1, 2)
-local specWarnMagneticCharge				= mod:NewSpecialWarningYou(399713, nil, nil, nil, 1, 2)
+local specWarnStormEater					= mod:NewSpecialWarningSpell(395885, nil, nil, nil, 2, 2, 4, nil, "helpsoak")
+local specWarnThunderousBlast				= mod:NewSpecialWarningDefensive(386410, nil, 309024, nil, 1, 2, nil, nil, "defensive")--"Blast"
+local specWarnThunderstruckArmor			= mod:NewSpecialWarningTaunt(391285, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnMagneticCharge				= mod:NewSpecialWarningYou(399713, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 local yellMagneticCharge					= mod:NewShortYell(399713)
 local yellMagneticChargeFades				= mod:NewShortFadesYell(399713)
 
