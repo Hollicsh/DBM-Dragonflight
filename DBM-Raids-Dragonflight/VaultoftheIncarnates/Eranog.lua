@@ -43,7 +43,7 @@ local specWarnMoltenCleave						= mod:NewSpecialWarningDodgeCount(370615, nil, n
 local specWarnBurningWound						= mod:NewSpecialWarningStack(394906, nil, 6, nil, nil, 1, 6, nil, nil, "stackhigh")
 local specWarnBurningWoundTaunt					= mod:NewSpecialWarningTaunt(394906, false, nil, 2, 1, 2, nil, nil, "tauntboss")
 local specWarnIncineratingRoar					= mod:NewSpecialWarningCount(396023, nil, nil, nil, 2, 2, nil, nil, "aesoon")
-local specWarnMoltenSpikes						= mod:NewSpecialWarningDodgeCount(396022, nil, nil, nil, 2, 2, nil, nil, "Interface\\AddOns\\DBM-VP")
+local specWarnMoltenSpikes						= mod:NewSpecialWarningDodgeCount(396022, nil, nil, nil, 2, 2)
 local specWarnGTFO								= mod:NewSpecialWarningGTFO(370648, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerMoltenCleaveCD						= mod:NewCDCountTimer(29.9, 370615, nil, nil, nil, 3)
