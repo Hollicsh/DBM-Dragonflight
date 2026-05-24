@@ -29,6 +29,7 @@ mod:RegisterEventsInCombat(
  or ability.id = 401419 and (type = "applybuff" or type = "removebuff") or ability.id = 405825 or ability.id = 407641
 --]]
 --TODO, https://www.wowhead.com/ptr/spell=407706/molten-wrath seems passive, but still maybe have a 15 second timer with right script
+DBM:RegisterAltSpellName(410070, 98565)--Unleashed Shadowflame -> Burning Orbs
 local warnSearingSlam								= mod:NewTargetNoFilterAnnounce(405821, 4)
 local warnSiphonEnergyApplied						= mod:NewTargetNoFilterAnnounce(401419, 2)
 local warnSiphonEnergyRemoved						= mod:NewFadesAnnounce(401419, 2)
@@ -46,7 +47,7 @@ local specWarnFlamingSlashTaunt						= mod:NewSpecialWarningTaunt(407547, nil, n
 local specWarnEarthenCrush							= mod:NewSpecialWarningDefensive(407597, nil, nil, nil, 1, 2, nil, nil, "defensive")
 local specWarnEarthenCrushTaunt						= mod:NewSpecialWarningTaunt(407597, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 
-local specWarnUnleashedShadowflame					= mod:NewSpecialWarningCount(410070, nil, 98565, nil, 2, 2, 4, nil, "specialsoon")
+local specWarnUnleashedShadowflame					= mod:NewSpecialWarningCount(410070, nil, nil, nil, 2, 2, 4, nil, "specialsoon")
 local specWarnGTFO									= mod:NewSpecialWarningGTFO(403543, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local timerAncientFuryCD							= mod:NewCDTimer(29.9, 405316, nil, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)
@@ -55,7 +56,7 @@ local timerDoomFlameCD								= mod:NewCDCountTimer(28.9, 406851, nil, nil, nil,
 local timerShadowlavaBlastCD						= mod:NewCDCountTimer(28.9, 406333, nil, nil, nil, 3)
 local timerChargedSmashCD							= mod:NewCDCountTimer(40, 400777, nil, nil, nil, 3)
 local timerVolcanicComboCD							= mod:NewCDCountTimer(40, 407641, DBM_COMMON_L.TANKCOMBO.." (%s)", "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)
-local timerUnleashedShadowflameCD					= mod:NewCDCountTimer(40, 410070, 98565, nil, nil, 2, nil, DBM_COMMON_L.MYTHIC_ICON)--"Burning Orbs"
+local timerUnleashedShadowflameCD					= mod:NewCDCountTimer(40, 410070, nil, nil, nil, 2, nil, DBM_COMMON_L.MYTHIC_ICON)--"Burning Orbs"
 --local berserkTimer								= mod:NewBerserkTimer(600)
 
 mod:AddInfoFrameOption(405827)

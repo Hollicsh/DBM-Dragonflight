@@ -33,6 +33,11 @@ mod:RegisterEventsInCombat(
 --TODO, Smashing Viscera is a hidden aura that's not logged, but UNIT_AURA might work
 --TODO, spears 13 is long by 2.3?
 --https://www.warcraftlogs.com/reports/N2k1xpg9rVqRDyQZ#fight=11&pins=2%24Off%24%23244F4B%24expression%24(ability.id%20%3D%20414425%20or%20ability.id%20%3D%20416996%20or%20ability.id%20%3D%20422776%20or%20ability.id%20%3D%20419048%20or%20ability.id%20%3D%20416048%20or%20ability.id%20%3D%20418531%20or%20ability.id%20%3D%20415624)%20and%20type%20%3D%20%22begincast%22%0A%20or%20ability.id%20%3D%20424456%20and%20type%20%3D%20%22cast%22%0A%20or%20ability.id%20%3D%20415020%20or%20ability.id%20%3D%20415094%20or%20ability.id%20%3D%20415090%20or%20ability.id%20%3D%20425282%20or%20ability.id%20%3D%20425283%20or%20ability.id%20%3D%20414357%0A%20or%20ability.name%20%3D%20%22Heart%20Stopper%22&view=events
+DBM:RegisterAltSpellName(414888, 282481)--Blistering Spear -> Spears
+DBM:RegisterAltSpellName(414770, 184656)--Blistering Torment -> Chains
+DBM:RegisterAltSpellName(416996, 138737)--Twisting Blade -> Blades
+DBM:RegisterAltSpellName(422776, 99256)--Marked for Torment -> Torment
+DBM:RegisterAltSpellName(424456, 47482)--Smashing Viscera -> Leap
 local warnDrenchedBlades							= mod:NewStackAnnounce(414340, 2, nil, "Tank|Healer")
 local warnBlisteringSpear							= mod:NewTargetCountAnnounce(414888, 3, nil, nil, 282481, nil, nil, nil, true)
 local warnMarkedforTorment							= mod:NewCountAnnounce(422776, 3, nil, nil, 99256)
@@ -46,16 +51,16 @@ local warnHeartStopper								= mod:NewTargetCountAnnounce(415623, 3, nil, nil, 
 local warnFleshMortification						= mod:NewYouAnnounce(419462, 4)
 
 local specWarnDrenchedBlades						= mod:NewSpecialWarningTaunt(414340, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
-local specWarnBlisteringSpear						= mod:NewSpecialWarningYou(414888, nil, 369351, nil, 1, 2, nil, nil, "spear")
+local specWarnBlisteringSpear						= mod:NewSpecialWarningYou(414888, nil, nil, nil, 1, 2, nil, nil, "spear")
 local yellBlisteringSpear							= mod:NewShortPosYell(414888, 369351, false)--Shorttext "Spear"
 local yellBlisteringSpearFades						= mod:NewIconFadesYell(414888, nil, false)
-local specWarnBlisteringTorment						= mod:NewSpecialWarningYou(414770, nil, 184656, nil, 1, 2, nil, nil, "targetyou")--Shorttext "Chains"
+local specWarnBlisteringTorment						= mod:NewSpecialWarningYou(414770, nil, nil, nil, 1, 2, nil, nil, "targetyou")--Shorttext "Chains"
 local yellBlisteringTorment							= mod:NewShortYell(414770, 184656)
-local specWarnTwistingBlade							= mod:NewSpecialWarningDodgeCount(416996, nil, 138737, nil, 2, 2, nil, nil, "watchstep")
+local specWarnTwistingBlade							= mod:NewSpecialWarningDodgeCount(416996, nil, nil, nil, 2, 2, nil, nil, "watchstep")
 local specWarnRuinousEnd							= mod:NewSpecialWarningSpell(419048, nil, nil, nil, 3, 2, nil, nil, "aesoon")
 --Torments
 local specWarnUmbralDestruction						= mod:NewSpecialWarningCount(416048, nil, nil, nil, 2, 14, nil, nil, "otherout")
-local specWarnSmashingViscera						= mod:NewSpecialWarningYou(424456, nil, 47482, nil, 1, 2, nil, nil, "targetyou")--Not in combat log
+local specWarnSmashingViscera						= mod:NewSpecialWarningYou(424456, nil, nil, nil, 1, 2, nil, nil, "targetyou")--Not in combat log
 local yellSmashingViscera							= mod:NewShortYell(424456, 47482)
 local yellSmashingVisceraFades						= mod:NewShortFadesYell(424456)
 local specWarnHeartStopper							= mod:NewSpecialWarningYou(415623, nil, nil, nil, 1, 2, nil, nil, "targetyou")
@@ -64,14 +69,14 @@ local yellHeartStopperFades							= mod:NewShortFadesYell(415623)
 local specWarnVitalRupture							= mod:NewSpecialWarningYou(426056, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 --local specWarnGTFO								= mod:NewSpecialWarningGTFO(409058, nil, nil, nil, 1, 8)
 
-local timerBlisteringSpearCD						= mod:NewCDCountTimer(49, 414888, 282481, nil, nil, 3)--Short text "Spears"
-local timerTwistingBladeCD							= mod:NewCDCountTimer(20.6, 416996, 138737, nil, nil, 3)--Short Text "Blades"
+local timerBlisteringSpearCD						= mod:NewCDCountTimer(49, 414888, nil, nil, nil, 3)--Short text "Spears"
+local timerTwistingBladeCD							= mod:NewCDCountTimer(20.6, 416996, nil, nil, nil, 3)--Short Text "Blades"
 
-local timerMarkedforTorment							= mod:NewCastTimer(20, 422776, 99256, nil, nil, 2)--Short text "Torment"
-local timerMarkedforTormentCD						= mod:NewCDCountTimer(49, 422776, 99256, nil, nil, 6)--Short text "Torment"
+local timerMarkedforTorment							= mod:NewCastTimer(20, 422776, nil, nil, nil, 2)--Short text "Torment"
+local timerMarkedforTormentCD						= mod:NewCDCountTimer(49, 422776, nil, nil, nil, 6)--Short text "Torment"
 --Torments
 local timerUmbralDestructionCD						= mod:NewCDCountTimer(49, 416048, DBM_COMMON_L.GROUPSOAK.." (%s)", nil, nil, 5)--Shorttext "Soak"
-local timerSmashingVisceraCD						= mod:NewCDCountTimer(49, 424456, 47482, nil, nil, 3)--Shorttext "Leap"
+local timerSmashingVisceraCD						= mod:NewCDCountTimer(49, 424456, nil, nil, nil, 3)--Shorttext "Leap"
 local timerHeartStopperCD							= mod:NewCDCountTimer(49, 415623, DBM_COMMON_L.HEALABSORBS.." (%s)", nil, nil, 3)
 local berserkTimer									= mod:NewBerserkTimer(600)
 

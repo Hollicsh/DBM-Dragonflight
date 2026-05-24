@@ -33,6 +33,7 @@ mod:RegisterEventsInCombat(
 --TODO, nameplate aura for https://www.wowhead.com/ptr/spell=410740/from-the-ashes ? need to make sure it actually has nameplate first
 --TODO, can lava flow be dodged? if so probably should be emphasized, if not, cast alert should be removed
 --TODO, stage 2 https://www.wowhead.com/ptr/spell=406585/ignaras-fury fury timer?
+DBM:RegisterAltSpellName(408959, 67382)--Devastating Leap -> Leap
 --General
 
 --local specWarnGTFO								= mod:NewSpecialWarningGTFO(370648, nil, nil, nil, 1, 8)
@@ -58,11 +59,11 @@ local warnWallClimber								= mod:NewCountAnnounce(-26221, 2, 163789, false, 2)
 local specWarnHeavyCudgel							= mod:NewSpecialWarningDefensive(401258, nil, nil, nil, 1, 2, nil, nil, "defensive")
 local specWarnHeavyCudgelStack						= mod:NewSpecialWarningStack(401258, nil, 2, nil, nil, 1, 6, nil, nil, "stackhigh")
 local specWarnHeavyCudgelSwap						= mod:NewSpecialWarningTaunt(401258, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
-local specWarnDevastatingLeap						= mod:NewSpecialWarningDodgeCount(408959, nil, 67382, nil, 2, 2, nil, nil, "watchstep")
+local specWarnDevastatingLeap						= mod:NewSpecialWarningDodgeCount(408959, nil, nil, nil, 2, 2, nil, nil, "watchstep")
 local specWarnAdds									= mod:NewSpecialWarningAddsCustom(285849, "-Healer", nil, nil, 1, 2, nil, nil, "bigmob")
 
 local timerHeavyCudgelCD							= mod:NewCDCountTimer(21.0, 401258, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)
-local timerDevastatingLeapCD						= mod:NewCDCountTimer(29.9, 408959, 67382, nil, nil, 3)--"Leap"
+local timerDevastatingLeapCD						= mod:NewCDCountTimer(29.9, 408959, nil, nil, nil, 3)--"Leap"
 local timerMagmaMysticCD							= mod:NewCDCountTimer(29.9, 397383, nil, nil, nil, 1)--Molten Barrier Icon
 local timerWallClimberCD							= mod:NewCDCountTimer(29.9, -26221, nil, false, 2, 1, 163789)--Ladder Icon
 local timerGuardsandHuntsmanCD						= mod:NewTimer(30, "timerGuardsandHuntsmanCD", 285849, nil, nil, 1, nil, nil, nil, nil, nil, nil, nil, 404382)--Random guard banner

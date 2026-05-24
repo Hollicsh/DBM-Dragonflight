@@ -22,6 +22,7 @@ mod:RegisterEventsInCombat(
 --[[
 (ability.id = 380487 or ability.id = 377166 or ability.id = 377505 or ability.id = 383073 or ability.id = 376279 or ability.id = 396351) and type = "begincast"
 --]]
+DBM:RegisterAltSpellName(377166, 307421)
 local warnRockBlast								= mod:NewTargetNoFilterAnnounce(380487, 3)
 local warnAwakenedEarth							= mod:NewTargetNoFilterAnnounce(381253, 3)
 local warnConcussiveSlam						= mod:NewStackAnnounce(376279, 2, nil, "Tank|Healer")
@@ -33,7 +34,7 @@ local specWarnBrutalReverberation				= mod:NewSpecialWarningDodge(386400, nil, n
 local specWarnAwakenedEarth						= mod:NewSpecialWarningYou(381253, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 local yellAwakenedEarth							= mod:NewShortPosYell(381253)
 local yellAwakenedEarthFades					= mod:NewIconFadesYell(381253)
-local specWarnResonatingAnnihilation			= mod:NewSpecialWarningCount(377166, nil, 307421, nil, 2, 2, nil, nil, "specialsoon")
+local specWarnResonatingAnnihilation			= mod:NewSpecialWarningCount(377166, nil, nil, nil, 2, 2, nil, nil, "specialsoon")
 local specWarnShatteringImpact					= mod:NewSpecialWarningDodge(383073, nil, nil, nil, 2, 2, nil, nil, "watchstep")
 local specWarnConcussiveSlam					= mod:NewSpecialWarningDefensive(376279, nil, nil, nil, 1, 2, nil, nil, "defensive")
 local specWarnConcussiveSlamTaunt				= mod:NewSpecialWarningTaunt(376279, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
@@ -43,7 +44,7 @@ local specWarnGTFO								= mod:NewSpecialWarningGTFO(382458, nil, nil, nil, 1, 
 
 local timerInfusedFalloutCD						= mod:NewNextCountTimer(35, 391592, nil, nil, nil, 2, nil, DBM_COMMON_L.MYTHIC_ICON)
 local timerRockBlastCD							= mod:NewNextCountTimer(35, 380487, nil, nil, nil, 3)
-local timerResonatingAnnihilationCD				= mod:NewNextCountTimer(96.4, 377166, 307421, nil, nil, 3)
+local timerResonatingAnnihilationCD				= mod:NewNextCountTimer(96.4, 377166, nil, nil, nil, 3)
 local timerShatteringImpactCD					= mod:NewNextCountTimer(35, 383073, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)
 local timerConcussiveSlamCD						= mod:NewNextCountTimer(35, 376279, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 local timerFrenziedDevastationCD				= mod:NewNextTimer(387.9, 377505, nil, nil, nil, 2)--Berserk timer basically

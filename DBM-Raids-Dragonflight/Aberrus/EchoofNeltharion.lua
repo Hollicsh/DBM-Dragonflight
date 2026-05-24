@@ -35,6 +35,10 @@ mod:RegisterEventsInCombat(
 --]]
 --TODO, delete redundant/incorrect events when real events known
 --TODO, Add shatter? https://www.wowhead.com/ptr/spell=401825/shatter
+DBM:RegisterAltSpellName(410953, 167180)--Volcanic Heart -> Bombs
+DBM:RegisterAltSpellName(402115, 381446)--Echoing Fissure
+DBM:RegisterAltSpellName(407936, 109401)--Sunder Reality -> Portals
+DBM:RegisterAltSpellName(407917, 64584)--Ebon Destruction -> Big Bang
 local warnPhase									= mod:NewPhaseChangeAnnounce(2, 2, nil, nil, nil, nil, nil, 2)
 --Stage One: The Earth Warder
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(26192))
@@ -48,7 +52,7 @@ local warnVolcanicHeart							= mod:NewCountAnnounce(410953, 3, nil, nil, 167180
 --local yellVolcanicHeart						= mod:NewShortPosYell(410953)
 --local yellVolcanicHeartFades					= mod:NewIconFadesYell(410953)
 local specWarnTwistedEarth						= mod:NewSpecialWarningDodgeCount(402902, false, nil, 2, 2, 2, nil, nil, "watchstep")--Twisted earth spawn+Dodge for Volcanic Blast
-local specWarnEchoingFissure					= mod:NewSpecialWarningDodgeCount(402115, nil, 381446, nil, 2, 2, nil, nil, "justrun")
+local specWarnEchoingFissure					= mod:NewSpecialWarningDodgeCount(402115, nil, nil, nil, 2, 2, nil, nil, "justrun")
 --local specWarnRushingDarkness					= mod:NewSpecialWarningDodgeCount(407221, nil, nil, nil, 2, 2)
 local yellRushingDarkness						= mod:NewYell(407221, L.WallBreaker)
 local yellRushingDarknessFades					= mod:NewIconFadesYell(407221)
@@ -57,9 +61,9 @@ local specWarnCalamitousStrikeSwap				= mod:NewSpecialWarningTaunt(401998, nil, 
 --local specWarnPyroBlast						= mod:NewSpecialWarningInterrupt(396040, "HasInterrupt", nil, nil, 1, 2)
 local specWarnGTFO								= mod:NewSpecialWarningGTFO(409058, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
-local timerVolcanicHeartCD						= mod:NewNextCountTimer(26.2, 410953, 167180, nil, nil, 3)--ShortText "Bombs" (not precise enough as next timer, but next is used to match BW string for weak aura matching)
+local timerVolcanicHeartCD						= mod:NewNextCountTimer(26.2, 410953, nil, nil, nil, 3)--ShortText "Bombs" (not precise enough as next timer, but next is used to match BW string for weak aura matching)
 local timerTwistedEarthCD						= mod:NewCDCountTimer(26.2, 402902, nil, nil, nil, 3)
-local timerEchoingFissureCD						= mod:NewCDCountTimer(36.3, 402115, 381446, nil, nil, 2)
+local timerEchoingFissureCD						= mod:NewCDCountTimer(36.3, 402115, nil, nil, nil, 2)
 local timerRushingDarknessCD					= mod:NewCDCountTimer(36.3, 407221, nil, nil, nil, 3)
 local timerCalamitousStrikeCD					= mod:NewCDCountTimer(36.3, 401998, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 --local berserkTimer							= mod:NewBerserkTimer(600)
@@ -97,9 +101,9 @@ local warnEbonDestruction						= mod:NewCountAnnounce(407917, 4)
 
 local specWarnEbonDestructionMove				= mod:NewSpecialWarningMoveTo(407917, nil, 64584, nil, 3, 2, nil, nil, "findshelter")
 
-local timerSunderRealityCD						= mod:NewCDCountTimer(35.1, 407936, 109401, nil, nil, 5)--"Portals"
-local timerSunderReality						= mod:NewCastTimer(12, 407936, 109401, nil, nil, 5)--"Portals"
-local timerEbonDestructionCD					= mod:NewCDCountTimer(35.2, 407917, 64584, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)--"Big Bang"
+local timerSunderRealityCD						= mod:NewCDCountTimer(35.1, 407936, nil, nil, nil, 5)--"Portals"
+local timerSunderReality							= mod:NewCastTimer(12, 407936, nil, nil, nil, 5)--"Portals"
+local timerEbonDestructionCD					= mod:NewCDCountTimer(35.2, 407917, nil, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)--"Big Bang"
 
 mod:AddInfoFrameOption(407919, true)
 

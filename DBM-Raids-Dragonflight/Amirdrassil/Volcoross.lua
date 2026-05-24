@@ -36,14 +36,17 @@ mod:RegisterEventsInCombat(
 --TODO, chat bubbles for Coiling Flames
 --TODO, work out right taunt timing, just swap for each jaws or on venom stacks?
 --TODO, add obvious https://www.wowhead.com/ptr-2/spell=424218/combusting-rage if tanks aren't in range?
+DBM:RegisterAltSpellName(421672, 7897)--Serpent's Fury -> Flames
+DBM:RegisterAltSpellName(421207, 7897)--Coiling Flames -> Flames
+DBM:RegisterAltSpellName(420415, 136870)--Scorchtail Crash -> Tail Slam
 --mod:AddTimerLine(DBM:EJ_GetSectionInfo(22309))
 local warnSperentsFury								= mod:NewCountAnnounce(421672, 3)
 local warnMoltenVenom								= mod:NewStackAnnounce(419054, 2, nil, "Tank|Healer")
 local warnSerpentsWrath								= mod:NewSpellAnnounce(421703, 4)
 local warnVolcanicDisgorge							= mod:NewTargetCountAnnounce(421616, 3, nil, nil, nil, nil, nil, nil, true)
 
-local specWarnCoilingFlames							= mod:NewSpecialWarningYou(421207, nil, 7897, nil, 1, 2, nil, nil, "targetyou")
-local yellCoilingFlames								= mod:NewYell(421207, 7897)--Shortname Flames
+local specWarnCoilingFlames							= mod:NewSpecialWarningYou(421207, nil, nil, nil, 1, 2, nil, nil, "targetyou")
+local yellCoilingFlames								= mod:NewYell(421207)
 local yellCoilingFlamesFades						= mod:NewShortFadesYell(421207)
 local specWarnCoilingEruption						= mod:NewSpecialWarningYou(427201, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 local yellCoilingEruption							= mod:NewShortYell(427201, DBM_COMMON_L.GROUPSOAK, nil, nil, "YELL")
@@ -54,17 +57,17 @@ local yellCoilingEruptionFades						= mod:NewShortFadesYell(427201, nil, nil, ni
 local specWarnFloodoftheFirleands					= mod:NewSpecialWarningSoakCount(420933, nil, nil, nil, 2, 2, nil, nil, "helpsoak")
 local specWarnVolcanicDisgorge						= mod:NewSpecialWarningYou(421616, nil, nil, nil, 2, 2, nil, nil, "watchstep")
 local yellVolcanicDisgorge							= mod:NewShortYell(421616, DBM_COMMON_L.POOLS)
-local specWarnScorchtailCrash						= mod:NewSpecialWarningDodgeCount(420415, nil, 136870, nil, 3, 2, nil, nil, "watchstep")
+local specWarnScorchtailCrash						= mod:NewSpecialWarningDodgeCount(420415, nil, nil, nil, 3, 2, nil, nil, "watchstep")
 local specWarnCataclysmJaws							= mod:NewSpecialWarningDefensive(423117, nil, nil, nil, 1, 2, nil, nil, "defensive")
 local specWarnCataclysmJawsTaunt					= mod:NewSpecialWarningTaunt(423117, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 local specWarnGTFO									= mod:NewSpecialWarningGTFO(421082, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
-local timerSerpentsFuryCD							= mod:NewNextCountTimer(70, 421672, 7897, nil, nil, 3)--Shortname "Flames"
-local timerCoilingFlames							= mod:NewCastTimer(7.5, 421672, 7897, nil, nil, 5)
+local timerSerpentsFuryCD							= mod:NewNextCountTimer(70, 421672, nil, nil, nil, 3)
+local timerCoilingFlames							= mod:NewCastTimer(7.5, 421672, nil, nil, nil, 5)
 local timerCoilingEruption							= mod:NewCastTimer(16, 427201, L.DebuffSoaks, nil, nil, 5)
 local timerFloodoftheFirelandsCD					= mod:NewNextCountTimer(70, 420933, DBM_COMMON_L.GROUPSOAKS.." (%s)", nil, nil, 5)
 local timerVolcanicDisgorgeCD						= mod:NewNextCountTimer(10, 421616, DBM_COMMON_L.POOLS.." (%s)", nil, nil, 3)
-local timerScorchtailCrashCD						= mod:NewCDCountTimer(20, 420415, 136870, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)--Short name "Tail Slam"
+local timerScorchtailCrashCD						= mod:NewCDCountTimer(20, 420415, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)
 local timerCataclysmJawsCD							= mod:NewNextCountTimer(10, 423117, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 --local berserkTimer								= mod:NewBerserkTimer(600)
 

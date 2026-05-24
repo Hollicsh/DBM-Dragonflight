@@ -31,6 +31,7 @@ mod:RegisterEventsInCombat(
  or ability.id = 429983 and (type = "applydebuff" or type = "applydebuffstack")
 --]]
 --TODO, Unravel stack tracking in Stage 2?
+DBM:RegisterAltSpellName(426519, 167180)--Weaver's Burden -> Bombs
 --Stage One: Rapid Iteration
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(28355))
 local warnContinuum									= mod:NewCountAnnounce(420846, 2)
@@ -56,7 +57,7 @@ local timerImpendingLoomCD							= mod:NewCDCountTimer(23.8, 429615, L.Threads, 
 local timerEphemeralFloraCD							= mod:NewCDCountTimer(49, 430563, colorRed.." "..DBM_COMMON_L.GROUPSOAKS.." (%s)", nil, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON)
 local timerSurgingGrowthCD							= mod:NewCDCountTimer(7, 429983, DBM_COMMON_L.GROUPSOAKS.." (%s)", nil, nil, 3)--5.1-9, usually 8-9
 local timerViridianRainCD							= mod:NewCDCountTimer(19.1, 420907, DBM_COMMON_L.AOEDAMAGE.." (%s)", nil, nil, 3)
-local timerWeaversBurdenCD							= mod:NewCDCountTimer(17.8, 426519, 167180, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)--ST "Bombs"
+local timerWeaversBurdenCD							= mod:NewCDCountTimer(17.8, 426519, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)--ST "Bombs"
 local berserkTimer									= mod:NewBerserkTimer(720)
 
 mod:AddPrivateAuraSoundOption(427722, true, 426519, 1, 1, "runout", 2)--Weaver's Burden

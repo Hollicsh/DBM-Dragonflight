@@ -38,6 +38,10 @@ mod:RegisterEventsInCombat(
 --TODO, nameplate aura for 424997 on Seed of life? (IE do they have visible nameplates it'd be usefulf or)
 --TODO, maybe infoframe for tracking Blazing Coal stacks?
 --TODO, more with the tank stuff?
+DBM:RegisterAltSpellName(418637, 100)--Furious Charge -> Charge
+DBM:RegisterAltSpellName(417634, 37625)--Raging Inferno -> Inferno
+DBM:RegisterAltSpellName(427343, 86189)--Fire Whirl -> Tornados
+DBM:RegisterAltSpellName(428896, 167180)--Ashen Devastation -> Bombs
 --General
 local warnPhase										= mod:NewPhaseChangeAnnounce(2, 2, nil, nil, nil, nil, nil, 2)
 
@@ -68,22 +72,22 @@ local specWarnFieryFlourish							= mod:NewSpecialWarningInterruptCount(426524, 
 --local specWarnScorchingPursuit					= mod:NewSpecialWarningRun(420544, nil, nil, nil, 4, 2)--BW using 420546, but may change to 420544
 --local yellScorchingPursuit						= mod:NewShortYell(420544)
 local specWarnScorchingBramblethorn					= mod:NewSpecialWarningYou(426387, nil, nil, nil, 1, 2, nil, nil, "targetyou")
-local specWarnFuriousCharge							= mod:NewSpecialWarningRun(418637, nil, 100, nil, 4, 2, nil, nil, "justrun")
-local yellFuriousCharge								= mod:NewShortYell(418637, 100)
-local specWarnFuriousChargePreTaunt					= mod:NewSpecialWarningTaunt(418637, nil, 100, nil, 1, 2)--Taunt on cast start
+local specWarnFuriousCharge							= mod:NewSpecialWarningRun(418637, nil, nil, nil, 4, 2, nil, nil, "justrun")
+local yellFuriousCharge								= mod:NewShortYell(418637)
+local specWarnFuriousChargePreTaunt					= mod:NewSpecialWarningTaunt(418637, nil, nil, nil, 1, 2)--Taunt on cast start
 local specWarnNaturesFury							= mod:NewSpecialWarningTaunt(423719, nil, nil, nil, 1, 2, nil, nil, "tauntboss")--Yell to taunt again if you didn't taunt in pre cast
 local specWarnBlazingThornsAvoid					= mod:NewSpecialWarningDodgeCount(426206, "-Healer", nil, nil, 1, 2, nil, nil, "watchstep")--Initial cast to dodge
 local specWarnBlazingThornsSoak						= mod:NewSpecialWarningSoakCount(426249, "-Healer", nil, nil, 1, 2)--Follow up orbs to soak
-local specWarnRagingInferno							= mod:NewSpecialWarningMoveTo(417634, nil, 37625, nil, 3, 2, nil, nil, "findshield")--Shortname Inferno
+local specWarnRagingInferno							= mod:NewSpecialWarningMoveTo(417634, nil, nil, nil, 3, 2, nil, nil, "findshield")
 
 local timerIgnitingGrowthCD							= mod:NewCDCountTimer(49, 425889, DBM_COMMON_L.POOLS.." (%s)", nil, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON)
 local timerFieryForceofNatureCD						= mod:NewCDCountTimer(11.8, 417653, DBM_COMMON_L.ADDS.." (%s)", nil, nil, 1)
 local timerFieryFlourishCD							= mod:NewCDNPTimer(9.7, 426524, nil, nil, nil, 4, nil, DBM_COMMON_L.INTERRUPT_ICON)--Nameplate only timer
 local timerScorchingRootsCD							= mod:NewCDCountTimer(49, 422614, DBM_COMMON_L.ROOTS.." (%s)", nil, nil, 3)
-local timerFuriousChargeCD							= mod:NewCDCountTimer(22.5, 418637, 100, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)--SN "Charge"
+local timerFuriousChargeCD							= mod:NewCDCountTimer(22.5, 418637, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 local timerBlazingThornsCD							= mod:NewCDCountTimer(49, 426206, DBM_COMMON_L.DODGES.." (%s)", nil, nil, 3, nil, DBM_COMMON_L.DAMAGE_ICON)
 local timerBlazingThornsSoak						= mod:NewCastTimer(5, 426249, DBM_COMMON_L.ORBS.." (%s)", nil, nil, 5, nil, DBM_COMMON_L.HEROIC_ICON)
-local timerRagingInfernoCD							= mod:NewCDCountTimer(49, 417634, 37625, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)--SN "Inferno"
+local timerRagingInfernoCD							= mod:NewCDCountTimer(49, 417634, nil, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)
 
 mod:AddPrivateAuraSoundOption(425888, true, 425889, 1, 1, "targetyou", 2)--Igniting Growth
 mod:AddPrivateAuraSoundOption(425468, true, 425468, 1, 1, "targetyou", 2)--Dream Blossom
@@ -103,7 +107,7 @@ local warnFlashFire									= mod:NewTargetNoFilterAnnounce(427299, 3, nil, "Hea
 local warnEncasedInAsh								= mod:NewTargetNoFilterAnnounce(427306, 4, nil, "RemoveMagic")
 local warnAshenCall									= mod:NewCountAnnounce(421325, 2)
 --local warnSearingAsh								= mod:NewCountAnnounce(421407, 2, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(426249))
-local warnAshenDevastation							= mod:NewCountAnnounce(428896, 3, nil, nil, 167180)--Shortname "Bombs"
+local warnAshenDevastation							= mod:NewCountAnnounce(428896, 3)
 
 local specWarnFallingEmbers							= mod:NewSpecialWarningSoakCount(427252, nil, nil, nil, 2, 2, nil, nil, "helpsoak")
 local specWarnFlashFire								= mod:NewSpecialWarningMoveAway(427299, nil, nil, nil, 1, 2, nil, nil, "runout")--Blizzard didn't flag right spellids as private aura, so this probably still works for now
@@ -111,7 +115,7 @@ local yellFlashFire									= mod:NewShortYell(427299)--Blizzard didn't flag rig
 local yellFlashFireFades							= mod:NewShortFadesYell(427299)--Blizzard didn't flag right spellids as private aura, so this probably still works for now
 local specWarnEncasedInAsh							= mod:NewSpecialWarningYou(427306, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 local yellEncasedInAsh								= mod:NewShortYell(427306)
-local specWarnFireWhirl								= mod:NewSpecialWarningDodgeCount(427343, nil, 86189, nil, 2, 2, nil, nil, "watchstep")
+local specWarnFireWhirl								= mod:NewSpecialWarningDodgeCount(427343, nil, nil, nil, 2, 2, nil, nil, "watchstep")
 local specWarnSmolderingBackdraft					= mod:NewSpecialWarningDefensive(429973, nil, nil, nil, 1, 2, nil, nil, "defensive")
 local specWarnSmolderingSuffocation					= mod:NewSpecialWarningTaunt(421594, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 local yellSmolderingSuffocationRepeater				= mod:NewIconRepeatYell(421594, DBM_CORE_L.AUTO_YELL_ANNOUNCE_TEXT.shortyell, false, nil, "YELL")--using custom yell text "%s" because of custom needs (it has to use not only icons but two asci emoji
@@ -121,7 +125,7 @@ local yellSmolderingSuffocationRepeater				= mod:NewIconRepeatYell(421594, DBM_C
 
 local timerFallingEmbersCD							= mod:NewCDCountTimer(49, 427252, nil, nil, nil, 5, nil, DBM_COMMON_L.DEADLY_ICON)
 local timerFlashFireCD								= mod:NewCDCountTimer(49, 427299, L.HealAbsorb, nil, nil, 3)
-local timerFireWhirlCD								= mod:NewCDCountTimer(50, 427343, 86189, nil, nil, 3)--Shortname "Tornados"
+local timerFireWhirlCD								= mod:NewCDCountTimer(50, 427343, nil, nil, nil, 3)
 local timerSmolderingBackdraftCD					= mod:NewCDCountTimer(49, 429973, DBM_COMMON_L.FRONTAL.." (%s)", nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 local timerAshenCallCD								= mod:NewCDCountTimer(11.8, 421325, DBM_COMMON_L.ADDS.." (%s)", nil, nil, 1, nil, DBM_COMMON_L.DAMAGE_ICON)
 local timerAshenDevestationCD						= mod:NewCDCountTimer(49, 428896, nil, nil, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON)

@@ -29,10 +29,11 @@ mod:RegisterEventsInCombat(
 (ability.id = 387849 or ability.id = 388302 or ability.id = 376943 or ability.id = 388410 or ability.id = 375580) and type = "begincast"
  or ability.id = 391600 and type = "cast" and source.id = 189813
 --]]
+DBM:RegisterAltSpellName(388302, 86189)--Raging Burst -> Tornados
 --Dathea, Ascended
 mod:AddTimerLine(DBM_COMMON_L.BOSS)
 local warnMarkCast								= mod:NewCountAnnounce(391686, 3)
-local warnRagingBurst							= mod:NewCountAnnounce(388302, 3, nil, nil, 86189)
+local warnRagingBurst							= mod:NewCountAnnounce(388302, 3, nil, nil, nil)
 local warnZephyrSlam							= mod:NewStackAnnounce(375580, 2, nil, "Tank|Healer")
 
 local specWarnCoalescingStorm					= mod:NewSpecialWarningCount(387849, nil, nil, nil, 2, 2, nil, nil, "mobsoon")
@@ -45,7 +46,7 @@ local specWarnZephyrSlamTaunt					= mod:NewSpecialWarningTaunt(375580, nil, nil,
 --local specWarnGTFO							= mod:NewSpecialWarningGTFO(340324, nil, nil, nil, 1, 8)
 
 local timerColaescingStormCD					= mod:NewCDCountTimer(79.1, 387849, nil, nil, nil, 1, nil, DBM_COMMON_L.DAMAGE_ICON)
-local timerRagingBurstCD						= mod:NewCDCountTimer(79.1, 388302, 86189, nil, nil, 3)--Tornados
+local timerRagingBurstCD						= mod:NewCDCountTimer(79.1, 388302, nil, nil, nil, 3)--Tornados
 local timerConductiveMarkCD						= mod:NewCDCountTimer(25, 391686, nil, nil, nil, 3)
 local timerCycloneCD							= mod:NewCDCountTimer(79.1, 376943, nil, nil, nil, 2)
 local timerCrosswindsCD							= mod:NewCDCountTimer(33, 388410, nil, nil, nil, 3)--232722 "Slicing Tornado" better?
