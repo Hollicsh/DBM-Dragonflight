@@ -48,7 +48,7 @@ local specWarnViridianRain							= mod:NewSpecialWarningDodgeCount(420907, nil, 
 local specWarnWeaversBurden							= mod:NewSpecialWarningMoveAway(426519, nil, 37859, nil, 1, 2)
 local yellWeaversBurden								= mod:NewShortYell(426519, 37859)--ST "Bomb"
 --local yellWeaversBurdenFades						= mod:NewShortFadesYell(426519)
-local specWarnWeaversBurdenOther					= mod:NewSpecialWarningTaunt(426519, nil, 37859, nil, 1, 2)
+local specWarnWeaversBurdenOther					= mod:NewSpecialWarningTaunt(426519, nil, 37859, nil, 1, 2, nil, nil, "tauntboss")
 local specWarnGTFO									= mod:NewSpecialWarningGTFO(428474, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local colorRed = DBM:GetSpellName(291520)

@@ -108,7 +108,7 @@ local specWarnInfiniteDuressYou					= mod:NewSpecialWarningYou(404288, nil, nil,
 local yellInfiniteDuress						= mod:NewShortPosYell(404288)
 local yellInfiniteDuressFades					= mod:NewIconFadesYell(404288)
 local specWarnVoidClaws							= mod:NewSpecialWarningDefensive(411241, nil, nil, nil, 1, 2, nil, nil, "defensive")
-local specWarnVoidClawsOut						= mod:NewSpecialWarningMoveAway(411241, nil, nil, nil, 1, 2)--For Void Blast (411238) effect
+local specWarnVoidClawsOut						= mod:NewSpecialWarningMoveAway(411241, nil, nil, nil, 1, 2, nil, nil, "runout")--For Void Blast (411238) effect
 local yellVoidClawsFades						= mod:NewShortFadesYell(411241, 37859)--For Void Blast (411238) effect
 local specWarnVoidClawsTaunt					= mod:NewSpecialWarningTaunt(411241, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 
@@ -145,7 +145,7 @@ local specWarnEmbraceofNothingness				= mod:NewSpecialWarningYou(403520, nil, ni
 local yellEmbraceofNothingness					= mod:NewShortYell(403520, nil, nil, nil, "YELL")
 local yellEmbraceofNothingnessFades				= mod:NewShortFadesYell(403520, nil, nil, nil, "YELL")
 local specWarnVoidSlash							= mod:NewSpecialWarningDefensive(408429, nil, nil, nil, 1, 2, nil, nil, "defensive")
-local specWarnVoidSlashOut						= mod:NewSpecialWarningMoveAway(408429, nil, nil, nil, 1, 2)
+local specWarnVoidSlashOut						= mod:NewSpecialWarningMoveAway(408429, nil, nil, nil, 1, 2, nil, nil, "runout")
 local yellVoidSlashFades						= mod:NewShortFadesYell(408429)
 local specWarnVoidSlashTaunt					= mod:NewSpecialWarningTaunt(408429, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 

@@ -74,10 +74,10 @@ local specWarnFieryFlourish							= mod:NewSpecialWarningInterruptCount(426524, 
 local specWarnScorchingBramblethorn					= mod:NewSpecialWarningYou(426387, nil, nil, nil, 1, 2, nil, nil, "targetyou")
 local specWarnFuriousCharge							= mod:NewSpecialWarningRun(418637, nil, nil, nil, 4, 2, nil, nil, "justrun")
 local yellFuriousCharge								= mod:NewShortYell(418637)
-local specWarnFuriousChargePreTaunt					= mod:NewSpecialWarningTaunt(418637, nil, nil, nil, 1, 2)--Taunt on cast start
+local specWarnFuriousChargePreTaunt					= mod:NewSpecialWarningTaunt(418637, nil, nil, nil, 1, 2, nil, nil, "tauntboss")--Taunt on cast start
 local specWarnNaturesFury							= mod:NewSpecialWarningTaunt(423719, nil, nil, nil, 1, 2, nil, nil, "tauntboss")--Yell to taunt again if you didn't taunt in pre cast
 local specWarnBlazingThornsAvoid					= mod:NewSpecialWarningDodgeCount(426206, "-Healer", nil, nil, 1, 2, nil, nil, "watchstep")--Initial cast to dodge
-local specWarnBlazingThornsSoak						= mod:NewSpecialWarningSoakCount(426249, "-Healer", nil, nil, 1, 2)--Follow up orbs to soak
+local specWarnBlazingThornsSoak						= mod:NewSpecialWarningSoakCount(426249, "-Healer", nil, nil, 1, 2, nil, nil, "helpsoak")--Follow up orbs to soak
 local specWarnRagingInferno							= mod:NewSpecialWarningMoveTo(417634, nil, nil, nil, 3, 2, nil, nil, "findshield")
 
 local timerIgnitingGrowthCD							= mod:NewCDCountTimer(49, 425889, DBM_COMMON_L.POOLS.." (%s)", nil, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON)

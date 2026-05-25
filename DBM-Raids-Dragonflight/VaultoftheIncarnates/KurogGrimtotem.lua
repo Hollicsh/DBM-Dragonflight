@@ -90,7 +90,7 @@ mod:AddSetIconOption("SetIconOnAbsoluteZero", 372458, true, 9, {1, 2})
 mod:GroupSpells(372458, 372514, 372517)--Group all Below Zero mechanics together
 ----Mythic Only (Icebound Dominator)
 local specWarnIceboundDominator					= mod:NewSpecialWarningSwitch(393295, "-Healer", nil, nil, 1, 2, 4, nil, "bigmob")
-local specWarnFreezing							= mod:NewSpecialWarningMoveTo(391419, nil, nil, nil, 1, 2, 4)--Effect of Icy Tempest (391425)
+local specWarnFreezing							= mod:NewSpecialWarningMoveTo(391419, nil, nil, nil, 1, 2, 4, nil, "gathershare")--Effect of Icy Tempest (391425)
 local specWarnFrostSmite						= mod:NewSpecialWarningYou(393296, nil, nil, nil, 2, 2, 4, nil, "shockwave")
 
 local timerFrostSmiteCD							= mod:NewCDTimer(30, 393296, nil, nil, nil, 5)
