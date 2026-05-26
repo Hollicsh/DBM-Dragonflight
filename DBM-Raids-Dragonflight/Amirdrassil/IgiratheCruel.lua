@@ -39,11 +39,11 @@ DBM:RegisterAltSpellName(416996, 138737)--Twisting Blade -> Blades
 DBM:RegisterAltSpellName(422776, 99256)--Marked for Torment -> Torment
 DBM:RegisterAltSpellName(424456, 47482)--Smashing Viscera -> Leap
 local warnDrenchedBlades							= mod:NewStackAnnounce(414340, 2, nil, "Tank|Healer")
-local warnBlisteringSpear							= mod:NewTargetCountAnnounce(414888, 3, nil, nil, 282481, nil, nil, nil, true)
-local warnMarkedforTorment							= mod:NewCountAnnounce(422776, 3, nil, nil, 99256)
+local warnBlisteringSpear							= mod:NewTargetCountAnnounce(414888, 3, nil, nil, nil, nil, nil, nil, true)
+local warnMarkedforTorment							= mod:NewCountAnnounce(422776, 3)
 local warnGatheringTorment							= mod:NewYouAnnounce(414367, 4)
 --Torments
-local warnSmashingVisceraSoon						= mod:NewSoonAnnounce(424456, 2, nil, nil, 47482)--Sword Stance
+local warnSmashingVisceraSoon						= mod:NewSoonAnnounce(424456, 2)--Sword Stance
 local warnHeartstopperSoon							= mod:NewSoonAnnounce(415623, 2)--Knife Stance
 local warnUmbralDestructionSoon						= mod:NewSoonAnnounce(416048, 2)--Axe Stance
 --local warnSmashingViscera							= mod:NewTargetNoFilterAnnounce(424456, 3)--Re-add if it gets put back in combat log

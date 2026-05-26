@@ -42,7 +42,7 @@ mod:AddBoolOption("AdvancedBossFiltering", true, "misc")--May be default to off 
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(26336))
 local warnCorruptingShadow						= mod:NewCountAnnounce(401809, 2, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(401809))
 local warnCorruptingShadowFades					= mod:NewFadesAnnounce(401809, 1)
-local warnUmbralDetonation						= mod:NewTargetCountAnnounce(405036, 3, nil, nil, 167180, nil, nil, nil, true)
+local warnUmbralDetonation						= mod:NewTargetCountAnnounce(405036, 3, nil, nil, nil, nil, nil, nil, true)
 
 local specWarnCoalescingVoid					= mod:NewSpecialWarningCount(403459, nil, nil, nil, 2, 2, nil, nil, "aesoon")--Possibly use a run away warning if idea is to actualy move away? Something tells me falloff is just designed to scope damage to players on THIS boss only
 local specWarnUmbralDetonation					= mod:NewSpecialWarningYou(405036, nil, nil, nil, 1, 2, nil, nil, "targetyou")
@@ -75,7 +75,7 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(26338))
 local warnPhase2								= mod:NewPhaseAnnounce(2, 2, nil, nil, nil, nil, nil, 2)
 local warnShadowandFlame						= mod:NewCastAnnounce(409385, 4)
 local warnShadowflame							= mod:NewCountAnnounce(405394, 2, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(405394))
-local warnBlisteringTwilight					= mod:NewTargetCountAnnounce(405641, 3, nil, nil, 167180, nil, nil, nil, true)
+local warnBlisteringTwilight					= mod:NewTargetCountAnnounce(405641, 3, nil, nil, nil, nil, nil, nil, true)
 local warnShadowflameBurst						= mod:NewCountAnnounce(406783, 3)
 
 local specWarnGloomConflag						= mod:NewSpecialWarningCount(405437, nil, nil, nil, 2, 2, nil, nil, "helpsoak")

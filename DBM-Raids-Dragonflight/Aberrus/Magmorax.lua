@@ -35,7 +35,7 @@ DBM:RegisterAltSpellName(403740, 188832)--Igniting Roar -> Roar
 DBM:RegisterAltSpellName(403671, 149213)--Overpowering Stomp -> Knockback
 DBM:RegisterAltSpellName(409093, 18357)--Blazing Breath
 local warnHeatStacks								= mod:NewCountAnnounce(408839, 2, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(408839))
-local warnMoltenSpittle								= mod:NewTargetCountAnnounce(402994, 2, nil, nil, 307031)
+local warnMoltenSpittle								= mod:NewTargetCountAnnounce(402994, 2)
 local warnIncineratingMaws							= mod:NewStackAnnounce(404846, 2, nil, "Tank|Healer")
 
 local specWarnCatastrophicEruption					= mod:NewSpecialWarningSpell(408358, nil, nil, nil, 3, 2, nil, nil, "stilldanger")

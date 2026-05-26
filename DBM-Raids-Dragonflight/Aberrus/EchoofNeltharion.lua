@@ -46,7 +46,7 @@ local warnTwistedEarth							= mod:NewCountAnnounce(402902, 2)
 --local warnVolcanicHeart						= mod:NewTargetCountAnnounce(410953, 2, nil, nil, nil, nil, nil, nil, true)
 local warnRushingDarkness						= mod:NewIncomingCountAnnounce(407221, 2)
 local warnRushingDarknessWallTarget				= mod:NewTargetCountAnnounce(407221, 2, nil, nil, nil, nil, nil, nil, true)
-local warnVolcanicHeart							= mod:NewCountAnnounce(410953, 3, nil, nil, 167180)--This is using count object instead of incoming count because weak auras are scanning for "Bombs (number")
+local warnVolcanicHeart							= mod:NewCountAnnounce(410953, 3)--This is using count object instead of incoming count because weak auras are scanning for "Bombs (number")
 
 --local specWarnVolcanicHeart					= mod:NewSpecialWarningMoveAway(410953, nil, nil, nil, 1, 2)
 --local yellVolcanicHeart						= mod:NewShortPosYell(410953)
@@ -96,10 +96,10 @@ local timerSunderShadowCD						= mod:NewCDCountTimer(27.9, 407790, nil, "Tank|He
 
 --Stage Three: Reality Fractures
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(26422))
-local warnSunderReality							= mod:NewCastAnnounce(407936, 2, nil, nil, nil, 109401)
+local warnSunderReality							= mod:NewCastAnnounce(407936, 2)
 local warnEbonDestruction						= mod:NewCountAnnounce(407917, 4)
 
-local specWarnEbonDestructionMove				= mod:NewSpecialWarningMoveTo(407917, nil, 64584, nil, 3, 2, nil, nil, "findshelter")
+local specWarnEbonDestructionMove				= mod:NewSpecialWarningMoveTo(407917, nil, nil, nil, 3, 2, nil, nil, "findshelter")
 
 local timerSunderRealityCD						= mod:NewCDCountTimer(35.1, 407936, nil, nil, nil, 5)--"Portals"
 local timerSunderReality							= mod:NewCastTimer(12, 407936, nil, nil, nil, 5)--"Portals"

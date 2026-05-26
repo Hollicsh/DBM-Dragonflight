@@ -34,6 +34,7 @@ mod:RegisterEventsInCombat(
 --TODO, can lava flow be dodged? if so probably should be emphasized, if not, cast alert should be removed
 --TODO, stage 2 https://www.wowhead.com/ptr/spell=406585/ignaras-fury fury timer?
 DBM:RegisterAltSpellName(408959, 67382)--Devastating Leap -> Leap
+DBM:RegisterAltSpellName(401381, 374610)--Awakened Focus -> Fixate
 --General
 
 --local specWarnGTFO								= mod:NewSpecialWarningGTFO(370648, nil, nil, nil, 1, 8)
@@ -45,7 +46,7 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(26604))
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(26737))
 local warnPhoenixRush								= mod:NewCountAnnounce(401108, 3)
 
-local specWarnAwakenedFocus							= mod:NewSpecialWarningRun(401381, nil, 374610, nil, 4, 2, 4, nil, "justrun")--"Fixate"
+local specWarnAwakenedFocus							= mod:NewSpecialWarningRun(401381, nil, nil, nil, 4, 2, 4, nil, "justrun")--"Fixate"
 local specWarnVigorousGale							= mod:NewSpecialWarningCount(407009, nil, nil, nil, 2, 13, 4, nil, "pushbackincoming")
 
 local timerPhoenixRushCD							= mod:NewCDCountTimer(29.9, 401108, nil, nil, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON)

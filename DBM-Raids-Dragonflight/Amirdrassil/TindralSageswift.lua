@@ -87,7 +87,7 @@ local warnSupressiveEmber							= mod:NewTargetAnnounce(424579, 3, nil, false)
 local warnSeedofFlame								= mod:NewCountAnnounce(424665, 1, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(424665))
 
 local specWarnSupressingEmber						= mod:NewSpecialWarningYou(424579, nil, nil, nil, 1, 2, nil, nil, "targetyou")
-local specWarnFlamingGermination					= mod:NewSpecialWarningCount(423265, nil, 99727, nil, 2, 2, nil, nil, "aesoon")
+local specWarnFlamingGermination					= mod:NewSpecialWarningCount(423265, nil, nil, nil, 2, 2, nil, nil, "aesoon")
 
 local timerTreeofFlameCD							= mod:NewNextCountTimer(20, 422115, L.TreeForm.." (%s)", false, nil, 6)--Kinda redundant, ability has own timer
 local timerFlamingGerminationCD						= mod:NewNextCountTimer(20, 423265, nil, nil, nil, 5, nil, DBM_COMMON_L.HEALER_ICON)--Short name "Flame Seeds"

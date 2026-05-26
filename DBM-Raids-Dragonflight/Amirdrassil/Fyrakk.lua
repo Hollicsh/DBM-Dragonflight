@@ -43,6 +43,7 @@ DBM:RegisterAltSpellName(422524, 406227)--Shadowflame Devastation -> Deep Breath
 DBM:RegisterAltSpellName(422837, 140459)--Apocalypse Roar
 DBM:RegisterAltSpellName(422935, 419506)--Eternal Firestorm
 DBM:RegisterAltSpellName(402736, 143413)--Eternal Firestorm Swirl -> Swirl
+DBM:RegisterAltSpellName(426368, 845)--Darkflame Cleave -> Cleave
 --General
 local warnPhase										= mod:NewPhaseChangeAnnounce(2, 2, nil, nil, nil, nil, nil, 2)
 
@@ -53,7 +54,7 @@ local timerPhaseCD									= mod:NewStageTimer(60, 408330)
 --Stage One: The Dream Render
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(26666))
 local warnDarkflameShades							= mod:NewCountAnnounce(430441, 2, nil, false)
-local warnDarkflameCleave							= mod:NewCountAnnounce(426368, 4, nil, nil, 845)
+local warnDarkflameCleave							= mod:NewCountAnnounce(426368, 4)
 local warnFirestorm									= mod:NewCountAnnounce(419506, 4, nil, nil, nil, nil, nil, 2)--icon, optionDefault, optionName, castTime, preWarnTime, soundOption, noFilter
 local warnBlaze										= mod:NewCountAnnounce(414186, 3, nil, nil, nil, nil, nil, 2)
 local warnAflame									= mod:NewCountAnnounce(417807, 3, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(417807))--Player
@@ -97,7 +98,7 @@ local timerShadowflameBreathCD						= mod:NewCDCountTimer(49, 410223, nil, nil, 
 --mod:AddPrivateAuraSoundOption(429906, true, 429906, 1)--Shadowbound
 --Stage Two: Children of the Stars
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(26668))
-local warnSpirits									= mod:NewCountAnnounce(422032, 3, nil, nil, 263222)
+local warnSpirits									= mod:NewCountAnnounce(422032, 3)
 local warnGreaterFirestorm							= mod:NewCountAnnounce(422518, 3)
 local warnExplodingCore								= mod:NewCastAnnounce(428400, 4)
 local warnMythicDebuffs								= mod:NewAnnounce("warnMythicDebuffs", 3, 428970, nil, nil, nil, 428970)
@@ -125,7 +126,7 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(26670))
 local warnBloom										= mod:NewYouAnnounce(423717, 1)
 local warnInfernalMaw								= mod:NewStackAnnounce(425492, 3, nil, "Tank|Healer")
 local warnEternalFirestorm							= mod:NewCountAnnounce(422935, 4)
-local warnEternalFirestormSwirl						= mod:NewCountAnnounce(402736, 3, nil, nil, 143413)--Short name "Swirl" 143413
+local warnEternalFirestormSwirl						= mod:NewCountAnnounce(402736, 3)--Short name "Swirl" 143413
 
 local specWarnApocalypseRoar						= mod:NewSpecialWarningCount(422837, nil, nil, nil, 2, 13, nil, nil, "pushbackincoming")
 local specWarnInfernalMaw							= mod:NewSpecialWarningDefensive(425492, nil, nil, nil, 1, 2, nil, nil, "defensive")

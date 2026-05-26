@@ -68,7 +68,7 @@ mod:AddDropdownOption("InfoFrameBehaviorTwo", {"OblivionOnly", "HowlOnly", "Hybr
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(26140))
 local warnOppressingHowl						= mod:NewSpellAnnounce(401383, 3, nil, nil, nil, nil, nil, 2)
 local warnDazzled								= mod:NewTargetNoFilterAnnounce(401905, 4, nil, false)--Not entirely much you can do about it's a lot but if it's a couple, a healer might want to see this to TRY and save them
-local warnMassDisintegrate						= mod:NewTargetCountAnnounce(401680, 3, nil, nil, 405391, nil, nil, nil, true)
+local warnMassDisintegrate						= mod:NewTargetCountAnnounce(401680, 3, nil, nil, nil, nil, nil, nil, true)
 local warnBurningClaws							= mod:NewStackAnnounce(401330, 2, nil, "Tank|Healer")
 
 local specWarnGlitteringSurge					= mod:NewSpecialWarningCount(401810, nil, nil, nil, 2, 2, nil, nil, "aesoon")

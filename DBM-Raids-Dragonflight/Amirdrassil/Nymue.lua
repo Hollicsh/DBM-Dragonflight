@@ -31,24 +31,24 @@ mod:RegisterEventsInCombat(
  or ability.id = 429983 and (type = "applydebuff" or type = "applydebuffstack")
 --]]
 --TODO, Unravel stack tracking in Stage 2?
-DBM:RegisterAltSpellName(426519, 167180)--Weaver's Burden -> Bombs
+DBM:RegisterAltSpellName(426519, 37859)--Weaver's Burden -> Bombs
 --Stage One: Rapid Iteration
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(28355))
 local warnContinuum									= mod:NewCountAnnounce(420846, 2)
 local warnVerdantMatrix								= mod:NewCountAnnounce(420554, 2, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(420554))
 local warnInflorescence								= mod:NewYouAnnounce(423195, 1, nil, false, 2)--Can be spammy depending on player movements, off by default, most might track this with WA anyways
 local warnSurgingGrowth								= mod:NewCountAnnounce(429983, 2)
-local warnWeaversBurden								= mod:NewCountAnnounce(426519, 2, nil, nil, 167180)
+local warnWeaversBurden								= mod:NewCountAnnounce(426519, 2)
 local warnEphemeralFlora							= mod:NewCountAnnounce(430563, 3)
 local warnLucidVulnerability						= mod:NewCountAnnounce(428479, 4, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(428479))--Player
 
 local specWarnImpendingLoom							= mod:NewSpecialWarningDodgeCount(429615, nil, nil, nil, 2, 2, nil, nil, "farfromline")
 local specWarnEphemeralFlora						= mod:NewSpecialWarningSoakCount(430563, "Melee", nil, nil, 2, 2, nil, nil, "helpsoak")
 local specWarnViridianRain							= mod:NewSpecialWarningDodgeCount(420907, nil, nil, nil, 2, 2, nil, nil, "watchstep")
-local specWarnWeaversBurden							= mod:NewSpecialWarningMoveAway(426519, nil, 37859, nil, 1, 2)
+local specWarnWeaversBurden							= mod:NewSpecialWarningMoveAway(426519, nil, nil, nil, 1, 2)
 local yellWeaversBurden								= mod:NewShortYell(426519, 37859)--ST "Bomb"
 --local yellWeaversBurdenFades						= mod:NewShortFadesYell(426519)
-local specWarnWeaversBurdenOther					= mod:NewSpecialWarningTaunt(426519, nil, 37859, nil, 1, 2, nil, nil, "tauntboss")
+local specWarnWeaversBurdenOther					= mod:NewSpecialWarningTaunt(426519, nil, nil, nil, 1, 2, nil, nil, "tauntboss")
 local specWarnGTFO									= mod:NewSpecialWarningGTFO(428474, nil, nil, nil, 1, 8, nil, nil, "watchfeet")
 
 local colorRed = DBM:GetSpellName(291520)

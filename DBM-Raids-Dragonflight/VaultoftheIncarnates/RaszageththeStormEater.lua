@@ -59,12 +59,12 @@ local timerPhaseCD								= mod:NewStageTimer(30)
 
 --Stage One: The Winds of Change
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(25244))
-local warnStaticCharge							= mod:NewTargetNoFilterAnnounce(381615, 3, nil, nil, 37859)
+local warnStaticCharge							= mod:NewTargetNoFilterAnnounce(381615, 3)
 local warnLightningStrike						= mod:NewSpellAnnounce(376126, 3)
 local warnHurricaneWingOver						= mod:NewFadesAnnounce(377612, 1, nil, nil, nil, nil, nil, 2)
 
 local specWarnHurricaneWing						= mod:NewSpecialWarningCount(377612, nil, nil, nil, 2, 13, nil, nil, "pushbackincoming")
-local specWarnStaticCharge						= mod:NewSpecialWarningYouPos(381615, nil, 37859, nil, 1, 2, nil, nil, "mm1")
+local specWarnStaticCharge						= mod:NewSpecialWarningYouPos(381615, nil, nil, nil, 1, 2, nil, nil, "mm1")
 local yellStaticCharge							= mod:NewShortPosYell(381615, 37859)
 local yellStaticChargeFades						= mod:NewIconFadesYell(381615, 37859)
 local specWarnVolatileCurrent					= mod:NewSpecialWarningMoveAwayCount(388643, nil, nil, nil, 2, 2, nil, nil, "scatter")--"Sparks"
@@ -85,7 +85,7 @@ mod:AddSetIconOption("SetIconOnStaticCharge", 381615, true, 0, {1, 2, 3})
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(25683))
 --Raszageth
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(25402))
-local warnLightningDevastation					= mod:NewCountAnnounce(385065, 3, nil, nil, 125030)--NOT on our platform
+local warnLightningDevastation					= mod:NewCountAnnounce(385065, 3)--NOT on our platform
 
 local specWarnStormNova							= mod:NewSpecialWarningSpell(382434, nil, nil, nil, 2, 2, nil, nil, "carefly")
 local specWarnLightningDevastation				= mod:NewSpecialWarningDodgeCount(385065, nil, nil, nil, 3, 2, nil, nil, "breathsoon")--On our platform!
@@ -102,7 +102,7 @@ local warnShatteringShroud						= mod:NewTargetNoFilterAnnounce(397382, 4)
 local warnShatteringShroudFaded					= mod:NewFadesAnnounce(397382, 1)
 --local warnBlazingroar							= mod:NewCastAnnounce(397468, 4)--Redundant, it casts at same time as flame shield
 
-local specWarnSurgingBlast						= mod:NewSpecialWarningMoveAway(396037, nil, 37859, nil, 1, 2, nil, nil, "runout")
+local specWarnSurgingBlast						= mod:NewSpecialWarningMoveAway(396037, nil, nil, nil, 1, 2, nil, nil, "runout")
 local yellSurgingBlast							= mod:NewShortYell(396037, 37859)
 local yellSurgingBlastFades						= mod:NewShortFadesYell(396037, 37859)
 --local specWarnStormBolt							= mod:NewSpecialWarningInterruptCount(385553, "HasInterrupt", nil, nil, 1, 2)
@@ -122,7 +122,7 @@ local warnStormsurge						= mod:NewEndAnnounce(387261, 1)
 local warnInversion							= mod:NewTargetAnnounce(394584, 4)
 local warnFocusedCharge						= mod:NewYouAnnounce(394582, 1)
 local warnScatteredCharge					= mod:NewYouAnnounce(394583, 4)
-local warnFulminatingCharge					= mod:NewTargetNoFilterAnnounce(377467, 3, nil, nil, 345338)
+local warnFulminatingCharge					= mod:NewTargetNoFilterAnnounce(377467, 3)
 
 local specWarnStormsurge					= mod:NewSpecialWarningMoveAwayCount(387261, nil, nil, nil, 2, 2, nil, nil, "scatter")--Maybe shorttext 28089?
 local specWarnPositiveCharge				= mod:NewSpecialWarningYou(391990, nil, nil, nil, 1, 13, nil, nil, "positive")--Split warning so user can custom sounds
@@ -149,7 +149,7 @@ mod:AddTimerLine(DBM:EJ_GetSectionInfo(25812))
 --Colossal Stormfiend
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(25816))
 local warnFuse								= mod:NewStackAnnounce(389878, 2, nil, "Tank|Healer")
-local warnStormBreak						= mod:NewCountAnnounce(389870, 3, nil, nil, 7794)--Shortname Teleport
+local warnStormBreak						= mod:NewCountAnnounce(389870, 3)--Shortname Teleport
 
 local specWarnBallLightning					= mod:NewSpecialWarningDodgeCount(385068, nil, nil, nil, 2, 2, nil, nil, "watchorb")
 

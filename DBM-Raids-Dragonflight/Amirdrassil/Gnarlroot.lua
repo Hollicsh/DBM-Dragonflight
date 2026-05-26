@@ -37,7 +37,7 @@ DBM:RegisterAltSpellName(422026, 31295)--Tortured Scream -> Scream
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(27467))
 local warnFlamingPestilence							= mod:NewCountAnnounce(421898, 3)
 local warnShadowSpines								= mod:NewCountAnnounce(422053, 2, nil, nil, DBM_CORE_L.AUTO_ANNOUNCE_OPTIONS.stack:format(422053))
-local warnControlledBurn							= mod:NewTargetCountAnnounce(421972, 3, nil, nil, 167180, nil, nil, nil, true)
+local warnControlledBurn							= mod:NewTargetCountAnnounce(421972, 3, nil, nil, nil, nil, nil, nil, true)
 local warnDreadfireBarrage							= mod:NewStackAnnounce(424352, 2, nil, "Tank|Healer")
 local warnFlamingSap								= mod:NewTargetAnnounce(425820, 2)
 
