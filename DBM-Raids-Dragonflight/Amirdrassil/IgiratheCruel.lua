@@ -212,7 +212,7 @@ end
 function mod:SPELL_AURA_APPLIED(args)
 	local spellId = args.spellId
 	if spellId == 414340 then
-		local uId = DBM:GetRaidUnitId(args.destName)
+		local uId = DBM:GetRaidUnitId(args.destName, true)
 		if self:IsTanking(uId) then
 			local amount = args.amount or 1
 			if amount % 3 == 0 or amount > 6 then--Placeholder until review
@@ -257,7 +257,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			specWarnHeartStopperTaunt:Cancel()
 			specWarnHeartStopperTaunt:CancelVoice()
 		elseif self.vb.useHeartStopperBackup then--Mythic difficulty and boss has debuffs and soaks
-			local uId = DBM:GetRaidUnitId(args.destName)
+			local uId = DBM:GetRaidUnitId(args.destName, true)
 			--If heartstopper is on tank that isn't you and you do not have it, taunt the boss on mythic difficulty
 			if self:IsTanking(uId) and not DBM:UnitDebuff("player", spellId) then
 				--Scheduled so first wait to make sure you don't also get it

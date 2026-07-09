@@ -656,7 +656,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		warnStaticCharge:CombinedShow(0.5, args.destName)
 		self.vb.chargeIcon = self.vb.chargeIcon + 1
 	elseif spellId == 395906 and not args:IsPlayer() then
-		local uId = DBM:GetRaidUnitId(args.destName)
+		local uId = DBM:GetRaidUnitId(args.destName, true)
 		if self:IsTanking(uId) then--Filter idiots in front of boss that aren't tank.
 			specWarnElectrifiedJawsOther:Show(args.destName)
 			specWarnElectrifiedJawsOther:Play("tauntboss")
@@ -767,7 +767,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 		warnMagneticCharge:Show(args.destName)
 	elseif spellId == 391285 and not args:IsPlayer() then
-		local uId = DBM:GetRaidUnitId(args.destName)
+		local uId = DBM:GetRaidUnitId(args.destName, true)
 		if self:IsTanking(uId) then--Filter idiots in front of boss that aren't tank.
 			specWarnThunderstruckArmor:Show(args.destName)
 			specWarnThunderstruckArmor:Play("tauntboss")

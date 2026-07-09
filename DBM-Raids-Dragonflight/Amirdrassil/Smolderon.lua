@@ -65,7 +65,7 @@ local timerOverheatedCD								= mod:NewCDCountTimer(29.9, 421455, nil, nil, nil
 local timerLavaGeysersCD							= mod:NewCDCountTimer(25.9, 422691, nil, nil, nil, 3)
 local timerSeekingInfernoCD							= mod:NewCDCountTimer(21.9, 425885, nil, nil, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON)
 
-mod:AddPrivateAuraSoundOption(426010, true, 425885, 4, 1, "justrun", 2)--Seeking Inferno
+mod:AddAuraSoundOption(426010, true, 425885, 4, 1, "justrun", 2)--Seeking Inferno
 --Stage Two: World In Flames
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(27649))
 local warnDevourEssence								= mod:NewCountAnnounce(422277, 3)
@@ -185,7 +185,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		else
 			--Check if overheated when on person tanking the main boss, by seeing if you're tanking the main boss
 			if not self:IsTanking("player", "boss1", nil, true) and not playerWasFirstBrand then
-				local uId = DBM:GetRaidUnitId(args.destName)
+				local uId = DBM:GetRaidUnitId(args.destName, true)
 				if self:IsTanking(uId) then--Not tanking boss and not overheated target and they are a tank, taunt boss
 					specWarnOverheatedTaunt:Show(args.destName)
 					specWarnOverheatedTaunt:Play("tauntboss")

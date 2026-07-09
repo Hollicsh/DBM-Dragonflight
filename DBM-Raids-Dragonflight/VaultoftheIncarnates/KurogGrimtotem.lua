@@ -418,7 +418,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		self.vb.curAltar = 4
 		updateAltar(self)
 	elseif spellId == 372158 and not args:IsPlayer() then
-		local uId = DBM:GetRaidUnitId(args.destName)
+		local uId = DBM:GetRaidUnitId(args.destName, true)
 		if self:IsTanking(uId) then
 			local amount = args.amount or 1
 			if not UnitIsDeadOrGhost("player") and not self:IsHealer() then

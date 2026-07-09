@@ -758,7 +758,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		timerVoidClaws:Stop()
 		timerVoidClaws:Start(18, args.destName)
 	elseif spellId == 408429 then
-		local uId = DBM:GetRaidUnitId(args.destName)
+		local uId = DBM:GetRaidUnitId(args.destName, true)
 		if self:IsTanking(uId) then--Frontal filter, in case it can hit anyone that's in front of boss
 			if not args:IsPlayer() and not UnitIsDeadOrGhost("player") then--and not DBM:UnitDebuff("player", spellId)
 				specWarnVoidSlashTaunt:Show(args.destName)

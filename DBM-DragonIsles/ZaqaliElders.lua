@@ -175,7 +175,7 @@ function mod:SPELL_AURA_APPLIED(args)
 				specWarnBurningShadows:Show(amount)
 				specWarnBurningShadows:Play("stackhigh")
 			else
-				local uId = DBM:GetRaidUnitId(args.destName)
+				local uId = DBM:GetRaidUnitId(args.destName, true)
 				--on self and less than 6 stacks, or not on self and any stack count on someone that's tanking and you're a tank/healer role yourself
 				if args:IsPlayer() or (self:IsTanking(uId) and (self:IsTank() or self:IsHealer())) then
 					warnBurningShadows:Show(args.destName, amount)
@@ -189,7 +189,7 @@ function mod:SPELL_AURA_APPLIED(args)
 				specWarnSearingTouch:Show(amount)
 				specWarnSearingTouch:Play("stackhigh")
 			else
-				local uId = DBM:GetRaidUnitId(args.destName)
+				local uId = DBM:GetRaidUnitId(args.destName, true)
 				--on self and less than 6 stacks, or not on self and any stack count on someone that's tanking and you're a tank/healer role yourself
 				if args:IsPlayer() or (self:IsTanking(uId) and (self:IsTank() or self:IsHealer())) then
 					warnSearingTouch:Show(args.destName, amount)

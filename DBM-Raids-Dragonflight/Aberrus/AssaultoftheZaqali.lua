@@ -332,7 +332,7 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif spellId == 409275 then
 		warnMagmaFlow:CombinedShow(0.3, args.destName)
 	elseif spellId == 408873 then
-		local uId = DBM:GetRaidUnitId(args.destName)
+		local uId = DBM:GetRaidUnitId(args.destName, true)
 		if self:IsTanking(uId) then
 			local amount = args.amount or 1
 			if amount >= 2 then--And you pretty much swap every other cast

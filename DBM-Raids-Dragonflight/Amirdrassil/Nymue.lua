@@ -60,7 +60,7 @@ local timerViridianRainCD							= mod:NewCDCountTimer(19.1, 420907, DBM_COMMON_L
 local timerWeaversBurdenCD							= mod:NewCDCountTimer(17.8, 426519, nil, "Tank|Healer", nil, 5, nil, DBM_COMMON_L.TANK_ICON)--ST "Bombs"
 local berserkTimer									= mod:NewBerserkTimer(720)
 
-mod:AddPrivateAuraSoundOption(427722, true, 426519, 1, 1, "runout", 2)--Weaver's Burden
+mod:AddAuraSoundOption(427722, true, 426519, 1, 1, "runout", 2)--Weaver's Burden
 --Stage Two: Creation Complete
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(28356))
 local warnFullBloom									= mod:NewCountAnnounce(426855, 2)

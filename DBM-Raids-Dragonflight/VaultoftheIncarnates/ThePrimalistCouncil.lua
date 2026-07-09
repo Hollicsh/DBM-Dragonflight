@@ -278,7 +278,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		timerConductiveMarkCD:Stop()
 		timerChainLightningCD:Stop()
 	elseif spellId == 372056 and not args:IsPlayer() then
-		local uId = DBM:GetRaidUnitId(args.destName)
+		local uId = DBM:GetRaidUnitId(args.destName, true)
 		if self:IsTanking(uId) then
 			local amount = args.amount or 1
 			local _, _, _, _, _, expireTime = DBM:UnitDebuff("player", spellId)
@@ -316,7 +316,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			warnMeteorAxe:Show(table.concat(meteorIcons, "<, >"))
 		end
 	elseif spellId == 372027 and not args:IsPlayer() then
-		local uId = DBM:GetRaidUnitId(args.destName)
+		local uId = DBM:GetRaidUnitId(args.destName, true)
 		if self:IsTanking(uId) then
 			local amount = args.amount or 1
 			local _, _, _, _, _, expireTime = DBM:UnitDebuff("player", spellId)

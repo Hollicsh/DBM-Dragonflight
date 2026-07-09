@@ -93,7 +93,7 @@ local timerSongoftheDragon							= mod:NewBuffActiveTimer(20, 421029, nil, nil, 
 local timerPolymorphBombCD							= mod:NewCDCountTimer(18.9, 418720, L.Ducks, nil, nil, 3)--Ducks already has count in mod localization
 local timerEmeraldWindsCD							= mod:NewCDCountTimer(11.8, 421024, DBM_COMMON_L.PUSHBACK.." (%s)", nil, nil, 2)
 
-mod:AddPrivateAuraSoundOption({418589,429123}, true, 418720, 1, 1, "bombyou", 2)--Polymorph Bomb
+mod:AddAuraSoundOption({418589,429123}, true, 418720, 1, 1, "bombyou", 2)--Polymorph Bomb
 --mod:AddInfoFrameOption(407919, true)
 mod:AddSetIconOption("SetIconOnPoly", 418720, true, 0, {1, 2, 3, 4})
 
@@ -437,7 +437,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			end
 		end
 	elseif spellId == 421022 then
-		local uId = DBM:GetRaidUnitId(args.destName)
+		local uId = DBM:GetRaidUnitId(args.destName, true)
 		if self:IsTanking(uId) then
 			local amount = args.amount or 1
 			if self.Options.SpecWarn421022taunt2 and not args:IsPlayer() then
@@ -538,7 +538,7 @@ function mod:SPELL_AURA_REMOVED(args)
 			yellBarrelingChargeFades:Cancel()
 		else
 			--Only show taunt warning after charge, if the tank who took charge would die to claws 3
-			local uId = DBM:GetRaidUnitId(args.destName)
+			local uId = DBM:GetRaidUnitId(args.destName, true)
 			if uId then
 				local _, _, _, _, _, expireTime = DBM:UnitDebuff(uId, 421022)--Claws debuff
 				local remaining

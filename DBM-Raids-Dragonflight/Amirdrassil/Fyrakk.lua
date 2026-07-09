@@ -75,9 +75,9 @@ local timerBlazeCD									= mod:NewCDCountTimer(49, 414186, nil, nil, nil, 3)
 local timeAFlameCD									= mod:NewCDCountTimer(49, 417807, nil, "RemoveMagic", 2, 5, nil, DBM_COMMON_L.MAGIC_ICON)
 local timerFyralathsBiteCD							= mod:NewCDCountTimer(49, 417431, DBM_COMMON_L.FRONTAL.." (%s)", nil, 2, 5, nil, DBM_COMMON_L.TANK_ICON)
 
-mod:AddPrivateAuraSoundOption(419060, true, 419506, 1, 1, "runout", 2)--Firestorm
-mod:AddPrivateAuraSoundOption(426370, true, 426370, 1, 1, "gathershare", 2)--Darkflame Cleave
-mod:AddPrivateAuraSoundOption({414187,421825,421826,421827,421828,421829}, true, 414186, 1, 1, "lineyou", 17)--Blaze
+mod:AddAuraSoundOption(419060, true, 419506, 1, 1, "runout", 2)--Firestorm
+mod:AddAuraSoundOption(426370, true, 426370, 1, 1, "gathershare", 2)--Darkflame Cleave
+mod:AddAuraSoundOption({414187,421825,421826,421827,421828,421829}, true, 414186, 1, 1, "lineyou", 17)--Blaze
 --Intermission: Amirdrassil in Peril
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(26667))
 local warnShadowflameOrbs							= mod:NewCountAnnounce(421937, 2)
@@ -94,8 +94,8 @@ local timerIncarnateCD								= mod:NewCDCountTimer(8.5, 412761, nil, nil, nil, 
 --local timerIncarnate								= mod:NewCastTimer(8.5, 412761, 374763, nil, nil, 2)
 local timerShadowflameBreathCD						= mod:NewCDCountTimer(49, 410223, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)
 
---mod:AddPrivateAuraSoundOption(429903, true, 429903, 1)--Flamebound
---mod:AddPrivateAuraSoundOption(429906, true, 429906, 1)--Shadowbound
+--mod:AddAuraSoundOption(429903, true, 429903, 1)--Flamebound
+--mod:AddAuraSoundOption(429906, true, 429906, 1)--Shadowbound
 --Stage Two: Children of the Stars
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(26668))
 local warnSpirits									= mod:NewCountAnnounce(422032, 3)
@@ -118,9 +118,9 @@ local timerMythicDebuffs							= mod:NewTimer(45, "timerMythicDebuffs", 428970, 
 local timerFlamefallCD								= mod:NewCDCountTimer(49, 419123, nil, nil, nil, 2)
 local timerShadowflameDevastationCD					= mod:NewCDCountTimer(49, 422524, nil, nil, nil, 3, nil, DBM_COMMON_L.DEADLY_ICON)
 
-mod:AddPrivateAuraSoundOption(422520, true, 422518, 1, 1, "runout", 2)--Greater Firestorm
-mod:AddPrivateAuraSoundOption(428988, true, 428971, 1, 1, "flameyou", 15)--Molten Eruption
-mod:AddPrivateAuraSoundOption(428970, true, 428968, 1, 1, "shadowyou", 15)--Shadow Cage
+mod:AddAuraSoundOption(422520, true, 422518, 1, 1, "runout", 2)--Greater Firestorm
+mod:AddAuraSoundOption(428988, true, 428971, 1, 1, "flameyou", 15)--Molten Eruption
+mod:AddAuraSoundOption(428970, true, 428968, 1, 1, "shadowyou", 15)--Shadow Cage
 --Stage Three: Shadowflame Incarnate
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(26670))
 local warnBloom										= mod:NewYouAnnounce(423717, 1)
@@ -138,9 +138,9 @@ local timerEternalFirestormCD						= mod:NewCDCountTimer(41, 422935, nil, nil, n
 local timerEternalFirestormSwirlCD					= mod:NewCDCountTimer(41, 402736, nil, nil, nil, 3)--short name "Swirl"
 local timerCorruptedSeedsCD							= mod:NewCDCountTimer(41, 430048, nil, nil, nil, 5, nil, DBM_COMMON_L.MYTHIC_ICON)
 
-mod:AddPrivateAuraSoundOption(423601, true, 423601, 1, 1, "seedyou", 15)--Seed of Amirdrassil
-mod:AddPrivateAuraSoundOption(430048, true, 430048, 1, 1, "seedyou", 15)--Corrupted Seed
-mod:AddPrivateAuraSoundOption(425525, true, 422935, 1, 1, "runout", 2)--Eternal Firestorm
+mod:AddAuraSoundOption(423601, true, 423601, 1, 1, "seedyou", 15)--Seed of Amirdrassil
+mod:AddAuraSoundOption(430048, true, 430048, 1, 1, "seedyou", 15)--Corrupted Seed
+mod:AddAuraSoundOption(425525, true, 422935, 1, 1, "runout", 2)--Eternal Firestorm
 
 mod.vb.darkflameCleaveCount = 0
 mod.vb.firestormCount = 0--reused for empowered version

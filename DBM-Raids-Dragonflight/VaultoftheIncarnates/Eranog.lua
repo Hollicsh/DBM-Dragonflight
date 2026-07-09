@@ -199,7 +199,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			yellFlamerift:Yell()
 			yellFlameriftFades:Countdown(spellId)
 		else
-			local uId = DBM:GetRaidUnitId(args.destName)
+			local uId = DBM:GetRaidUnitId(args.destName, true)
 			if self:IsTanking(uId) then
 				specWarnGreaterFlamerift:Show(args.destName)
 				specWarnGreaterFlamerift:Play("tauntboss")

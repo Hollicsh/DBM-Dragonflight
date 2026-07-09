@@ -204,7 +204,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		warnAwakenedEarth:CombinedShow(0.5, args.destName)
 		self.vb.awakenedIcon = self.vb.awakenedIcon + 1
 	elseif spellId == 376276 and not args:IsPlayer() then
-		local uId = DBM:GetRaidUnitId(args.destName)
+		local uId = DBM:GetRaidUnitId(args.destName, true)
 		if self:IsTanking(uId) then
 			local amount = args.amount or 1
 			local _, _, _, _, _, expireTime = DBM:UnitDebuff("player", spellId)

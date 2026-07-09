@@ -89,9 +89,9 @@ local timerBlazingThornsCD							= mod:NewCDCountTimer(49, 426206, DBM_COMMON_L.
 local timerBlazingThornsSoak						= mod:NewCastTimer(5, 426249, DBM_COMMON_L.ORBS.." (%s)", nil, nil, 5, nil, DBM_COMMON_L.HEROIC_ICON)
 local timerRagingInfernoCD							= mod:NewCDCountTimer(49, 417634, nil, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)
 
-mod:AddPrivateAuraSoundOption(425888, true, 425889, 1, 1, "targetyou", 2)--Igniting Growth
-mod:AddPrivateAuraSoundOption(425468, true, 425468, 1, 1, "targetyou", 2)--Dream Blossom
-mod:AddPrivateAuraSoundOption(420544, true, 420544, 4, 1, "justrun", 2)--Scorching Pursuit
+mod:AddAuraSoundOption(425888, true, 425889, 1, 1, "targetyou", 2)--Igniting Growth
+mod:AddAuraSoundOption(425468, true, 425468, 1, 1, "targetyou", 2)--Dream Blossom
+mod:AddAuraSoundOption(420544, true, 420544, 4, 1, "justrun", 2)--Scorching Pursuit
 mod:AddSetIconOption("SetIconOnForces", 417653, true, 5, {8, 7, 6})
 
 mod:JustSetCustomKeys(426256, "|cff69ccf0426256|r (" .. DBM_COMMON_L.BOSS .. ")")
@@ -130,8 +130,8 @@ local timerSmolderingBackdraftCD					= mod:NewCDCountTimer(49, 429973, DBM_COMMO
 local timerAshenCallCD								= mod:NewCDCountTimer(11.8, 421325, DBM_COMMON_L.ADDS.." (%s)", nil, nil, 1, nil, DBM_COMMON_L.DAMAGE_ICON)
 local timerAshenDevestationCD						= mod:NewCDCountTimer(49, 428896, nil, nil, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON)
 
-mod:AddPrivateAuraSoundOption(421461, true, 427299, 1, 1, "runout", 2)--Flash Fire
-mod:AddPrivateAuraSoundOption(428901, true, 428896, 1, 1, "runout", 2)--Ashen Devestation
+mod:AddAuraSoundOption(421461, true, 427299, 1, 1, "runout", 2)--Flash Fire
+mod:AddAuraSoundOption(428901, true, 428896, 1, 1, "runout", 2)--Ashen Devestation
 
 --Stage 1
 mod.vb.ignitingCount = 0--Reused in stage 2 for Ashen Devestation
@@ -464,7 +464,7 @@ function mod:SPELL_AURA_APPLIED(args)
 --			yellScorchingPursuit:Yell()
 --		end
 	elseif spellId == 423719 and not args:IsPlayer() then
-		local uId = DBM:GetRaidUnitId(args.destName)
+		local uId = DBM:GetRaidUnitId(args.destName, true)
 		if self:IsTanking(uId) then--May be unnessesary, but precaution for a drycode, remove later
 			--Redundant tanking check done so it doesn't warn to taunt again if you already did in pre cast.
 			if not self:IsTanking("player", "boss1", nil, true) then
@@ -477,7 +477,7 @@ function mod:SPELL_AURA_APPLIED(args)
 			self:Unschedule(smolderingYellRepeater)
 			self:Schedule(2, smolderingYellRepeater, self)
 		else
-			local uId = DBM:GetRaidUnitId(args.destName)
+			local uId = DBM:GetRaidUnitId(args.destName, true)
 			if self:IsTanking(uId) then
 				specWarnSmolderingSuffocation:Show(args.destName)
 				specWarnSmolderingSuffocation:Play("tauntboss")
