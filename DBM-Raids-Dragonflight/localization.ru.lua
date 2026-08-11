@@ -83,7 +83,7 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("VaultoftheIncarnatesTrash")
 
 L:SetGeneralLocalization({
-	name =	"Трэш мобы Хранилище Воплощений"
+	name =	"Трэш: Хранилище Воплощений"
 })
 
 ---------------------------
@@ -190,7 +190,7 @@ L:SetMiscLocalization({
 L = DBM:GetModLocalization("AberrusTrash")
 
 L:SetGeneralLocalization({
-	name =	"Трэш мобы Аберрий, Затененное Горнило"
+	name =	"Трэш: Аберрий, Затененное Горнило"
 })
 
 ---------------------------
@@ -285,7 +285,7 @@ L:SetOptionLocalization{
 L = DBM:GetModLocalization("AmirdrassilTrash")
 
 L:SetGeneralLocalization({
-	name =	"Трэш мобы Амирдрассил, Надежда Сна"
+	name =	"Трэш: Амирдрассил, Надежда Сна"
 })
 
 L:SetMiscLocalization({
